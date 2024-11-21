@@ -299,7 +299,7 @@
     <string name="match_content">مشمولات</string>
     <string name="match_content_summary">اگر سیٹ کیا جائے تو ریگولر ایکسپریشن کو پورے فائل کے نام کے ساتھ ملایا جائے گا،
 دوسری صورت میں واقعہ کی تلاش کریں گے.</string>
-    <string name="start_ftp">Start</string>
+    <string name="start_ftp">شروع کریں</string>
     <string name="stop_ftp">Stop</string>
     <string name="ftp_status_running">Running</string>
     <string name="ftp_status_not_running">Not Running</string>
