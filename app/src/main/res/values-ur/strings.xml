@@ -285,7 +285,7 @@
     <string name="renaming">نام بدلنا</string>
     <string name="cant_be_empty">%s خالی نہیں ہو سکتا</string>
     <string name="ip">پتہ</string>
-    <string name="connection_name">Connection name</string>
+    <string name="connection_name">کنکشن کا نام</string>
     <string name="no_device_found">No devices found</string>
     <string name="path">Path</string>
     <string name="rename_bookmark">Modify Bookmark</string>
