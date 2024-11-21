@@ -387,7 +387,7 @@ Wi-Fi سے منسلک ہونا ضروری ہے۔\n\n
     <!-- reference to file modified date -->
     <string name="modified">ترمیم شدہ</string>
 
-    <string name="title">Title</string>
+    <string name="title">عنوان</string>
     <string name="artist">Artist</string>
     <string name="album">Album</string>
     <string name="year">Year</string>
