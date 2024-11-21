@@ -388,7 +388,7 @@ Wi-Fi سے منسلک ہونا ضروری ہے۔\n\n
     <string name="modified">ترمیم شدہ</string>
 
     <string name="title">عنوان</string>
-    <string name="artist">Artist</string>
+    <string name="artist">فنکار</string>
     <string name="album">Album</string>
     <string name="year">Year</string>
     <string name="duration">Duration</string>
