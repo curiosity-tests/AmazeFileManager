@@ -310,7 +310,7 @@
     <string name="ftp_notif_starting">FTP سرور شروع ہو رہا ہے</string>
     <string name="ftp_notif_starting_title">ایف ٹی پی سرور</string>
     <string name="ftp_notif_title">ایمیز ایف ٹی پی سرور چل رہا ہے</string>
-    <string name="ftp_notif_text">at %s</string>
+    <string name="ftp_notif_text">پر%s</string>
     <string name="ftp_notif_stop_server">STOP</string>
     <string name="ftp_port_edit_menu_title">FTP port</string>
     <string name="ftp_port_change_success">FTP port changed successfully</string>
