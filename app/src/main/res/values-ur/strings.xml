@@ -380,7 +380,7 @@ Wi-Fi سے منسلک ہونا ضروری ہے۔\n\n
         </html>
     </string>
     <string name="share_limit">100 سے زیادہ فائلیں شیئر نہیں کر سکتے</string>
-    <string name="otg_access">Select the root of OTG device</string>
+    <string name="otg_access">OTG ڈیوائس کی جڑ کو منتخب کریں</string>
     <string name="information">Information</string>
     <!-- reference to file accessed date -->
     <string name="accessed">Accessed</string>
