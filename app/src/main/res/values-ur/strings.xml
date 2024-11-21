@@ -302,7 +302,7 @@
     <string name="start_ftp">شروع کریں</string>
     <string name="stop_ftp">رک جاؤ</string>
     <string name="ftp_status_running">چل رہا ہے</string>
-    <string name="ftp_status_not_running">Not Running</string>
+    <string name="ftp_status_not_running">نہیں چل رہا ہے</string>
     <string name="ftp_no_wifi">Make sure you\'re connected to Wi-Fi</string>
     <string name="domain">Domain</string>
     <string name="smb_share">Share path</string>
