@@ -325,8 +325,8 @@
     <string name="translate_title">ترجمہ کریں</string>
     <string name="translate_summary">Amaze کا اپنی زبان میں ترجمہ کریں</string>
     <string name="paypal_copy_message">PayPal ID کلپ بورڈ پر کاپی ہو گئی</string>
-    <string name="searching_devices">Searching for devices</string>
-    <string name="use_custom_ip">Use custom IP</string>
+    <string name="searching_devices">آلات کی تلاش</string>
+    <string name="use_custom_ip">اپنی مرضی کے مطابق IP استعمال کریں</string>
     <string name="bookmark_lost">Bookmark not found, recreating&#8230;</string>
 
     <string name="smb_instructions">
