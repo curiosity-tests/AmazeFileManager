@@ -303,7 +303,7 @@
     <string name="stop_ftp">رک جاؤ</string>
     <string name="ftp_status_running">چل رہا ہے</string>
     <string name="ftp_status_not_running">نہیں چل رہا ہے</string>
-    <string name="ftp_no_wifi">Make sure you\'re connected to Wi-Fi</string>
+    <string name="ftp_no_wifi">یقینی بنائیں کہ آپ Wi-Fi سے جڑے ہوئے ہیں</string>
     <string name="domain">Domain</string>
     <string name="smb_share">Share path</string>
     <string name="invalid">Invalid %s</string>
