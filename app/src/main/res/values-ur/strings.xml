@@ -279,7 +279,7 @@
     <string name="grantper">اجازت دیں</string>
     <string name="grantfailed">اجازت نہیں دی گئی</string>
     <string name="grant_storage_permission">ایپ کو جاری رکھنے کے لیے اسٹوریج کی اجازت درکار ہے۔ اس ڈائیلاگ کو منسوخ کرنا ایپ سے باہر ہو جائے گا</string>
-    <string name="operation_unsuccesful">Operation Unsuccessful</string>
+    <string name="operation_unsuccesful">آپریشن ناکام</string>
     <string name="creatingfile">Creating File</string>
     <string name="creatingfolder">Creating Folder</string>
     <string name="renaming">Renaming</string>
