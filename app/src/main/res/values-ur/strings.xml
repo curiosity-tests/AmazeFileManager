@@ -307,7 +307,7 @@
     <string name="domain">ڈومین</string>
     <string name="smb_share">راستہ بانٹیں</string>
     <string name="invalid">غلط%s</string>
-    <string name="ftp_notif_starting">FTP Server is starting</string>
+    <string name="ftp_notif_starting">FTP سرور شروع ہو رہا ہے</string>
     <string name="ftp_notif_starting_title">FTP Server</string>
     <string name="ftp_notif_title">Amaze FTP Server running</string>
     <string name="ftp_notif_text">at %s</string>
