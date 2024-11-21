@@ -286,7 +286,7 @@
     <string name="cant_be_empty">%s خالی نہیں ہو سکتا</string>
     <string name="ip">پتہ</string>
     <string name="connection_name">کنکشن کا نام</string>
-    <string name="no_device_found">No devices found</string>
+    <string name="no_device_found">کوئی آلات نہیں ملے</string>
     <string name="path">Path</string>
     <string name="rename_bookmark">Modify Bookmark</string>
     <string name="cut">Cut</string>
