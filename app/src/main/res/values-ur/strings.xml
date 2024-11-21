@@ -317,7 +317,7 @@
     <string name="ftp_port_change_error_invalid">غلط پورٹ نمبر منتخب کیا گیا</string>
     <string name="primary_two_title">بنیادی رنگ (دائیں ٹیب)</string>
     <string name="primary_two_summary">دائیں ٹیب کے لیے بڑے UI عناصر پر رنگ سیٹ کریں</string>
-    <string name="support_development">Support Development</string>
+    <string name="support_development">سپورٹ ڈویلپمنٹ</string>
     <string name="report_bugs_title">Report Bugs</string>
     <string name="source_title">Source code</string>
     <string name="source_summary">View our source code on GitHub</string>
