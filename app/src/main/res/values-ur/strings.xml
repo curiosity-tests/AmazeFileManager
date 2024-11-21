@@ -314,7 +314,7 @@
     <string name="ftp_notif_stop_server">سٹاپ</string>
     <string name="ftp_port_edit_menu_title">ایف ٹی پی پورٹ</string>
     <string name="ftp_port_change_success">FTP پورٹ کامیابی کے ساتھ تبدیل ہو گیا</string>
-    <string name="ftp_port_change_error_invalid">Invalid port number selected</string>
+    <string name="ftp_port_change_error_invalid">غلط پورٹ نمبر منتخب کیا گیا</string>
     <string name="primary_two_title">Primary Color (Right Tab)</string>
     <string name="primary_two_summary">Set color to large UI elements for the right tab</string>
     <string name="support_development">Support Development</string>
