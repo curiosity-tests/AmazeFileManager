@@ -322,7 +322,7 @@
     <string name="source_title">ماخذ کوڈ</string>
     <string name="source_summary">GitHub پر ہمارا سورس کوڈ دیکھیں</string>
     <string name="report_bugs_summary">کیڑے کی اطلاع دیں یا نئی خصوصیت کی درخواست کریں</string>
-    <string name="translate_title">Translate</string>
+    <string name="translate_title">ترجمہ کریں</string>
     <string name="translate_summary">Translate Amaze in your language</string>
     <string name="paypal_copy_message">PayPal ID copied to clipboard</string>
     <string name="searching_devices">Searching for devices</string>
