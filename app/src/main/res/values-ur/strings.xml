@@ -383,7 +383,7 @@ Wi-Fi سے منسلک ہونا ضروری ہے۔\n\n
     <string name="otg_access">OTG ڈیوائس کی جڑ کو منتخب کریں</string>
     <string name="information">معلومات</string>
     <!-- reference to file accessed date -->
-    <string name="accessed">Accessed</string>
+    <string name="accessed">رسائی حاصل کی</string>
     <!-- reference to file modified date -->
     <string name="modified">Modified</string>
 
