@@ -327,7 +327,7 @@
     <string name="paypal_copy_message">PayPal ID کلپ بورڈ پر کاپی ہو گئی</string>
     <string name="searching_devices">آلات کی تلاش</string>
     <string name="use_custom_ip">اپنی مرضی کے مطابق IP استعمال کریں</string>
-    <string name="bookmark_lost">Bookmark not found, recreating&#8230;</string>
+    <string name="bookmark_lost">بک مارک نہیں ملا، دوبارہ بنا رہا ہے&#8230;</string>
 
     <string name="smb_instructions">
         <html>
