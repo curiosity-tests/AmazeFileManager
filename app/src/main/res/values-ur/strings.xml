@@ -282,7 +282,7 @@
     <string name="operation_unsuccesful">آپریشن ناکام</string>
     <string name="creatingfile">فائل بنانا</string>
     <string name="creatingfolder">فولڈر بنانا</string>
-    <string name="renaming">Renaming</string>
+    <string name="renaming">نام بدلنا</string>
     <string name="cant_be_empty">%s cannot be empty</string>
     <string name="ip">Address</string>
     <string name="connection_name">Connection name</string>
