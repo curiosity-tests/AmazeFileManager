@@ -293,7 +293,7 @@
     <string name="search">تلاش کریں</string>
     <string name="invalid_name">غلط نام</string>
     <string name="search_hint">تلاش کرنے کے لیے ٹائپ کریں&#8230;</string>
-    <string name="advanced_search">Advanced Search</string>
+    <string name="advanced_search">اعلی درجے کی تلاش</string>
     <string name="regular_expression">Regular Expression</string>
     <string name="regular_expression_summary">Search using a BASH style regular expression</string>
     <string name="match_content">Match content</string>
