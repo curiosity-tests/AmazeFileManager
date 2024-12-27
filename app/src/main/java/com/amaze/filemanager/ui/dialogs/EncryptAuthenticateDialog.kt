@@ -202,8 +202,9 @@ object EncryptAuthenticateDialog {
         btnOK,
     ) { text: String ->
         if (text.isNotBlank()) {
-            if (comparingPasswordField.text.toString().isBlank() || 
-                text == comparingPasswordField.text.toString()) {
+            if (comparingPasswordField.text.toString().isBlank() ||
+                text == comparingPasswordField.text.toString()
+            ) {
                 if (filenameIsValid(encryptSaveAsEditText.text.toString(), useAzeEncrypt)) {
                     ReturnState()
                 } else {
