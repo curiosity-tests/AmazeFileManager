@@ -769,7 +769,7 @@ Amaze 文件管理器也需要该权限才能管理设备的所有文件。在�
     <string name="backup_summary">导出 / 导入 Amaze 设置</string>
 
     <string name="pref_export">导出</string>
-    <string name="pref_export_summary">到处是隋朝</string>
+    <string name="pref_export_summary">导出设置</string>
     <string name="pref_import">导入</string>
     <string name="pref_import_summary">导入设置</string>
 
