@@ -766,6 +766,7 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
     <string name="pref_import_summary">Importar los ajustes</string>
 
     <string name="quick_desc">Archivos a los que se ha accedido recientemente a través de Amaze</string>
+    <string name="recent_desc">Archivos creados o modificados recientemente</string>
     <string name="analyse_storage">Analizar almacenamiento</string>
     </resources>
 
