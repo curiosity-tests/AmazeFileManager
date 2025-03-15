@@ -782,5 +782,6 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
     <string name="share_logs">Compartir los registros</string>
     <string name="share_logs_summary">Compartir los registros por correo electrónico/ telegrama</string>
     <string name="open_with_amaze">Abrir con Amaze</string>
+    <string name="confirmation">Confirmación</string>
     </resources>
 
