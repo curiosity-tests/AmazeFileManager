@@ -794,5 +794,6 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
     <string name="exporting_failed">La exportación falló: no se pudo escribir el archivo de copia de seguridad</string>
     <string name="importing_failed">La importación falló: no se pudo leer el archivo de copia de seguridad</string>
     <string name="importing_completed">Importación completada</string>
+    <string name="invalid_backup_file">Copia de seguridad no válida</string>
     </resources>
 
