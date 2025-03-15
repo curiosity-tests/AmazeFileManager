@@ -770,5 +770,6 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
     <string name="error_cannot_find_way_open">No se pudo encontrar la manera de abrir el archivo</string>
     <string name="error_cant_decompress_that_file">No se puede procesar el archivo</string>
     <string name="analyse_storage">Analizar almacenamiento</string>
+    <string name="download_amaze_utils_text">Estás siendo redirigido a Amaze File Utilities. Es nuestra aplicación de código abierto que tiene incorporados los visores de audio/ video/ imagen/ documento, le permite analizar archivos basura para liberar almacenamiento, transferencia rápida utilizando Wifi P2P y mucho más.\nPor favor, ayúdanos a probarlo.</string>
     </resources>
 
