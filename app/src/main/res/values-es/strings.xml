@@ -773,5 +773,6 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
     <string name="download_amaze_utils_text">Estás siendo redirigido a Amaze File Utilities. Es nuestra aplicación de código abierto que tiene incorporados los visores de audio/ video/ imagen/ documento, le permite analizar archivos basura para liberar almacenamiento, transferencia rápida utilizando Wifi P2P y mucho más.\nPor favor, ayúdanos a probarlo.</string>
     <string name="download">Descargar</string>
     <string name="wifip2p">WiFi Direct</string>
+    <string name="amaze_utils_installed_alias">Gracias por instalar Amaze File Utilities. Está siendo redirigido a la aplicación.</string>
     </resources>
 
