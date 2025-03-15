@@ -762,6 +762,7 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
 
     <string name="pref_export">Exportar</string>
     <string name="pref_export_summary">Exportar los ajustes</string>
+    <string name="pref_import">Importar</string>
     <string name="analyse_storage">Analizar almacenamiento</string>
     </resources>
 
