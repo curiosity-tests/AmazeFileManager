@@ -783,5 +783,6 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
     <string name="share_logs_summary">Compartir los registros por correo electrónico/ telegrama</string>
     <string name="open_with_amaze">Abrir con Amaze</string>
     <string name="confirmation">Confirmación</string>
+    <string name="open_file_confirmation">¿Está seguro de que desea abrir el siguiente archivo?\n\nNombre:\n%s\n\Ubicación:\n%s\n\nTañaño:\n%s\n\nMD5:\n%s\n\nSHA256:\n%s\n\n</string>
     </resources>
 
