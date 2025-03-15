@@ -789,5 +789,7 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
     <string name="preference_delete_confirmation">Confirmación de eliminación</string>
     <string name="preference_delete_confirmation_summary">Pedir confirmación antes de borrar archivos. ¡Deshabilitar esto es altamente desaconsejado!</string>
     <string name="protocol_ftps">FTP seguro</string>
+    <string name="unavailable">No disponible</string>
+
     </resources>
 
