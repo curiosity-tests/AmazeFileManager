@@ -791,5 +791,6 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
     <string name="protocol_ftps">FTP seguro</string>
     <string name="unavailable">No disponible</string>
 
+    <string name="exporting_failed">La exportación falló: no se pudo escribir el archivo de copia de seguridad</string>
     </resources>
 
