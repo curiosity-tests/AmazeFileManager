@@ -775,6 +775,7 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
     <string name="wifip2p">WiFi Direct</string>
     <string name="amaze_utils_installed_alias">Gracias por instalar Amaze File Utilities. Está siendo redirigido a la aplicación.</string>
     <string name="image_viewer">Visor de imágenes Amaze</string>
+    <string name="video_player">Reproductor de vídeo Amaze</string>
     <string name="share_logs">Compartir los registros</string>
     <string name="share_logs_summary">Compartir los registros por correo electrónico/ telegrama</string>
     </resources>
