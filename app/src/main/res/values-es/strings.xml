@@ -796,6 +796,6 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
     <string name="importing_completed">Importación completada</string>
     <string name="invalid_backup_file">Copia de seguridad no válida</string>
     <string name="import_failed_for">Falló la importación para:</string>
-    <string name="free_of">\" 1 %s \n 1 %s libre de 1 %s</string>
+    <string name="free_of">\" %s\n %s libre de %s</string>
     </resources>
 
