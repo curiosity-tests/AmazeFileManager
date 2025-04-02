@@ -800,5 +800,6 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
     <string name="cloud_error_fdroid">El complemento Amaze Cloud no es compatible con la versión de F-Droid. Usa la versión de Amaze de la Play Store.</string>
     <string name="disable_player_intent_filters_summary">Desactiva los reproductores multimedia integrados en Amaze del selector de archivos</string>
     <string name="no_app_found_intent">No se encontró ninguna aplicación para esta acción. ¿Tienes DocumentsUI instalado?</string>
+    <string name="cloud_connection_credentials_cleared">Credenciales de conexión a la nube borradas</string>
     </resources>
 
