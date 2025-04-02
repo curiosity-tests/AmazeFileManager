@@ -797,5 +797,6 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
     <string name="invalid_backup_file">Copia de seguridad no válida</string>
     <string name="import_failed_for">Falló la importación para:</string>
     <string name="free_of">\" %s\n %s libre de %s</string>
+    <string name="cloud_error_fdroid">El complemento Amaze Cloud no es compatible con la versión de F-Droid. Usa la versión de Amaze de la Play Store.</string>
     </resources>
 
