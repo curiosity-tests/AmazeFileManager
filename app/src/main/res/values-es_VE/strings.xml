@@ -806,5 +806,6 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
     <string name="try_deep_search">¡Pruebe la búsqueda exhaustiva!</string>
     <string name="try_indexed_search">¡Pruebe la búsqueda indexada!</string>
     <string name="search_recent">Recientes</string>
+    <string name="results">Resultados</string>
     </resources>
 
