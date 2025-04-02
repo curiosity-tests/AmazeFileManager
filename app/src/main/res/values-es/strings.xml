@@ -802,5 +802,6 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
     <string name="no_app_found_intent">No se encontró ninguna aplicación para esta acción. ¿Tienes DocumentsUI instalado?</string>
     <string name="cloud_connection_credentials_cleared">Credenciales de conexión a la nube borradas</string>
     <string name="cloud_connection_credentials_cleared_msg">Desafortunadamente, no pudimos migrar las credenciales de conexión a la nube al nuevo esquema de base de datos y tuvimos que eliminarlas de la aplicación. Vuelva a crear la conexión a la nube.</string>
+    <string name="not_finding_what_you_re_looking_for">¿No encuentras lo que buscas?</string>
     </resources>
 
