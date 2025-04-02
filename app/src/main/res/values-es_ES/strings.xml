@@ -812,5 +812,6 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
     <string name="complete_paste_warning">Por favor, complete primero el pegado</string>
     <string name="same_dir_move_error">La carpeta de destino y origen no deben ser iguales para mover.</string>
     <string name="checking_conflicts">Comprobar si hay conflictos</string>
+    <string name="same_dir_overwrite_error">La carpeta de destino y la de origen no deben ser iguales para sobrescribir.</string>
     </resources>
 
