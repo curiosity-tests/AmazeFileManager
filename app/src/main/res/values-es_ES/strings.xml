@@ -802,5 +802,6 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
     <string name="no_app_found_intent">No se encontró ninguna aplicación para esta acción. ¿Tienes DocumentsUI instalado?</string>
     <string name="cloud_connection_credentials_cleared">Credenciales de conexión a la nube borradas</string>
     <string name="not_finding_what_you_re_looking_for">¿No encuentras lo que buscas?</string>
+    <string name="try_deep_search">¡Pruebe la búsqueda exhaustiva!</string>
     </resources>
 
