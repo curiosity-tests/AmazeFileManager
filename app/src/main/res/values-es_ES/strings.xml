@@ -807,5 +807,6 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
     <string name="search_recent">Recientes</string>
     <string name="results">Resultados</string>
     <string name="grant_notification_permission">Amaze necesita el permiso para acceder a las notificaciones para mostrar el progreso de las operaciones, así como un panel práctico para iniciar/detener el servidor FTP.</string>
+    <string name="error_unsupported_or_null_uri">URI no válido, no compatible o no se proporcionó ninguno.</string>
     </resources>
 
