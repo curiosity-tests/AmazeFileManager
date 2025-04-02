@@ -801,5 +801,6 @@ Solo necesita hacer esto una vez, hasta la siguiente vez que seleccione una nuev
     <string name="disable_player_intent_filters_summary">Desactiva los reproductores multimedia integrados en Amaze del selector de archivos</string>
     <string name="no_app_found_intent">No se encontró ninguna aplicación para esta acción. ¿Tienes DocumentsUI instalado?</string>
     <string name="cloud_connection_credentials_cleared">Credenciales de conexión a la nube borradas</string>
+    <string name="cloud_connection_credentials_cleared_msg">Desafortunadamente, no pudimos migrar las credenciales de conexión a la nube al nuevo esquema de base de datos y tuvimos que eliminarlas de la aplicación. Vuelva a crear la conexión a la nube.</string>
     </resources>
 
