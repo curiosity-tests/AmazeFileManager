@@ -76,6 +76,7 @@
     <string name="dialog_delete_category_directories">ПАПКИ</string>
     <string name="dialog_delete_category_files">ФАЙЛЫ</string>
     <string name="dialog_delete_disclaimer">Вы уверены, что хотите удалить выбранные файлы?</string>
+    <string name="dialog_delete_temporarily_disclaimer">Вы уверены что хотите удалить их?</string>
     <string name="dialog_delete_title">Вы уверены что хотите удалить навсегда?</string>
     <string name="deleting">Удаление...</string>
     <string name="question_set_path_as_home">Вы хотите установить текущий путь как домашний для этой вкладки?</string>
