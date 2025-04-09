@@ -82,6 +82,7 @@
     <string name="question_set_path_as_home">Вы хотите установить текущий путь как домашний для этой вкладки?</string>
     <string name="directorysort">Режим сортировки каталога</string>
     <string name="sort_by">Сортировать</string>
+    <string name="sort_by_colon">Сортировать по:</string>
     <string name="sort_only_this">Только эта папка</string>
     <string name="theme">Темы</string>
     <string name="random">Случайный скин</string>
