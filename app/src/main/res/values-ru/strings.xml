@@ -746,5 +746,6 @@
     <string name="disable_player_intent_filters">Отключить фильтры намерений проигрывателя</string>
     <string name="disable_player_intent_filters_summary">Отключить встроенный в Amaze проигрыватель из списка выбора</string>
     <string name="no_app_found_intent">Не найдено ни одного приложения для обработки этого намерения.  У вас установлен DocumentsUI?</string>
+    <string name="trash_bin_cleanup_interval_title">Интервал очистки</string>
     </resources>
 
