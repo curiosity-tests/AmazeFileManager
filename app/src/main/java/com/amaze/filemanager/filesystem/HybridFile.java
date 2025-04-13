@@ -1581,7 +1581,7 @@ public class HybridFile {
             if (!source.renameTo(dest)) {
               return false;
             }
-            MediaConnectionUtils.scanFile(context, new HybridFile[] {this});
+            MediaConnectionUtils.scanFiles(context, new HybridFile[] {this});
             return true;
           });
     }

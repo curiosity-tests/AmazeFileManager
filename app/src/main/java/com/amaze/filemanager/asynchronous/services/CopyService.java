@@ -469,7 +469,7 @@ public class CopyService extends AbstractProgressiveService {
               e);
           failedFOps.add(sourceFile);
         }
-        MediaConnectionUtils.scanFile(c, new HybridFile[] {targetFile});
+        MediaConnectionUtils.scanFiles(c, new HybridFile[] {targetFile});
       }
 
       private void copyFiles(
