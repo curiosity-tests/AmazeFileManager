@@ -884,10 +884,8 @@ public class MainActivity extends PermissionsActivity
     File usb = getUsbDrive();
     if (usb != null && !rv.contains(usb.getPath())) rv.add(usb.getPath());
 
-    if (SDK_INT >= KITKAT) {
-      if (SingletonUsbOtg.getInstance().isDeviceConnected()) {
-        rv.add(OTGUtil.PREFIX_OTG + "/");
-      }
+    if (SDK_INT >= KITKAT && SingletonUsbOtg.INSTANCE.isDeviceConnected()) {
+      rv.add(OTGUtil.PREFIX_OTG + "/");
     }
 
     // Assign a label and icon to each directory
@@ -1383,28 +1381,27 @@ public class MainActivity extends PermissionsActivity
     List<UsbOtgRepresentation> connectedDevices = OTGUtil.getMassStorageDevicesConnected(this);
 
     if (!connectedDevices.isEmpty()) {
-      if (SingletonUsbOtg.getInstance().getUsbOtgRoot() != null
-          && OTGUtil.isUsbUriAccessible(this)) {
+      if (SingletonUsbOtg.INSTANCE.getUsbOtgRoot() != null && OTGUtil.isUsbUriAccessible(this)) {
         for (UsbOtgRepresentation device : connectedDevices) {
-          if (SingletonUsbOtg.getInstance().checkIfRootIsFromDevice(device)) {
+          if (SingletonUsbOtg.INSTANCE.checkIfRootIsFromDevice(device)) {
             isInformationUpdated = true;
             break;
           }
         }
 
         if (!isInformationUpdated) {
-          SingletonUsbOtg.getInstance().resetUsbOtgRoot();
+          SingletonUsbOtg.INSTANCE.resetUsbOtgRoot();
         }
       }
 
       if (!isInformationUpdated) {
-        SingletonUsbOtg.getInstance().setConnectedDevice(connectedDevices.get(0));
+        SingletonUsbOtg.INSTANCE.setConnectedDevice(connectedDevices.get(0));
         isInformationUpdated = true;
       }
     }
 
     if (!isInformationUpdated) {
-      SingletonUsbOtg.getInstance().resetUsbOtgRoot();
+      SingletonUsbOtg.INSTANCE.resetUsbOtgRoot();
       drawer.refreshDrawer();
     }
 
@@ -1424,12 +1421,12 @@ public class MainActivity extends PermissionsActivity
             List<UsbOtgRepresentation> connectedDevices =
                 OTGUtil.getMassStorageDevicesConnected(MainActivity.this);
             if (!connectedDevices.isEmpty()) {
-              SingletonUsbOtg.getInstance().resetUsbOtgRoot();
-              SingletonUsbOtg.getInstance().setConnectedDevice(connectedDevices.get(0));
+              SingletonUsbOtg.INSTANCE.resetUsbOtgRoot();
+              SingletonUsbOtg.INSTANCE.setConnectedDevice(connectedDevices.get(0));
               drawer.refreshDrawer();
             }
           } else if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_DETACHED)) {
-            SingletonUsbOtg.getInstance().resetUsbOtgRoot();
+            SingletonUsbOtg.INSTANCE.resetUsbOtgRoot();
             drawer.refreshDrawer();
             goToMain(null);
           }
@@ -1695,7 +1692,7 @@ public class MainActivity extends PermissionsActivity
             if (responseCode == Activity.RESULT_OK && intent.getData() != null) {
               // otg access
               Uri usbOtgRoot = intent.getData();
-              SingletonUsbOtg.getInstance().setUsbOtgRoot(usbOtgRoot);
+              SingletonUsbOtg.INSTANCE.setUsbOtgRoot(usbOtgRoot);
               mainFragment.loadlist(OTGUtil.PREFIX_OTG, false, OpenMode.OTG, true);
               drawer.closeIfNotLocked();
               if (drawer.isLocked()) drawer.onDrawerClosed();
@@ -2048,7 +2045,7 @@ public class MainActivity extends PermissionsActivity
 
       if (SDK_INT >= KITKAT) {
         if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_DETACHED)) {
-          SingletonUsbOtg.getInstance().resetUsbOtgRoot();
+          SingletonUsbOtg.INSTANCE.resetUsbOtgRoot();
           drawer.refreshDrawer();
         }
       }

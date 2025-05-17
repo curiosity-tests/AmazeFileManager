@@ -17,50 +17,53 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package com.amaze.filemanager.fileoperations.filesystem.usb
 
-package com.amaze.filemanager.fileoperations.filesystem.usb;
+import android.net.Uri
 
-import android.net.Uri;
+/**
+ * USB OTG device representation.
+ */
+object SingletonUsbOtg {
+    var connectedDevice: UsbOtgRepresentation? = null
+    var _usbOtgRoot: Uri? = null
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+    val isDeviceConnected: Boolean
+        get() = connectedDevice != null
 
-public class SingletonUsbOtg {
-  private static SingletonUsbOtg instance = null;
+    /**
+     * Get the root of the connected USB OTG device.
+     *
+     * @return the root URI of the connected USB OTG device, or null if no device is connected.
+     */
+    fun getUsbOtgRoot(): Uri? {
+        return _usbOtgRoot
+    }
 
-  public static SingletonUsbOtg getInstance() {
-    if (instance == null) instance = new SingletonUsbOtg();
-    return instance;
-  }
+    /**
+     * Set the root of the connected USB OTG device. Will throw exception if no device is connected.
+     *
+     * @param root the root URI of the connected USB OTG device.
+     */
+    fun setUsbOtgRoot(root: Uri?) {
+        checkNotNull(connectedDevice) { "No device connected!" }
+        _usbOtgRoot = root
+    }
 
-  private UsbOtgRepresentation connectedDevice = null;
-  private @Nullable Uri usbOtgRoot;
+    /**
+     * Clear the reference to connected device and root.
+     */
+    fun resetUsbOtgRoot() {
+        connectedDevice = null
+        _usbOtgRoot = null
+    }
 
-  private SingletonUsbOtg() {}
-
-  public void setConnectedDevice(UsbOtgRepresentation connectedDevice) {
-    this.connectedDevice = connectedDevice;
-  }
-
-  public boolean isDeviceConnected() {
-    return connectedDevice != null;
-  }
-
-  public void setUsbOtgRoot(@Nullable Uri root) {
-    if (connectedDevice == null) throw new IllegalStateException("No device connected!");
-    usbOtgRoot = root;
-  }
-
-  public void resetUsbOtgRoot() {
-    connectedDevice = null;
-    usbOtgRoot = null;
-  }
-
-  public @Nullable Uri getUsbOtgRoot() {
-    return usbOtgRoot;
-  }
-
-  public boolean checkIfRootIsFromDevice(@NonNull UsbOtgRepresentation device) {
-    return usbOtgRoot != null && connectedDevice.hashCode() == device.hashCode();
-  }
+    /**
+     * Check if the root is from the given device.
+     *
+     * Used by [MainActivity.updateUsbInformation].
+     */
+    fun checkIfRootIsFromDevice(device: UsbOtgRepresentation): Boolean {
+        return _usbOtgRoot != null && connectedDevice.hashCode() == device.hashCode()
+    }
 }
