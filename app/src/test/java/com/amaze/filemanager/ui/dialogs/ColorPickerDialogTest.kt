@@ -21,9 +21,9 @@
 package com.amaze.filemanager.ui.dialogs
 
 import android.os.Build.VERSION_CODES
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.application.AppConfig
 import com.amaze.filemanager.shadows.ShadowFileUtils
 import com.amaze.filemanager.shadows.ShadowMultiDex
@@ -42,7 +42,7 @@ import org.robolectric.annotation.Config
 @RunWith(AndroidJUnit4::class)
 @Config(
     shadows = [ShadowMultiDex::class, ShadowTabHandler::class, ShadowFileUtils::class],
-    sdk = [LOLLIPOP, P, VERSION_CODES.R],
+    sdk = [BuildConfig.MIN_SDK_VERSION, P, VERSION_CODES.R],
 )
 class ColorPickerDialogTest {
     /**

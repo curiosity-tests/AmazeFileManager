@@ -20,7 +20,6 @@
 
 package com.amaze.filemanager.test;
 
-import static android.os.Build.VERSION_CODES.LOLLIPOP;
 import static android.os.Build.VERSION_CODES.P;
 import static org.awaitility.Awaitility.await;
 import static org.junit.Assert.assertEquals;
@@ -36,6 +35,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowSQLiteConnection;
 
+import com.amaze.filemanager.BuildConfig;
 import com.amaze.filemanager.database.UtilitiesDatabase;
 import com.amaze.filemanager.database.UtilsHandler;
 import com.amaze.filemanager.database.models.OperationData;
@@ -56,7 +56,7 @@ import io.reactivex.schedulers.Schedulers;
 @RunWith(AndroidJUnit4.class)
 @Config(
     shadows = {ShadowMultiDex.class, ShadowPasswordUtil.class},
-    sdk = {LOLLIPOP, P, Build.VERSION_CODES.R})
+    sdk = {BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R})
 public class ShadowPasswordUtilTest {
 
   @Before

@@ -1,0 +1,229 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath libs.bcprov.jdk18on
+        classpath libs.bcpkix.jdk18on
+    }
+}
+
+import org.bouncycastle.crypto.generators.Ed25519KeyPairGenerator
+import org.bouncycastle.crypto.generators.RSAKeyPairGenerator
+import org.bouncycastle.crypto.params.Ed25519KeyGenerationParameters
+import org.bouncycastle.crypto.params.Ed25519PrivateKeyParameters
+import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters
+import org.bouncycastle.crypto.params.RSAKeyGenerationParameters
+import org.bouncycastle.crypto.params.RSAKeyParameters
+import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters
+import org.bouncycastle.crypto.util.OpenSSHPrivateKeyUtil
+import org.bouncycastle.crypto.util.OpenSSHPublicKeyUtil
+import org.bouncycastle.util.io.pem.PemObject
+import org.bouncycastle.util.io.pem.PemWriter
+
+import java.nio.charset.Charset
+import java.security.SecureRandom
+
+def keyDir = new File(project.layout.buildDirectory.get().asFile, "ssh-keys.tmp")
+def sshContainerName = "gradle-ssh-test-container"
+
+tasks.register("generateRsaKeys") {
+    doLast {
+        if (!keyDir.exists()) {
+            keyDir.mkdirs()
+        }
+
+        println("Generating RSA key pair...")
+        def keyGen = new RSAKeyPairGenerator()
+        keyGen.init(new RSAKeyGenerationParameters(
+            BigInteger.valueOf(65537),
+            new SecureRandom(),
+            2048,
+            80
+        ))
+        def keyPair = keyGen.generateKeyPair()
+
+        def rsaPrivKey = (RSAPrivateCrtKeyParameters) keyPair.private
+        def rsaPubKey = (RSAKeyParameters) keyPair.public
+
+        // Use BouncyCastle's OpenSSHPublicKeyUtil to encode public key
+        def sshPubKeyBody = Base64.getEncoder().encodeToString(OpenSSHPublicKeyUtil.encodePublicKey(rsaPubKey))
+
+        new File(keyDir, "id_rsa.pub").text = "ssh-rsa $sshPubKeyBody gradle-test-key"
+
+        // Build OpenSSH new format private key manually
+        def publicKeyBlob = OpenSSHPublicKeyUtil.encodePublicKey(rsaPubKey)
+
+        // Helper to write a 32-bit big-endian integer
+        def writeInt = { ByteArrayOutputStream out, int val ->
+            out.write((val >> 24) & 0xFF)
+            out.write((val >> 16) & 0xFF)
+            out.write((val >> 8) & 0xFF)
+            out.write(val & 0xFF)
+        }
+
+        // Helper to write length-prefixed byte array
+        def writeBytes = { ByteArrayOutputStream out, byte[] data ->
+            writeInt(out, data.length)
+            out.write(data)
+        }
+
+        // Helper to write length-prefixed string
+        def writeString = { ByteArrayOutputStream out, String str ->
+            def bytes = str.getBytes("UTF-8")
+            writeInt(out, bytes.length)
+            out.write(bytes)
+        }
+
+        // Helper to write BigInteger in SSH format (with leading zero if negative)
+        def writeMPInt = { ByteArrayOutputStream out, BigInteger val ->
+            def bytes = val.toByteArray()
+            writeInt(out, bytes.length)
+            out.write(bytes)
+        }
+
+        // Build unencrypted private section
+        def privSection = new ByteArrayOutputStream()
+        def checkInt = new SecureRandom().nextInt()
+        writeInt(privSection, checkInt)
+        writeInt(privSection, checkInt)  // Same value twice for verification
+        writeString(privSection, "ssh-rsa")
+        writeMPInt(privSection, rsaPubKey.getModulus())
+        writeMPInt(privSection, rsaPubKey.getExponent())
+        writeMPInt(privSection, rsaPrivKey.getExponent())  // private exponent (d)
+        writeMPInt(privSection, rsaPrivKey.getQInv())      // iqmp (q^-1 mod p)
+        writeMPInt(privSection, rsaPrivKey.getP())
+        writeMPInt(privSection, rsaPrivKey.getQ())
+        writeString(privSection, "gradle-test-key")  // comment
+
+        // Add padding (1, 2, 3, ... up to block size of 8)
+        def privBytes = privSection.toByteArray()
+        def padLen = 8 - (privBytes.length % 8)
+        if (padLen == 0) padLen = 8
+        for (int i = 1; i <= padLen; i++) {
+            privSection.write(i)
+        }
+        def paddedPrivBytes = privSection.toByteArray()
+
+        // Build complete OpenSSH private key
+        def out = new ByteArrayOutputStream()
+        out.write("openssh-key-v1".getBytes("UTF-8"))
+        out.write(0)  // null terminator
+        writeString(out, "none")     // cipher
+        writeString(out, "none")     // kdf
+        writeBytes(out, new byte[0]) // kdf options (empty)
+        writeInt(out, 1)             // number of keys
+        writeBytes(out, publicKeyBlob)  // public key
+        writeBytes(out, paddedPrivBytes) // private section
+
+        def privKeyInfo = out.toByteArray()
+        def sw = new StringWriter()
+        def pemWriter = new PemWriter(sw)
+        pemWriter.writeObject(new PemObject("OPENSSH PRIVATE KEY", privKeyInfo))
+        pemWriter.flush()
+        pemWriter.close()
+
+        new File(keyDir, "id_rsa.pem").text = sw.toString()
+
+        println("✔ RSA Keys generated in $keyDir")
+    }
+}
+
+tasks.register("generateEd25519Keys") {
+    doLast {
+        if (!keyDir.exists()) {
+            keyDir.mkdirs()
+        }
+
+        println("Generating ED25519 key pair...")
+        def keyGen = new Ed25519KeyPairGenerator()
+        keyGen.init(new Ed25519KeyGenerationParameters(new SecureRandom()))
+        def keyPair = keyGen.generateKeyPair()
+        def privateKey = (Ed25519PrivateKeyParameters) keyPair.private
+        def publicKey = (Ed25519PublicKeyParameters) keyPair.public
+
+        def publicKeyBytes = publicKey.encoded
+
+        def bout = new ByteArrayOutputStream()
+        bout.write([0, 0, 0, 11] as byte[])
+        bout.write("ssh-ed25519".getBytes(Charset.defaultCharset()))
+        bout.write([0, 0, 0, 32] as byte[])
+        bout.write(publicKeyBytes)
+        def sshPubKeyBody = Base64.getEncoder().encodeToString(bout.toByteArray())
+
+        new File(keyDir, "id_ed25519.pub").text = "ssh-ed25519 $sshPubKeyBody gradle-test-key"
+
+        def privKeyInfo = OpenSSHPrivateKeyUtil.encodePrivateKey(privateKey)
+        def sw = new StringWriter()
+        def pemWriter = new PemWriter(sw)
+        pemWriter.writeObject(new PemObject("OPENSSH PRIVATE KEY", privKeyInfo))
+        pemWriter.flush()
+        pemWriter.close()
+
+        new File(keyDir, "id_ed25519.pem").text = sw.toString()
+
+        println("✔ ED25519 Keys generated in $keyDir")
+    }
+}
+
+tasks.register("generateSshKeys") {
+    dependsOn "generateRsaKeys", "generateEd25519Keys"
+
+    doLast {
+        def rsaPub = file("$keyDir/id_rsa.pub")
+        def edPub = file("$keyDir/id_ed25519.pub")
+        def authKeysFile = file("$keyDir/authorized_keys")
+
+        // Combine the contents, ensuring a newline between them
+        def combinedKeys = new StringBuilder().with {
+            if (rsaPub.exists()) append(rsaPub.text.trim()).append("\n")
+            if (edPub.exists()) append(edPub.text.trim()).append("\n")
+        }
+
+        authKeysFile.text = combinedKeys.toString().trim()
+        println("✔ Combined authorized_keys created with ${combinedKeys.readLines().size} keys.")
+    }
+}
+
+tasks.register("precleanSshContainer", Exec) {
+    doFirst {
+        println("Cleaning up any existing SSH container...")
+    }
+
+    commandLine "docker", "rm", "-f", sshContainerName
+    ignoreExitValue = true
+}
+
+tasks.register("startSshContainer", Exec) {
+    dependsOn "generateSshKeys", "precleanSshContainer"
+
+    group = "verification"
+    onlyIf { System.getenv("GITHUB_ACTIONS") == null }
+
+    commandLine "docker", "run", "-d", "--rm",
+            "--name", sshContainerName,
+            "-p", "2222:2222",
+            "-e", "USER_NAME=testuser",
+            "-v", "${keyDir.absolutePath}/authorized_keys:/config/.ssh/authorized_keys:ro",
+            "lscr.io/linuxserver/openssh-server:latest"
+
+    doLast {
+        println "Waiting for SSH server to boot..."
+        sleep(5000)
+    }
+}
+
+tasks.register("stopSshContainer", Exec) {
+
+    group = "verification"
+    onlyIf { System.getenv("GITHUB_ACTIONS") == null }
+
+    doFirst {
+        println("Stopping SSH container...")
+    }
+
+    commandLine "docker", "stop", sshContainerName
+    ignoreExitValue = true
+}
+
+ext["sshKeyDir"] = keyDir

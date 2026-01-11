@@ -23,7 +23,6 @@ package com.amaze.filemanager.filesystem
 import android.Manifest
 import android.content.Context
 import android.os.Build
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import android.os.Looper
 import android.os.storage.StorageManager
@@ -33,6 +32,7 @@ import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.GrantPermissionRule
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.fileoperations.filesystem.OpenMode
 import com.amaze.filemanager.shadows.ShadowFileUtils
 import com.amaze.filemanager.shadows.ShadowMultiDex
@@ -68,7 +68,7 @@ import org.robolectric.shadows.ShadowSQLiteConnection
         ShadowFileUtils::class,
         ShadowPasswordUtil::class,
     ],
-    sdk = [LOLLIPOP, P, Build.VERSION_CODES.R],
+    sdk = [BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R],
 )
 abstract class AbstractOperationsTestBase {
     private var ctx: Context? = null

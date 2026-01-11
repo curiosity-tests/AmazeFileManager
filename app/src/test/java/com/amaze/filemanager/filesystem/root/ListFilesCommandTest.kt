@@ -22,11 +22,11 @@ package com.amaze.filemanager.filesystem.root
 
 import android.content.SharedPreferences
 import android.os.Build
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import androidx.preference.PreferenceManager
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.fileoperations.filesystem.OpenMode
 import com.amaze.filemanager.filesystem.HybridFileParcelable
 import com.amaze.filemanager.shadows.ShadowMultiDex
@@ -54,7 +54,7 @@ import java.io.InputStreamReader
 @RunWith(AndroidJUnit4::class)
 @Config(
     shadows = [ShadowMultiDex::class, ShadowNativeOperations::class],
-    sdk = [LOLLIPOP, P, Build.VERSION_CODES.R],
+    sdk = [BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R],
 )
 class ListFilesCommandTest {
     private val sharedPreferences: SharedPreferences =

@@ -21,9 +21,9 @@
 package com.amaze.filemanager.utils
 
 import android.os.Build
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.shadows.ShadowMultiDex
 import com.amaze.filemanager.utils.X509CertificateUtil.FINGERPRINT
 import com.amaze.filemanager.utils.X509CertificateUtil.ISSUER
@@ -41,7 +41,7 @@ import java.security.cert.X509Certificate
 @RunWith(AndroidJUnit4::class)
 @Config(
     shadows = [ShadowMultiDex::class],
-    sdk = [LOLLIPOP, P, Build.VERSION_CODES.R],
+    sdk = [BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R],
 )
 class X509CertificateUtilTest {
     private lateinit var cert: X509Certificate

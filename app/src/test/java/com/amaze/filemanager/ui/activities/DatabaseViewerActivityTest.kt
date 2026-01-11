@@ -2,9 +2,9 @@ package com.amaze.filemanager.ui.activities
 
 import android.content.Intent
 import android.os.Build
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.shadows.ShadowMultiDex
 import io.mockk.every
 import io.mockk.spyk
@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit
  */
 @RunWith(AndroidJUnit4::class)
 @Config(
-    sdk = [LOLLIPOP, P, Build.VERSION_CODES.R],
+    sdk = [BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R],
     shadows = [ShadowMultiDex::class, ShadowStorageManager::class],
 )
 class DatabaseViewerActivityTest {

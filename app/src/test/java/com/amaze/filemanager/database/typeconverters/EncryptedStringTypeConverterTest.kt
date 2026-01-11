@@ -21,9 +21,9 @@
 package com.amaze.filemanager.database.typeconverters
 
 import android.os.Build
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.database.models.StringWrapper
 import com.amaze.filemanager.shadows.ShadowMultiDex
 import com.amaze.filemanager.test.ShadowPasswordUtil
@@ -38,7 +38,7 @@ import org.robolectric.annotation.Config
 @RunWith(AndroidJUnit4::class)
 @Config(
     shadows = [ShadowMultiDex::class, ShadowPasswordUtil::class],
-    sdk = [LOLLIPOP, P, Build.VERSION_CODES.R],
+    sdk = [BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R],
 )
 class EncryptedStringTypeConverterTest {
     /**

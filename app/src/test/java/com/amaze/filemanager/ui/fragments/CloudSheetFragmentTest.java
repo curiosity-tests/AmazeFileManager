@@ -20,7 +20,6 @@
 
 package com.amaze.filemanager.ui.fragments;
 
-import static android.os.Build.VERSION_CODES.LOLLIPOP;
 import static android.os.Build.VERSION_CODES.P;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -30,6 +29,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.annotation.Config;
 
+import com.amaze.filemanager.BuildConfig;
 import com.amaze.filemanager.database.CloudContract;
 
 import android.content.pm.PackageInfo;
@@ -39,7 +39,7 @@ import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 @RunWith(AndroidJUnit4.class)
-@Config(sdk = {LOLLIPOP, P, Build.VERSION_CODES.R})
+@Config(sdk = {BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R})
 public class CloudSheetFragmentTest {
 
   @Test

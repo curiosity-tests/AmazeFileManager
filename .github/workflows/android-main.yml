@@ -177,7 +177,19 @@ jobs:
           ram-size: 2048M
           channel: canary
           script: echo "Generated AVD snapshot for caching."
-
+      - name: Generate SSH Keys
+        run: ./gradlew app:generateAllSshKeys
+      - name: start SSH server sidecar
+        run: |
+          docker run -d --rm \
+            --name android-ssh-test \
+            -p 2222:2222 \
+            -e USER_NAME=testuser \
+            -v ${{ github.workspace }}/app/build/ssh-keys.tmp/authorized_keys:/config/.ssh/authorized_keys:ro \
+            lscr.io/linuxserver/openssh-server:latest
+          
+          # Wait for container to be ready
+          sleep 10
       - name: run tests
         uses: reactivecircus/android-emulator-runner@v2
         with:

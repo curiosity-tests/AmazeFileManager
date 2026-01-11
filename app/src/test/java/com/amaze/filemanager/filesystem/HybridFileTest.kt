@@ -23,11 +23,11 @@
 package com.amaze.filemanager.filesystem
 
 import android.os.Build
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import android.os.Environment
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.application.AppConfig
 import com.amaze.filemanager.fileoperations.filesystem.OpenMode
 import com.amaze.filemanager.shadows.ShadowMultiDex
@@ -40,7 +40,10 @@ import java.net.URLDecoder
 import kotlin.random.Random
 
 @RunWith(AndroidJUnit4::class)
-@Config(shadows = [ShadowMultiDex::class], sdk = [LOLLIPOP, P, Build.VERSION_CODES.R])
+@Config(
+    shadows = [ShadowMultiDex::class],
+    sdk = [BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R],
+)
 @Suppress("StringLiteralDuplication")
 class HybridFileTest {
     /**

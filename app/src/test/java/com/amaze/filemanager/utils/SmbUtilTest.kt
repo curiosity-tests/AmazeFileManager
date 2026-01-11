@@ -21,10 +21,10 @@
 package com.amaze.filemanager.utils
 
 import android.os.Build
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.fileoperations.filesystem.DOESNT_EXIST
 import com.amaze.filemanager.fileoperations.filesystem.WRITABLE_ON_REMOTE
 import com.amaze.filemanager.shadows.ShadowSmbUtil
@@ -46,7 +46,7 @@ import org.robolectric.annotation.Config
 @Suppress("StringLiteralDuplication")
 @RunWith(AndroidJUnit4::class)
 @Config(
-    sdk = [LOLLIPOP, P, Build.VERSION_CODES.R],
+    sdk = [BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R],
     shadows = [ShadowPasswordUtil::class, ShadowSmbUtil::class],
 )
 class SmbUtilTest {

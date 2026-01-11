@@ -21,10 +21,10 @@
 package com.amaze.filemanager.utils
 
 import android.os.Build
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import android.os.Environment
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.application.AppConfig
 import com.amaze.filemanager.filesystem.HybridFileParcelable
 import com.amaze.filemanager.filesystem.files.CryptUtil
@@ -48,7 +48,7 @@ import kotlin.random.Random
 
 @RunWith(AndroidJUnit4::class)
 @Config(
-    sdk = [LOLLIPOP, P, Build.VERSION_CODES.R],
+    sdk = [BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R],
 )
 class CryptUtilTest {
     /**

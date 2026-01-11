@@ -22,6 +22,7 @@ package com.amaze.filemanager.filesystem.files.sort
 
 import android.os.Build
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.shadows.ShadowMultiDex
 import org.junit.Assert
 import org.junit.Test
@@ -32,7 +33,7 @@ import kotlin.random.Random
 @RunWith(AndroidJUnit4::class)
 @Config(
     shadows = [ShadowMultiDex::class],
-    sdk = [Build.VERSION_CODES.LOLLIPOP, Build.VERSION_CODES.P, Build.VERSION_CODES.R],
+    sdk = [BuildConfig.MIN_SDK_VERSION, Build.VERSION_CODES.P, Build.VERSION_CODES.R],
 )
 class SortByTest {
     /** Tests if [SortBy.getSortBy] returns the correct [SortBy] corresponding to the given index */

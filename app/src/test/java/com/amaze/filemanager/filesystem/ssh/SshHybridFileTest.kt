@@ -22,10 +22,10 @@ package com.amaze.filemanager.filesystem.ssh
 
 import android.content.Context
 import android.os.Build
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.fileoperations.filesystem.OpenMode
 import com.amaze.filemanager.filesystem.HybridFile
 import com.amaze.filemanager.filesystem.ssh.test.MockSshConnectionPools
@@ -46,7 +46,7 @@ import org.robolectric.annotation.LooperMode
 @LooperMode(LooperMode.Mode.PAUSED)
 @Config(
     shadows = [ShadowMultiDex::class, ShadowPasswordUtil::class],
-    sdk = [LOLLIPOP, P, Build.VERSION_CODES.R],
+    sdk = [BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R],
 )
 class SshHybridFileTest {
     private var ctx: Context? = null

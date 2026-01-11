@@ -21,9 +21,9 @@
 package com.amaze.filemanager.filesystem.files
 
 import android.os.Build
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.filesystem.files.FileUtils.getPathsInPath
 import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertEquals
@@ -38,7 +38,7 @@ import java.util.TimeZone
 
 @RunWith(AndroidJUnit4::class)
 @LooperMode(LooperMode.Mode.PAUSED)
-@Config(sdk = [LOLLIPOP, P, Build.VERSION_CODES.R])
+@Config(sdk = [BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R])
 @Suppress("TooManyFunctions", "StringLiteralDuplication")
 class FileUtilsTest {
     /**

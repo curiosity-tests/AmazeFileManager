@@ -21,7 +21,6 @@
 package com.amaze.filemanager.database
 
 import android.os.Build
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import android.util.Base64
 import androidx.room.Room
@@ -29,6 +28,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.sqlite.db.framework.FrameworkSQLiteOpenHelperFactory
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.database.UtilitiesDatabase.Companion.COLUMN_HOST_PUBKEY
 import com.amaze.filemanager.database.UtilitiesDatabase.Companion.COLUMN_NAME
 import com.amaze.filemanager.database.UtilitiesDatabase.Companion.COLUMN_PATH
@@ -52,7 +52,7 @@ import org.robolectric.annotation.Config
 @RunWith(AndroidJUnit4::class)
 @Config(
     shadows = [ShadowMultiDex::class, ShadowPasswordUtil::class],
-    sdk = [LOLLIPOP, P, Build.VERSION_CODES.R],
+    sdk = [BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R],
 )
 class UtilitiesDatabaseMigrationTest {
     companion object {

@@ -21,12 +21,12 @@
 package com.amaze.filemanager.database
 
 import android.os.Build
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import androidx.room.Room
 import androidx.sqlite.db.framework.FrameworkSQLiteOpenHelperFactory
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.fileoperations.filesystem.OpenMode
 import com.amaze.filemanager.shadows.ShadowMultiDex
 import com.amaze.filemanager.test.ShadowPasswordUtil
@@ -44,7 +44,7 @@ import java.io.IOException
 @RunWith(AndroidJUnit4::class)
 @Config(
     shadows = [ShadowMultiDex::class, ShadowPasswordUtil::class],
-    sdk = [LOLLIPOP, P, Build.VERSION_CODES.R],
+    sdk = [BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R],
 )
 @Suppress("StringLiteralDuplication", "ComplexMethod", "LongMethod")
 class ExplorerDatabaseMigrationTest {

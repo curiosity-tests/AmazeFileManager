@@ -23,7 +23,6 @@ package com.amaze.filemanager.ui.dialogs
 import android.Manifest
 import android.os.Build
 import android.os.Build.VERSION.SDK_INT
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.N
 import android.os.Build.VERSION_CODES.P
 import androidx.annotation.RequiresApi
@@ -31,6 +30,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.GrantPermissionRule
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.shadows.ShadowFileUtils
 import com.amaze.filemanager.shadows.ShadowMultiDex
 import com.amaze.filemanager.test.ShadowTabHandler
@@ -48,7 +48,7 @@ import org.robolectric.annotation.Config
 @RunWith(AndroidJUnit4::class)
 @Config(
     shadows = [ShadowMultiDex::class, ShadowTabHandler::class, ShadowFileUtils::class],
-    sdk = [LOLLIPOP, P, Build.VERSION_CODES.R],
+    sdk = [BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R],
 )
 abstract class AbstractEncryptDialogTests {
     protected lateinit var scenario: ActivityScenario<MainActivity>

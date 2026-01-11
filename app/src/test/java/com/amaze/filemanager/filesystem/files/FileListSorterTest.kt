@@ -23,6 +23,7 @@ package com.amaze.filemanager.filesystem.files
 import android.os.Build
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.adapters.data.LayoutElementParcelable
 import com.amaze.filemanager.fileoperations.filesystem.OpenMode
 import com.amaze.filemanager.filesystem.files.sort.DirSortBy
@@ -43,7 +44,7 @@ import org.robolectric.annotation.Config
 @RunWith(AndroidJUnit4::class)
 @Config(
     shadows = [ShadowMultiDex::class],
-    sdk = [Build.VERSION_CODES.LOLLIPOP, Build.VERSION_CODES.P, Build.VERSION_CODES.R],
+    sdk = [BuildConfig.MIN_SDK_VERSION, Build.VERSION_CODES.P, Build.VERSION_CODES.R],
 )
 @Suppress("StringLiteralDuplication", "ComplexMethod", "LongMethod", "LargeClass")
 class FileListSorterTest {

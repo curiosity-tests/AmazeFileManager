@@ -20,7 +20,6 @@
 
 package com.amaze.filemanager.application;
 
-import static android.os.Build.VERSION_CODES.LOLLIPOP;
 import static android.os.Build.VERSION_CODES.P;
 import static android.os.Looper.getMainLooper;
 import static org.awaitility.Awaitility.await;
@@ -39,6 +38,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowToast;
 
+import com.amaze.filemanager.BuildConfig;
 import com.amaze.filemanager.R;
 import com.amaze.filemanager.ui.activities.MainActivity;
 import com.bumptech.glide.Glide;
@@ -51,7 +51,7 @@ import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 @RunWith(AndroidJUnit4.class)
-@Config(sdk = {LOLLIPOP, P, Build.VERSION_CODES.R})
+@Config(sdk = {BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R})
 public class AppConfigTest {
 
   @After

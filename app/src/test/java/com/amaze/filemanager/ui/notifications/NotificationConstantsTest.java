@@ -41,6 +41,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowNotificationManager;
 
+import com.amaze.filemanager.BuildConfig;
 import com.amaze.filemanager.R;
 
 import android.app.Notification;
@@ -54,7 +55,7 @@ import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 @RunWith(AndroidJUnit4.class)
-@Config(sdk = {LOLLIPOP, P, Build.VERSION_CODES.R})
+@Config(sdk = {BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R})
 public class NotificationConstantsTest {
 
   private Context context;

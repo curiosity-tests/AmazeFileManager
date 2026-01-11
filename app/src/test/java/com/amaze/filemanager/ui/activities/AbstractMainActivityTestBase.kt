@@ -24,7 +24,6 @@ import android.Manifest
 import android.content.Context
 import android.os.Build
 import android.os.Build.VERSION_CODES
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import android.os.storage.StorageManager
 import androidx.annotation.NonNull
@@ -32,6 +31,7 @@ import androidx.annotation.RequiresApi
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.GrantPermissionRule
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.shadows.ShadowMultiDex
 import com.amaze.filemanager.shadows.jcifs.smb.ShadowSmbFile
 import com.amaze.filemanager.test.ShadowPasswordUtil
@@ -54,7 +54,7 @@ import org.robolectric.shadows.ShadowStorageManager
  */
 @RunWith(AndroidJUnit4::class)
 @Config(
-    sdk = [LOLLIPOP, P, VERSION_CODES.R],
+    sdk = [BuildConfig.MIN_SDK_VERSION, P, VERSION_CODES.R],
     shadows = [
         ShadowMultiDex::class,
         ShadowStorageManager::class,

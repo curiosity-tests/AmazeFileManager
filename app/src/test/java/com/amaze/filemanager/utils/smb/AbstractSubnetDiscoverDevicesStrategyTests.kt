@@ -21,9 +21,9 @@
 package com.amaze.filemanager.utils.smb
 
 import android.os.Build.VERSION_CODES
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.utils.NetworkUtil
 import io.mockk.every
 import io.mockk.mockk
@@ -38,7 +38,7 @@ import java.net.InetAddress
  * Base class for [SmbDeviceScannerObservable.DiscoverDeviceStrategy] tests.
  */
 @RunWith(AndroidJUnit4::class)
-@Config(sdk = [LOLLIPOP, P, VERSION_CODES.R])
+@Config(sdk = [BuildConfig.MIN_SDK_VERSION, P, VERSION_CODES.R])
 abstract class AbstractSubnetDiscoverDevicesStrategyTests {
     /**
      * Post test cleanup.

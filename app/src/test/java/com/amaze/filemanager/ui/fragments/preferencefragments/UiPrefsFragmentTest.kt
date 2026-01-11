@@ -27,6 +27,7 @@ import androidx.core.view.children
 import androidx.preference.Preference
 import androidx.recyclerview.widget.RecyclerView
 import com.afollestad.materialdialogs.MaterialDialog
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.R
 import com.amaze.filemanager.shadows.ShadowMultiDex
 import com.amaze.filemanager.shadows.jcifs.smb.ShadowSmbFile
@@ -52,7 +53,7 @@ import kotlin.random.Random
  */
 @Config(
     sdk = [
-        Build.VERSION_CODES.LOLLIPOP,
+        BuildConfig.MIN_SDK_VERSION,
         Build.VERSION_CODES.N,
         Build.VERSION_CODES.P,
         Build.VERSION_CODES.R,

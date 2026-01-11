@@ -20,7 +20,6 @@
 
 package com.amaze.filemanager.ui.activities;
 
-import static android.os.Build.VERSION_CODES.LOLLIPOP;
 import static android.os.Build.VERSION_CODES.P;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -40,6 +39,7 @@ import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowContentResolver;
 import org.robolectric.shadows.ShadowEnvironment;
 
+import com.amaze.filemanager.BuildConfig;
 import com.amaze.filemanager.R;
 import com.amaze.filemanager.application.AppConfig;
 import com.amaze.filemanager.shadows.ShadowMultiDex;
@@ -58,7 +58,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 @RunWith(AndroidJUnit4.class)
 @Config(
     shadows = {ShadowMultiDex.class},
-    sdk = {LOLLIPOP, P, Build.VERSION_CODES.R})
+    sdk = {BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R})
 public class TextEditorActivityTest {
 
   private final String fileContents = "fsdfsdfs";

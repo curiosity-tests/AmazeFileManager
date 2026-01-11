@@ -10,9 +10,9 @@ import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Build.VERSION_CODES
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.amaze.filemanager.BuildConfig
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic
@@ -33,7 +33,7 @@ import java.util.Collections
  * Tests for [NetworkUtil].
  */
 @RunWith(AndroidJUnit4::class)
-@Config(sdk = [LOLLIPOP, P, VERSION_CODES.R])
+@Config(sdk = [BuildConfig.MIN_SDK_VERSION, P, VERSION_CODES.R])
 @Suppress("StringLiteralDuplication")
 class NetworkUtilTest {
     private lateinit var context: Context

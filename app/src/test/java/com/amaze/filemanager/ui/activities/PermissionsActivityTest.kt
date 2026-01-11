@@ -24,7 +24,6 @@ import android.app.AppOpsManager
 import android.content.Context
 import android.net.Uri
 import android.os.Build
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import android.os.Build.VERSION_CODES.R
 import android.os.storage.StorageManager
@@ -37,6 +36,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.shadows.ShadowMultiDex
 import com.amaze.filemanager.test.TestUtils.initializeInternalStorage
 import io.reactivex.android.plugins.RxAndroidPlugins
@@ -64,7 +64,7 @@ import org.robolectric.shadows.ShadowStorageManager
  */
 @RunWith(AndroidJUnit4::class)
 @Config(
-    sdk = [LOLLIPOP, P, Build.VERSION_CODES.R],
+    sdk = [BuildConfig.MIN_SDK_VERSION, P, R],
     shadows = [ShadowMultiDex::class, ShadowStorageManager::class],
 )
 class PermissionsActivityTest {

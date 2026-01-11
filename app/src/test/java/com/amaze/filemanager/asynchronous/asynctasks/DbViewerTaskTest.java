@@ -20,7 +20,6 @@
 
 package com.amaze.filemanager.asynchronous.asynctasks;
 
-import static android.os.Build.VERSION_CODES.LOLLIPOP;
 import static android.os.Build.VERSION_CODES.P;
 import static android.os.Looper.getMainLooper;
 import static android.view.View.VISIBLE;
@@ -40,6 +39,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.annotation.Config;
 
+import com.amaze.filemanager.BuildConfig;
 import com.amaze.filemanager.shadows.ShadowMultiDex;
 import com.amaze.filemanager.ui.activities.DatabaseViewerActivity;
 import com.amaze.filemanager.ui.fragments.DbViewerFragment;
@@ -58,7 +58,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 @RunWith(AndroidJUnit4.class)
 @Config(
     shadows = {ShadowMultiDex.class},
-    sdk = {LOLLIPOP, P, Build.VERSION_CODES.R})
+    sdk = {BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R})
 public class DbViewerTaskTest {
 
   private WebView webView;

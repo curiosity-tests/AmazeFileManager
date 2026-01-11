@@ -20,7 +20,6 @@
 
 package com.amaze.filemanager.filesystem;
 
-import static android.os.Build.VERSION_CODES.LOLLIPOP;
 import static android.os.Build.VERSION_CODES.P;
 import static org.junit.Assert.fail;
 
@@ -40,6 +39,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.annotation.Config;
 
+import com.amaze.filemanager.BuildConfig;
 import com.amaze.filemanager.filesystem.root.ListFilesCommand;
 import com.amaze.filemanager.shadows.ShadowMultiDex;
 
@@ -51,7 +51,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 @RunWith(AndroidJUnit4.class)
 @Config(
     shadows = {ShadowMultiDex.class},
-    sdk = {LOLLIPOP, P, Build.VERSION_CODES.R})
+    sdk = {BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R})
 @Ignore("FIXME: should not ignore - please implement a shadow")
 public class RootHelperTest {
 

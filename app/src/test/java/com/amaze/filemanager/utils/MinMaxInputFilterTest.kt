@@ -21,10 +21,10 @@
 package com.amaze.filemanager.utils
 
 import android.os.Build
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import android.text.SpannedString
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.amaze.filemanager.BuildConfig
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Test
@@ -32,7 +32,7 @@ import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
 
 @RunWith(AndroidJUnit4::class)
-@Config(sdk = [LOLLIPOP, P, Build.VERSION_CODES.R])
+@Config(sdk = [BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R])
 class MinMaxInputFilterTest {
     /**
      * Test MinMaxInputFilter functioning

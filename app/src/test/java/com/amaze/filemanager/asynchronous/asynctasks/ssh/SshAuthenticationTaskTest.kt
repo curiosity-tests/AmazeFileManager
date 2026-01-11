@@ -22,10 +22,10 @@ package com.amaze.filemanager.asynchronous.asynctasks.ssh
 
 import android.content.Context
 import android.os.Build
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.R
 import com.amaze.filemanager.application.AppConfig
 import com.amaze.filemanager.filesystem.ftp.NetCopyClientConnectionPool
@@ -66,7 +66,7 @@ import java.util.concurrent.CountDownLatch
 @RunWith(AndroidJUnit4::class)
 @Config(
     shadows = [ShadowMultiDex::class, ShadowPasswordUtil::class],
-    sdk = [LOLLIPOP, P, Build.VERSION_CODES.R],
+    sdk = [BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R],
 )
 @Suppress("StringLiteralDuplication")
 class SshAuthenticationTaskTest {

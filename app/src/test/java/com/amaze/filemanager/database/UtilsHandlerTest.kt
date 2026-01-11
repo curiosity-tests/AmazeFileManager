@@ -21,7 +21,6 @@
 package com.amaze.filemanager.database
 
 import android.os.Build
-import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import android.os.Environment
 import android.os.Environment.DIRECTORY_DCIM
@@ -31,6 +30,7 @@ import android.os.Environment.DIRECTORY_MUSIC
 import android.os.Environment.DIRECTORY_PICTURES
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.application.AppConfig
 import com.amaze.filemanager.database.models.OperationData
 import com.amaze.filemanager.shadows.ShadowMultiDex
@@ -53,7 +53,7 @@ import java.io.File
 @RunWith(AndroidJUnit4::class)
 @Config(
     shadows = [ShadowMultiDex::class, ShadowPasswordUtil::class],
-    sdk = [LOLLIPOP, P, Build.VERSION_CODES.R],
+    sdk = [BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R],
 )
 class UtilsHandlerTest {
     companion object {

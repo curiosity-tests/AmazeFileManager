@@ -20,7 +20,6 @@
 
 package com.amaze.filemanager.utils;
 
-import static android.os.Build.VERSION_CODES.LOLLIPOP;
 import static android.os.Build.VERSION_CODES.P;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -36,6 +35,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowLooper;
 
+import com.amaze.filemanager.BuildConfig;
 import com.amaze.filemanager.ui.views.ThemedTextView;
 
 import android.os.Build;
@@ -45,7 +45,7 @@ import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 @RunWith(AndroidJUnit4.class)
-@Config(sdk = {LOLLIPOP, P, Build.VERSION_CODES.R})
+@Config(sdk = {BuildConfig.MIN_SDK_VERSION, P, Build.VERSION_CODES.R})
 public class AnimUtilsTest {
 
   @Test
