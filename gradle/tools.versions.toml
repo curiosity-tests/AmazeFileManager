@@ -1,0 +1,4 @@
+[versions]
+compileSdk = "34"
+jvmTarget = "17"
+ndk = "29.0.14206865" #r29

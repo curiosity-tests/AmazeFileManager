@@ -1,0 +1,31 @@
+tasks.register("setupRustAndroidLocal") {
+
+    onlyIf { System.getenv("GITHUB_ACTIONS") == null }
+
+    doFirst {
+        println("Setting up Rust for Android build...")
+    }
+
+    // Detect existence of rustup.
+    def rustupExists = exec {
+        commandLine("which", "rustup")
+        ignoreExitValue true
+    }.exitValue == 0
+
+    if (!rustupExists) {
+        println("rustup not found. Installing rustup...")
+        exec {
+            commandLine("sh", "-c",
+                "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y -v --default-toolchain none --no-modify-path"
+            )
+        }
+    }
+
+    doLast {
+        exec {
+            workingDir file(rootProject.project("file_operations").projectDir)
+            commandLine("env", "bash", "setup_rust_android.sh")
+        }
+        println("Rust targets for Android have been set up successfully.")
+    }
+}
