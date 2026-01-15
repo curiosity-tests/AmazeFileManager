@@ -7,18 +7,33 @@ tasks.register("setupRustAndroidLocal") {
     }
 
     // Detect existence of rustup.
-    def rustupExists = exec {
-        commandLine("which", "rustup")
-        ignoreExitValue true
-    }.exitValue == 0
+    def rustupExists = {
+
+        // First check common installation path
+        def isWindows = System.getProperty("os.name").toLowerCase().contains("windows")
+        def home = System.getProperty("user.home")
+        def rustupPath = isWindows
+            ? new File(home, ".cargo/bin/rustup.exe")
+            : new File(home, ".cargo/bin/rustup")
+
+        if (rustupPath.exists() && rustupPath.canExecute()) {
+            return true
+        }
+
+        // If not, check on user $PATH/%PATH%
+        try {
+            def process = new ProcessBuilder("rustup")
+                .redirectErrorStream(true)
+                .start()
+            process.waitFor()
+            return process.exitValue() == 0
+        } catch (IOException ignored) {
+            return false
+        }
+    }()
 
     if (!rustupExists) {
-        println("rustup not found. Installing rustup...")
-        exec {
-            commandLine("sh", "-c",
-                "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y -v --default-toolchain none --no-modify-path"
-            )
-        }
+        throw new GradleException("rustup is not installed or not found in PATH. Please install rustup from https://rustup.rs/ and ensure it is accessible.")
     }
 
     doLast {
