@@ -573,7 +573,6 @@
     <string name="encrypt_option_use_aze">使用 Amaze 加密格式</string>
     <string name="encrypt_file_must_end_with_aze">加密檔案一定要用“.aze”做檔案擴展名稱。</string>
     <string name="encrypt_file_must_end_with_aes">加密文件必须以“.aze”作为文件后缀名</string>
-    <string name="error_aescrypt_decrypt_failed">无法解密 \'%1$s\': \'%2$s\'</string>
     <string name="cannot_overwrite">不能覆蓋原有檔案。</string>
     <string name="saved_single_file">檔案儲存為 \'%s\'.</string>
     <string name="saved_multi_files">保存了 %d 个文件</string>
