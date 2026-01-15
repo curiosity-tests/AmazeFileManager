@@ -575,7 +575,6 @@
     <string name="encrypt_option_use_aze">Erabili Amaze zifratze-formatua</string>
     <string name="encrypt_file_must_end_with_aze">Enkriptatutako fitxategiek \".aze\" luzapena eduki behar dute.</string>
     <string name="encrypt_file_must_end_with_aes">Zifratutako fitxategiek \".aes\" luzapena erabili behar dute.</string>
-    <string name="error_aescrypt_decrypt_failed">Ezin izan da \'%1$s\': \'%2$s\' deszifratu</string>
     <string name="cannot_overwrite">Ezin da fitxategia gainidatzi.</string>
     <string name="saved_single_file">Fitxategia honela gorde da: \'%s\'.</string>
     <string name="saved_multi_files">%d fitxategi gorde dira.</string>
