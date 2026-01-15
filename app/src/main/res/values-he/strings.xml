@@ -575,7 +575,6 @@
     <string name="encrypt_option_use_aze">להשתמש בתצורת הדחיסה של Amaze</string>
     <string name="encrypt_file_must_end_with_aze">מומלץ להשתמש ב־„‎.ace” כסיומת לקובץ.</string>
     <string name="encrypt_file_must_end_with_aes">הקבצים המוצפנים חייבים להשתמש בסיומת „‎.aes”.</string>
-    <string name="error_aescrypt_decrypt_failed">לא ניתן לפענח את ‚%s’: ‚%s’</string>
     <string name="cannot_overwrite">לא ניתן לשכתב על קובץ.</string>
     <string name="saved_single_file">קובץ נשמר בשם ‚%s’.</string>
     <string name="saved_multi_files">%d קבצים נשמרו.</string>
