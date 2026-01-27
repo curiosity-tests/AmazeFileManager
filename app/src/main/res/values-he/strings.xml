@@ -584,6 +584,7 @@
     <string name="encrypt_option_use_aze">להשתמש בתצורת הדחיסה של Amaze</string>
     <string name="encrypt_file_must_end_with_aze">מומלץ להשתמש ב־„‎.ace” כסיומת לקובץ.</string>
     <string name="encrypt_file_must_end_with_aes">הקבצים המוצפנים חייבים להשתמש בסיומת „‎.aes”.</string>
+    <string name="error_aescrypt_decrypt_failed">לא ניתן לפענח את ‚%1$s’: ‚%2$s’</string>
     <string name="cannot_overwrite">לא ניתן לשכתב על קובץ.</string>
     <string name="saved_single_file">קובץ נשמר בשם ‚%s’.</string>
     <string name="saved_multi_files">%d קבצים נשמרו.</string>
@@ -602,6 +603,7 @@
     <string name="close">סגירה</string>
     <string name="bookmark_exists">הסימנייה קיימת</string>
     <string name="hide_media">הסתרה מסיירי מדיה</string>
+    <string name="ssh_connect_failed_host_key_changed_prompt">יכול להיות שמשהו פסול מתנהל מאחורי הקלעים!\n\nיכול להיות שמדובר בהאזנה שמתרחשת כרגע (סוכן אמצע)! יכול גם להיות שמפתח המארח השתנה ממש כרגע. טביעת האצבע של המפתח הציבורי שנשלח מצד המארח המרוחק אינו תואם לזו שמאוחסנת ב־Amaze.\n\nניתן להמשיך ולעדכן את טביעת האצבע של השרת או לבטל את עדכון הגדרות חיבור ה־SSH.</string>
     <string name="update_host_key">עדכון מפתח מארח</string>
     <string name="cancel_recommended">ביטול (עדיף)</string>
     <string name="failed_install_apk">ההתקנה נכשלה</string>
@@ -630,6 +632,7 @@
     <string name="error_snackbar_action">דיווח</string>
     <string name="what_device_headline">מידע:</string>
     <string name="what_happened_headline">מה קרה:</string>
+    <string name="info_labels">מה:\\nבקשה:\\nזמן בגריניץ׳:\\nחבילה:\\nגרסה:\\nגרסת מערכת הפעלה:\\nמכשיר:\\nדגם:\\nמוצר:</string>
     <string name="your_comment">ההערה שלך (באנגלית):</string>
     <string name="error_details_headline">פרטים:</string>
     <string name="app_ui_crash">היישומון/מנשק המשתמש קרס</string>
@@ -660,15 +663,19 @@
     <string name="choose_operation">נא לבחור פעולה לביצוע</string>
     <string name="remember">לזכור לפעם הבאה</string>
     <string name="ftp_prompt_accept_first_start_saf_access_title">הענקת גישת SAF לשרת FTP</string>
+    <string name="ftp_prompt_accept_first_start_saf_access">מאחר שזו הפעלת שרת ה־FTP הראשונה שלך והאחסון הפנימי של המכשיר שלך משמש כתיקייה משותפת, נא לאפשר ל־Amaze לגשת לאחסון דרך SAF.\n\n\n\nעליך לבצע זאת פעם אחת בלבד, עד הפעם הבא בה ייבחר מקום חדש לשיתוף.</string>
+    <string name="android_data_prompt_saf_access">מאז Android 10, מערכת Android כופה הגבלות על תיקיות מסוימות ויש לגשת אליהן עם תשתית הגישה לאחסון.\n\nנא לאפשר ל־Amaze גישה לתיקייה ממנהל הקבצים של המערכת על ידי לחיצה על „לאפשר גישה”.</string>
     <string name="android_data_prompt_saf_access_title">הענקת גישת לתשתית גישה לאחסון</string>
     <string name="ftp_preference_saf_filesystem_title">להשתמש במערכת קבצים מיושנת</string>
     <string name="ftp_preference_saf_filesystem">יש להפעיל את זה לקבלת תמיכה בשימוש באחסון החיצוני של המכשיר בגרסאות חדשות של Android</string>
     <string name="ftp_server_fallback_path_reset_prompt">הנתיב המשותף לשרת ה־FTP אופס לאחסון הפנימי עקב בקשתך לחזור להטמעת מערכת קבצים מיושנת. נא לבחור נתיב חדש באמצעות התפריט משמאל למעלה במקרה הצורך.</string>
     <string name="ftp_server_reset_notify">נתיב השיתוף ב־FTP התאפס לאחסון הפנימי</string>
     <string name="ftp_server_root_unavailable">הנתיב הנבחר דורש גישת משתמש על (root). נא להפעיל את סייר משתמש העל בהגדרות אם המכשיר שלך פרוץ (rooted).</string>
+    <string name="ftp_server_root_filesystem_warning">הנתיב הנבחר דורש גישת משתמש על (root), שמאפשרת פעולות קריאה/כתיבה בכל מערכת הקבצים של המכשיר שלך ונחשבת מסוכנת - טעויות תמימות עשויות לפגום בפעולת המכשיר שלך!\n\nלהמשיך\?</string>
     <string name="compressed_explorer_fragment_error_open_uri">שגיאה בפתיחת הכתובת „%s” לקריאה.</string>
     <string name="error_empty_archive">„%s” הוא ארכיון ריק.</string>
     <string name="error_bad_archive_without_info">הארכיון „%s” פגום</string>
+    <string name="error_bad_archive_with_info">„%s” הוא ארכיון פגום.\nההודעה מהמחלץ היא: „%s”</string>
     <string name="security_error">אי אפשר לפתוח את הקובץ באמצעות היישום הזה</string>
     <string name="cloud_drive_tooltip">יצירת חיבור ל־Google Drive™‎ לטובת ניהול קבצים מתוך מנהל הקבצים Amaze.</string>
     <string name="signin_with_google_title">יש לעבור אימות כדי להשתמש ב־Google Drive™‎</string>
@@ -700,6 +707,7 @@
     <string name="error_cannot_find_way_open">לא נמצאה דרך לפתוח את הקובץ</string>
     <string name="error_cant_decompress_that_file">לא ניתן לעבד את הארכיון המבוקש</string>
     <string name="analyse_storage">ניתוח האחסון</string>
+    <string name="download_amaze_utils_text">כעת תתבצע הפניה לכלי עזר לקבצים של Amaze. זה יישומון שלנו בקוד פתוח עם אפשרות לפתוח שמע/וידאו/תמונות/מסמכים, מאפשר לך לנתח קובצי פסולת לפינוי אחסון, העברה מהירה עם Wi-Fi נק׳ לנק׳ ועוד.\nאפשר לתמוך בנו על ידי התנסות בהם.</string>
     <string name="download">הורדה</string>
     <string name="wifip2p">נקודה לנקודה אלחוטית</string>
     <string name="amaze_utils_installed_alias">תודה שהתקנת את כלי הקבצים של Amaze. מיד תתבצע העברה ליישומון.</string>
