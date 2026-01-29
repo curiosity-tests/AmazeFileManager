@@ -720,6 +720,7 @@
     <string name="share_logs_summary">שיתוף היומנים שנאספו דרך דוא״ל / טלגרם</string>
     <string name="open_with_amaze">פתיחה עם Amaze</string>
     <string name="confirmation">אישור</string>
+    <string name="open_file_confirmation">לפתוח את הקובץ הבא\?\n\nשם:\n%s\n\nמקום:\n%s\n\nגודל:\n%s\n\nMD5:\n%s\n\nSHA256:\n%s\n\n</string>
     <string name="error_google_play_cannot_update_myself">עקב אילוץ של מדיניות מצד Google Play, ליישומונים אסור לעדכן את עצמם. נא לעדכן את היישומון דרך Google Play.</string>
     <string name="error_cannot_get_package_info">לא ניתן למשוך את פרטי החבילה מהקובץ „%s”.\nאו שזה לא קובץ APK או שקובץ החבילה פגום.</string>
     <string name="preference_delete_confirmation">אישור מחיקה</string>
