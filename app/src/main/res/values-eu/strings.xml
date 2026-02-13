@@ -694,7 +694,15 @@
     <string name="select_similar">Hautatu antzekoak</string>
     <string name="select_fill">Hautatu betegarria</string>
     <string name="error_fetching_google_play_product_list">Errorea Google Play-ren produktuaren zerrenda eskuratzean.</string>
-    <string name="grant_all_files_permission"><html&gt;<body&gt;Android 11 geroztik, Google-k Fitxategi kudeatzaileari gailuaren fitxategi guztiak kudeatzeko erabiltzaile-baimena  eskatzen dio. Xehetasunak <a href="https://developer.android.com/training/data-storage/manage-all-files" target="_blank"&gt;hemen</a&gt;.\n        \n\nAmaze fitxategi-kudeatzaileak ere baimen hori behar du. &amp;quot;Baimena&amp;quot; sakatu ondoren hautatu <b&gt;Baimendu fitxategi guztien kudeaketaren sarbidea</b&gt; aukera hurrengo pantailan.\n        \n\n<font color='#ff6347'&gt;<i&gt;Elkarrizketa-koadro hau bertan behera uzten bada, aplikaziotik irtengo da.</i&gt;</font&gt;</body&gt;</html&gt;</string>
+    <string name="grant_all_files_permission"><![CDATA[
+<html>
+<body>
+Android 11 geroztik, Google-k Fitxategi kudeatzaileari gailuaren fitxategi guztiak kudeatzeko erabiltzaile-baimena  eskatzen dio. Xehetasunak https://developer.android.com/training/data-storage/manage-all-files orrian. <br/><br/>
+        \n\nAmaze fitxategi-kudeatzaileak ere baimen hori behar du. &quot;Baimena&quot; sakatu ondoren hautatu <b>Baimendu fitxategi guztien kudeaketaren sarbidea</b> aukera hurrengo pantailan.<br/><br/>
+        <font color=&apos;#ff6347&apos;><i>Elkarrizketa-koadro hau bertan behera uzten bada, aplikaziotik irtengo da.</i></font>
+</body>
+</html>
+]]></string>
     <string name="user_apps">Erabiltzailearen aplikazioak</string>
     <string name="appearance">Itxura</string>
     <string name="behavior">Portaera</string>
@@ -715,6 +723,7 @@
     <string name="error_cannot_find_way_open">Ezin izan da fitxategia irekitzeko modua aurkitu</string>
     <string name="error_cant_decompress_that_file">Ezin da eskatutako artxiboa prozesatu</string>
     <string name="analyse_storage">Aztertu biltegiratzea</string>
+    <string name="download_amaze_utils_text">Amaze File Utilities-etara bideratua izan zara. Kode irekiko gure aplikazioa da, audio/bideo/irudi/dokumentu bisoreak dituena, zabor-fitxategiak analizatzeko aukera ematen dizu biltegiratzea askatzeko,  Wifi P2P bidezko transferentzia azkarra eskaintzen du eta askoz gehiago.\nMesedez, lagundu gaitzazu probatuz.</string>
     <string name="download">Deskargatu</string>
     <string name="wifip2p">P2P Wi-Fia</string>
     <string name="amaze_utils_installed_alias">Eskerrik asko Amaze File Utilities instalatzeagatik. Aplikaziora bideratzua ari zara.</string>
@@ -727,10 +736,13 @@
     <string name="share_logs_summary">Partekatu erregistroak postaz / Telegramez</string>
     <string name="open_with_amaze">Ireki Amazerekin</string>
     <string name="confirmation">Berrespena</string>
+    <string name="open_file_confirmation">Ziur zaude fitxategi hau ireki nahi duzula\?\n\nName:\n%s\n\nLocation:\n%s\n\nSize:\n%s\n\nMD5:\n%s\n\nSHA256:\n%s\n\n</string>
     <string name="error_google_play_cannot_update_myself">Google Play-ren politiken aginduei jarraikiz, aplikazioek ezin dute beren kasa eguneratu. Mesedez, eguneratu aplikazioa Google Play-tik.</string>
     <string name="error_cannot_get_package_info">Ezin da paketearen informazioa eskuratu \"%s\" fitxategitik. Zehaztutako fitxategia ez da APK, edo pakete-fitxategia hondatuta dago.</string>
     <string name="preference_delete_confirmation">Ezabaketaren berrespena</string>
     <string name="preference_delete_confirmation_summary">Eskatu berrespena fitxategiak ezabatu aurretik. Hau desgaitzea ez da komeni!</string>
+    <string name="preference_delete_permanently_without_confirmation">Ezabatu betiko (Desgaitu Zaborrontzia)</string>
+    <string name="preference_delete_permanently_without_confirmation_summary">Ezabatu fitxategiak betiko zaborrontzira eraman gabe. Hau gaitzea oso gomendagarria da!</string>
     <string name="protocol_ftps">FTP segurua</string>
     <string name="unavailable">Ez dago erabilgarri</string>
 
