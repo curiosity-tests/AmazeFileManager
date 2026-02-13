@@ -183,6 +183,7 @@
     <string name="archive_text">Hau artxibo bat da. Zer egin nahi duzu\?</string>
     <string name="package_installer_text">Hau pakete instalatzaile bat da. Zer egin nahi duzu\?</string>
     <string name="xda_title">XDA haria</string>
+    <string name="xda_summary">Galderak, laguntza eta arazoak</string>
     <string name="circular_images">Erabili ikono zirkularrak irudi eta bideoetan</string>
     <string name="circular_icons">Erabili ikono zirkularrak</string>
     <string name="follow_battery_saver_title">Jarraitu bateria aurreztailea</string>
@@ -212,6 +213,7 @@
     <string name="tamil_translation_title">Tamilera</string>
 
     <string name="zip_viewer">Zip ikustailea</string>
+    <string name="unin_system_apk">Sistemaren aplikazio bat da hau, ezabatzeak sistema desegonkortu dezake\nJarraitu\?</string>
     <string name="warning">Abisua</string>
     <string name="donate">Egin dohaintza</string>
     <string name="archive_extract_folder">Erauzitako artxiboen karpeta</string>
@@ -244,6 +246,8 @@
     <string name="databasereader">Datu-base irakurlea</string>
     <string name="show_dividers">Erakutsi banatzaileak</string>
     <string name="needs_access">Idazteko baimena behar da</string>
+    <string name="needs_access_summary">Mesedez aukera ezazu honen root direktorioa: \t</string>
+    <string name="needs_access_summary1">\tto eman idazteko baimena honekin jarduteko</string>
     <string name="smb_connection">SMB konexioa</string>
     <string name="server_address">Zerbitzariaren IP helbidea</string>
     <string name="username">Erabiltzaile-izena</string>
