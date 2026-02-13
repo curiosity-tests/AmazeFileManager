@@ -328,6 +328,7 @@
     <string name="smb_manual_enter_host">Sartu ostalari-izena eskuz</string>
     <string name="bookmark_lost">Ez da laster-marka aurkitu, birsortzen&amp;#8230;</string>
 
+    <string name="smb_instructions">\n        <html&gt;\n            <body&gt;\n                <h1&gt;Partekatutako Windows karpeta android-en atzitzeko (SMB)</h1&gt;\n\n\n                <ul&gt;\n                    <li&gt;\n                        <b&gt;Gaitu fitxategiak partekatzea</b&gt;\n\n                    </li&gt;\n                    <p style='margin-left: 40px'&gt;\n                        Ireki Kontrol-panela, klikatu Sarea eta Internet ataleko Aukeratu etxeko taldea eta partekatzeko aukerak\n                        eta klikatu Aldatu partekatzeko aukera aurreratuak. Gaitu fitxategiak eta\n                        inprimagailua partekatzeko ezaugarria.\n\n\n                    </p&gt;\n\n                    <li&gt;\n                        <b&gt;Fitxategiak partekatzeko aukera gehigarriak</b&gt;\n\n                    </li&gt;\n                    <p style='margin-left: 40px'&gt;\n                        Partekatzeko ezarpen aurreratu gehiago konfigura ditzakezu. \n\n                        Adibidez, zure sare lokaleko gailu guztietaz fidatzen bazara fitxategiak pasahitzik gabe atzitzea gaitu dezakezu.\n                        Fitxategiak eta inprimagailuak partekatzea gaituta badaude,\n                        fitxategi-arakatzailea edo Windows arakatzailea ireki dezakezu, eskuin klik egin partekatu nahi duzun karpetan eta\n                        hautatu Propietateak. \n\n                        Klikatu Partekatu botoia eta karpetan sarean eskuragarri jarri.\n\n\n                        </p&gt;\n\n                    <li&gt;\n                        <b&gt;Ziurtatu bi gailuak Wifi berean daudela</b&gt;\n\n                    </li&gt;\n                    <p style='margin-left: 40px'&gt;\n                        Ezaugarri honek fitxategiak sare lokalean eskuragarri jartzen ditu, horretarako zure PCak eta gailu mugikorrek\n                        sare lokal berean egon behar dute. Ezin duzu partekatutako Windows karpeta bat\n                        Internet-en zehar atzitu edo zure mugikorra datu mugikorretara konektatuta dagoenean — Wi-Fira\n                        konektatuta egon behar du.\n\n\n                    </p&gt;\n\n                    <li&gt;\n                        <b&gt;Bilatu IP helbidea</b&gt;\n\n                    </li&gt;\n                    <p style='margin-left: 40px'&gt;\n                        Ireki komando-gonbita. Idatzi \'ipconfig\' eta sakatu Enter. Ikusi zein den Default Gateway\n                        zure sare-moldagailuaren azpian zure bideratzailearen IP helbidea jakiteko. Begiratu\n                        \"IPv4 Address\" moldagailu beraren azpian zure ordenagailuaren IP helbidea\n                        jakiteko.\n\n\n                    </p&gt;\n\n                    <b&gt;Sartu datuak smb elkarrizketa-koadroan</b&gt;\n\n                </ul&gt;\n            </body&gt;\n        </html&gt;\n    </string>
     <string name="share_limit">Ezin dira 100 fitxategi baino gehiago partekatu</string>
     <string name="otg_access">Hautatu OTG gailuaren erroa</string>
     <string name="information">Informazioa</string>
@@ -537,6 +538,7 @@
     <string name="ftps_connection">SSL gaineko FTP konexioa</string>
     <string name="ftps_enable_explicit_tls">TLS esplizitua</string>
     <string name="scp_port">Ataka</string>
+    <string name="ssh_host_key_verification_prompt">Ezin da ostalariaren egiazkotasuna ziurtatu %1$s.n\n%2$s gakoaren hatz-marka %3$s da.\n\nSakatu \"Bai\" identitatea berresteko; bestela, sakatu \"Ez\".</string>
     <string name="ssh_host_key_verification_prompt_title">Egiaztatu ostalaria</string>
     <string name="ssh_select_pem_button">SSH gako pribatua</string>
     <string name="ssh_pem_key_parse_error">Ezin da hautatutako PEM irakurri: %s</string>
@@ -545,6 +547,7 @@
     <string name="ssh_authentication_failure_key">Saioa hastean arazoa: Ezin da emandako erabiltzaile-izen eta gako pribatuarekin autentifikatu.</string>
     <string name="ssh_connect_failed">Ezin da konektatu %1$s(e)ra:%2$d: %3$s</string>
     <string name="ssh_connect_failed_host_key_changed_title">ABISUA: URRUNEKO OSTALARIAREN IDENTIFIKAZIOA ALDATU DA!</string>
+    <string name="ssh_connect_failed_host_key_changed_message">POSIBLE DA NORBAIT MALTZURKERIA BAT EGITEN ARITZEA!\n\nBaliteke norbait ezkutuan entzuten egotea une honetan (man-in-the-middle erasoa)! Baliteke ostalariaren gakoa aldatu izana ere. Urruneko ostalariak bidalitako gako publikoaren hatz-marka ez dator bat Amazen gordetakoarekin.\n\n        Jakinarazi zure sistemaren administratzaileari edo konfiguratu konexio berri bat zerbitzarira konektatzeko.\n    </string>
     <string name="ssh_key_prompt_passphrase">Sartu gakoaren pasaesaldia.</string>
     <string name="add_shortcut_not_supported_by_launcher">Zure abiarazleak ez du onartzen lasterbideak sortzea.</string>
     
@@ -580,8 +583,15 @@
     <string name="encrypt_file_save_as">Gorde enkriptatutako fitxategia honela&amp;#8230;</string>
     <string name="encrypt_folder_save_as">Gorde enkriptatutako karpeta honela&amp;#8230;</string>
     <string name="encrypt_option_use_aze">Erabili Amaze zifratze-formatua</string>
+    <string name="encrypt_option_use_aescrypt_desc"><![CDATA[
+        <p>Aescrypt-ek iturburu irekiko fitxategien zifratze formatua da AES zifratzean oinarrituta. Gainera, eramangarria da, beste plataformetan AESCRIPT programekin deszifratu daiteke.</p>
+        <p><a href=\"https://www.aescrypt.com\" target=\"_blank>AESCrypt webgunea</a></p>]]>\n    </string>
+    <string name="encrypt_option_use_azecrypt_desc"><![CDATA[
+        <p>Amazen zifratze formatua AES zifratzean oinarrituta dago; baina AESCrypt formatuaren aldean, bakarrik deszifratu daiteke gailu honekin; gainera, ez duzu Amaze fitxategi kudeatzailea desinstalatu behar gailu honetatik, ezta aldatu pantaila blokeatzeko modua, bestela ez duzu izango zifratutako fitxategia berreskuratzeko modurik.</p>.
+]]></string>
     <string name="encrypt_file_must_end_with_aze">Enkriptatutako fitxategiek \".aze\" luzapena eduki behar dute.</string>
     <string name="encrypt_file_must_end_with_aes">Zifratutako fitxategiek \".aes\" luzapena erabili behar dute.</string>
+    <string name="error_aescrypt_decrypt_failed">Ezin izan da \'%1$s\': \'%2$s\' deszifratu</string>
     <string name="cannot_overwrite">Ezin da fitxategia gainidatzi.</string>
     <string name="saved_single_file">Fitxategia honela gorde da: \'%s\'.</string>
     <string name="saved_multi_files">%d fitxategi gorde dira.</string>
@@ -600,6 +610,7 @@
     <string name="close">Itxi</string>
     <string name="bookmark_exists">Laster-marka badago</string>
     <string name="hide_media">Ezkutatu multimedien arakatzaileetatik</string>
+    <string name="ssh_connect_failed_host_key_changed_prompt">BALITEKE NORBAIT ZERBAIT NAZKAGARRIA EGITEN ARI IZATEA!\n\nBaliteke bitartekari baten erasoa pairatzea (man-in-the-middle attack)! Litekeena da, halaber, ostalariaren gakoa aldatu berri izana. Urruneko ostalariak bidalitako gako publikoaren hatz-marka ez dator bat Amaze-n gordetakoarekin.\n\nOstalariaren hatz-marka eguneratu dezakezu edo SSH konexioaren konfigurazioa eguneratzeari utzi.</string>
     <string name="update_host_key">Eguneratu ostalariaren gakoa</string>
     <string name="cancel_recommended">Utzi (gomendatuta)</string>
     <string name="failed_install_apk">Instalazioak huts egin du</string>
@@ -628,6 +639,7 @@
     <string name="error_snackbar_action">Eman arazo baten berri</string>
     <string name="what_device_headline">Informazioa:</string>
     <string name="what_happened_headline">Zer gertatu da:</string>
+    <string name="info_labels">What:\\nRequest:\\nGMT Time:\\nPackage:\\nVersion:\\nOS version:\\nDevice:\\nModel:\\nProduct:</string>
     <string name="your_comment">Zure iruzkina (ingelesez)</string>
     <string name="error_details_headline">Xehetasunak:</string>
     <string name="app_ui_crash">Aplikazioak/Interfazeak huts egin du</string>
