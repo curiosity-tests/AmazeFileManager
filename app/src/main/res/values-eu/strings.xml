@@ -751,6 +751,7 @@ Android 11 geroztik, Google-k Fitxategi kudeatzaileari gailuaren fitxategi guzti
     <string name="importing_completed">Inportazioa burutu da</string>
     <string name="invalid_backup_file">Babeskopia fitxategi baliogabea</string>
     <string name="import_failed_for">Inportazioak huts egin du:</string>
+    <string name="free_of">\"%s\n%s / %s libre</string>
     <string name="cloud_error_fdroid">Amaze Cloud Plugin ez dago onartuta F-Droid bertsioarekin. Mesedez, erabili Play Store Amaze-ren bertsioa.</string>
     <string name="disable_player_intent_filters">Desgaitu erreproduzigailuaren iragazkiak</string>
     <string name="disable_player_intent_filters_summary">Fitxategi aukeretan Amaze multimedia erreproduzigailuak desgaitzen ditu</string>
@@ -788,5 +789,6 @@ Android 11 geroztik, Google-k Fitxategi kudeatzaileari gailuaren fitxategi guzti
     <string name="trash_bin_retention_bytes_summary">Zakarrontziak bildu dezakeen gehienezko datu kopura (MBetan)</string>
     <string name="trash_bin_cleanup_interval_title">Garbiketa maiztasuna</string>
     <string name="trash_bin_cleanup_interval_summary">Automatikoki garbitzeko maiztasuna (orduak)</string>
-    </resources>
+    <string name="file_deletion">Fitxategia ezabatzea</string>
+</resources>
 
