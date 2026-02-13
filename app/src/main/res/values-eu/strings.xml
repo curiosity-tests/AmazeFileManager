@@ -639,7 +639,7 @@
     <string name="error_snackbar_action">Eman arazo baten berri</string>
     <string name="what_device_headline">Informazioa:</string>
     <string name="what_happened_headline">Zer gertatu da:</string>
-    <string name="info_labels">What:\\nRequest:\\nGMT Time:\\nPackage:\\nVersion:\\nOS version:\\nDevice:\\nModel:\\nProduct:</string>
+    <string name="info_labels">Zer:\\nEskaera:\\nGMT denbora:\\nPaketea:\\nBertsioa:\\nOS bertsioa:\\nGailua:\\nModeloa:\\nProduktua:</string>
     <string name="your_comment">Zure iruzkina (ingelesez)</string>
     <string name="error_details_headline">Xehetasunak:</string>
     <string name="app_ui_crash">Aplikazioak/Interfazeak huts egin du</string>
@@ -670,15 +670,19 @@
     <string name="choose_operation">Aukeratu eragiketa</string>
     <string name="remember">Gogoratu hurrengorako</string>
     <string name="ftp_prompt_accept_first_start_saf_access_title">Baimendu SAF sarbidea FTP zerbitzarirako</string>
+    <string name="ftp_prompt_accept_first_start_saf_access">Hau zure FTP zerbitzariaren lehen exekuzioa denez, eta gailuaren barneko biltegia karpeta partekatu gisa erabiltzen ari zarenez, mesedez eman baimena Amaze-ri biltegira SAF erabiliz sartzeko.\n\n\n\nBehin bakarrik egin behar da hori, hurrengoan partekatzeko kokaleku berri bat hautatu arte.</string>
+    <string name="android_data_prompt_saf_access">Android 10etik aurrera, Android-ek direktorio jakin batzuetan murrizketak ezarri ditu, eta Storage Access Frameworken bidez sartu behar da.\n\nBaimendu Amaze direktoriora sistemako fitxategi arakatzailetik sartzea \"Baimendu Sarbidea\" sakatuz.</string>
     <string name="android_data_prompt_saf_access_title">Baimendu SAF sarbidea</string>
     <string name="ftp_preference_saf_filesystem_title">Erabili fitxategi-sistema zaharra</string>
     <string name="ftp_preference_saf_filesystem">Gaitu hau gailuaren kanpoko biltegiratzea Android bertsio berriagoetan erabiltzeko</string>
     <string name="ftp_server_fallback_path_reset_prompt">FTP zerbitzariak partekatutako bide-izena barne-biltegiratzean berrezarri da, fitxategi-sistema zaharrera itzultzen ari zarelako. Mesedez, hautatu bide-izen berri bat goiko eskuineko menua erabiliz.</string>
     <string name="ftp_server_reset_notify">FTP zerbitzariak partekatutako bide-izena barne-biltegiratzean berrezarri da</string>
     <string name="ftp_server_root_unavailable">Root sarbidea behar duen bide-izena aukeratu duzu. Mesedez gaitu root arakatzea ezarpenetan zure gailua rooteatuta badago.</string>
+    <string name="ftp_server_root_filesystem_warning">Root sarbidea behar duen bide-izena aukeratu duzu. Honek zure gailuan fitxategi sistema osoa irakurri/idazteko aukera ematen du eta arriskutsua da - akats axolagabeek zure gailua bistara dezakete!\n\nZiur zaude\?</string>
     <string name="compressed_explorer_fragment_error_open_uri">Errorea \"%s\" URLa irakurtzeko irekitzean.</string>
     <string name="error_empty_archive">\"%s\" hutsa dagoen artxiboa da.</string>
     <string name="error_bad_archive_without_info">\"%s\" hondatutako artxiboa da.</string>
+    <string name="error_bad_archive_with_info">%s\" hondatutako artxiboa da.\nErauzlearen mezua: \"%s</string>
     <string name="security_error">Ezin izan da fitxategia ireki aplikazio hau erabiliz</string>
     <string name="cloud_drive_tooltip">Sortu Google Drive™ konexioa AMAZE fitxategi arakatzailearen bidez fitxategiak kudeatzeko.</string>
     <string name="signin_with_google_title">Autentifikatu Google Drive™ erabiltzeko</string>
@@ -690,6 +694,7 @@
     <string name="select_similar">Hautatu antzekoak</string>
     <string name="select_fill">Hautatu betegarria</string>
     <string name="error_fetching_google_play_product_list">Errorea Google Play-ren produktuaren zerrenda eskuratzean.</string>
+    <string name="grant_all_files_permission"><html&gt;<body&gt;Android 11 geroztik, Google-k Fitxategi kudeatzaileari gailuaren fitxategi guztiak kudeatzeko erabiltzaile-baimena  eskatzen dio. Xehetasunak <a href="https://developer.android.com/training/data-storage/manage-all-files" target="_blank"&gt;hemen</a&gt;.\n        \n\nAmaze fitxategi-kudeatzaileak ere baimen hori behar du. &amp;quot;Baimena&amp;quot; sakatu ondoren hautatu <b&gt;Baimendu fitxategi guztien kudeaketaren sarbidea</b&gt; aukera hurrengo pantailan.\n        \n\n<font color='#ff6347'&gt;<i&gt;Elkarrizketa-koadro hau bertan behera uzten bada, aplikaziotik irtengo da.</i&gt;</font&gt;</body&gt;</html&gt;</string>
     <string name="user_apps">Erabiltzailearen aplikazioak</string>
     <string name="appearance">Itxura</string>
     <string name="behavior">Portaera</string>
