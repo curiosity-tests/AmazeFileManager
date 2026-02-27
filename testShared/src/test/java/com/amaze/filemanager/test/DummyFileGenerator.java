@@ -55,7 +55,7 @@ public abstract class DummyFileGenerator {
   @RestrictTo(RestrictTo.Scope.TESTS)
   public static byte[] createFile(@NonNull File destFile, int size) throws IOException {
     Random rand = new SecureRandom();
-    MessageDigest md = null;
+    MessageDigest md;
     try {
       md = MessageDigest.getInstance("SHA-1");
     } catch (NoSuchAlgorithmException shouldNeverHappen) {
@@ -64,11 +64,13 @@ public abstract class DummyFileGenerator {
 
     FileOutputStream out = new FileOutputStream(destFile);
     DigestOutputStream dout = new DigestOutputStream(out, md);
-    int count = 0;
-    for (int i = size; i >= 0; i -= DEFAULT_BUFFER_SIZE, count += DEFAULT_BUFFER_SIZE) {
-      byte[] bytes = new byte[i > DEFAULT_BUFFER_SIZE ? DEFAULT_BUFFER_SIZE : i];
+    int remaining = size;
+    while (remaining > 0) {
+      int toWrite = Math.min(remaining, DEFAULT_BUFFER_SIZE);
+      byte[] bytes = new byte[toWrite];
       rand.nextBytes(bytes);
       dout.write(bytes);
+      remaining -= toWrite;
     }
     dout.flush();
     dout.close();
