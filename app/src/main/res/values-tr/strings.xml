@@ -710,5 +710,9 @@
     <string name="results">Sonuçlar</string>
     <string name="preference_language_title">Uygulama Dili</string>
     <string name="preference_language_dialog_title">Dili Seçin</string>
+    <string name="delete_permanently_checkbox">Kalıcı Silme</string>
+    <string name="restore">Eskiye döndür</string>
+    <string name="restore_files">Dosyaları Eskiye Döndür</string>
+    <string name="restoring">Eskiye döndürülüyor...</string>
     </resources>
 
