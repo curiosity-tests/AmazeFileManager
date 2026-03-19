@@ -704,12 +704,15 @@
     <string name="protocol_ftps">Güvenli FTP</string>
     <string name="unavailable">Kullanılamıyor</string>
 
+    <string name="importing_completed">İçe aktarım tamamlandı</string>
     <string name="cloud_error_fdroid">Amaze Cloud Eklentisi, F-Droid sürümüyle desteklenmez. Lütfen Amaze\'in Play Store sürümünü kullanın.</string>
     <string name="disable_player_intent_filters_summary">Amaze dahili medya oynatıcılarını dosya seçiciden devre dışı bırakır</string>
     <string name="no_app_found_intent">Bu eylemi işleyecek uygulama bulunamadı. DocumentsUI yüklü mü\?</string>
+    <string name="try_deep_search">Derin Aramayı Dene!</string>
     <string name="results">Sonuçlar</string>
     <string name="preference_language_title">Uygulama Dili</string>
     <string name="preference_language_dialog_title">Dili Seçin</string>
+    <string name="preference_language_system_default">Sistem Varsayılanı</string>
     <string name="delete_permanently_checkbox">Kalıcı Silme</string>
     <string name="restore">Eskiye döndür</string>
     <string name="restore_files">Dosyaları Eskiye Döndür</string>
