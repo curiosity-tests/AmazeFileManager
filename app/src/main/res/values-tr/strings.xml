@@ -667,6 +667,7 @@
     <string name="select_by_type">Türe göre seç</string>
     <string name="select_by_date">Tarihe göre seç</string>
     <string name="select_similar">Benzerini seç</string>
+    <string name="select_fill">Dolguyu seç</string>
     <string name="error_fetching_google_play_product_list">Google Play\'den ürün listesi getirilirken hata oluştu.</string>
     <string name="user_apps">Kullanıcı uygulamaları</string>
     <string name="appearance">Görünüm</string>
