@@ -1242,7 +1242,7 @@ public class MainFragment extends Fragment
         mainFragmentViewModel.getCurrentPath(),
         true,
         mainFragmentViewModel.getOpenMode(),
-        forceReload);
+        forceReload || mainFragmentViewModel.getOpenMode() == OpenMode.CUSTOM);
   }
 
   @Override

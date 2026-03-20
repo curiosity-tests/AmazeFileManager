@@ -313,4 +313,8 @@ public class AppConfig extends GlideApplication {
     }
     return trashBinConfig;
   }
+
+  public static String getTrashBinBasePath() {
+    return TRASH_BIN_BASE_PATH;
+  }
 }
