@@ -228,8 +228,11 @@ public abstract class CompressedHelper {
     }
   }
 
-  public static final boolean isEntryPathValid(String entryPath) {
-    return !entryPath.startsWith("..\\") && !entryPath.startsWith("../") && !entryPath.equals("..");
+  public static boolean isEntryPathValid(String entryPath) {
+    return !entryPath.startsWith("..\\")
+        && !entryPath.startsWith("../")
+        && !entryPath.equals("..")
+        && !entryPath.contains("/../");
   }
 
   private static boolean isZip(String type) {

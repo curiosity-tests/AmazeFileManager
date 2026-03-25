@@ -111,6 +111,9 @@ class SevenZipExtractor(
             return
         }
         val outputFile = File(outputDir, name)
+        if (!outputFile.canonicalPath.startsWith(File(outputDir).canonicalPath + File.separator)) {
+            throw IOException("Incorrect 7z entry path: $name")
+        }
         if (!outputFile.parentFile.exists()) {
             MakeDirectoryOperation.mkdir(outputFile.parentFile, context)
         }

@@ -67,7 +67,7 @@ abstract class AbstractCommonsArchiveExtractor(
                     }
                 }
             }
-            if (archiveEntries.size > 0) {
+            if (archiveEntries.isNotEmpty()) {
                 listener.onStart(totalBytes, archiveEntries[0].name)
                 inputStream.close()
                 inputStream = createFrom(FileInputStream(filePath))
@@ -101,6 +101,9 @@ abstract class AbstractCommonsArchiveExtractor(
             return
         }
         val outputFile = File(outputDir, entry.name)
+        if (!outputFile.canonicalPath.startsWith(File(outputDir).canonicalPath + File.separator)) {
+            throw IOException("Incorrect archive entry path: ${entry.name}")
+        }
         if (false == outputFile.parentFile?.exists()) {
             MakeDirectoryOperation.mkdir(outputFile.parentFile, context)
         }
