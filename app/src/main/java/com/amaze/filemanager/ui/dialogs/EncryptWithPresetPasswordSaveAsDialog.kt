@@ -23,6 +23,8 @@ package com.amaze.filemanager.ui.dialogs
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.text.method.LinkMovementMethod
+import android.text.util.Linkify
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
@@ -88,10 +90,13 @@ object EncryptWithPresetPasswordSaveAsDialog {
             val useAzeEncrypt = vb.checkboxUseAze
             val usageTextInfo =
                 vb.textViewCryptInfo.apply {
+                    movementMethod = LinkMovementMethod.getInstance()
+                    autoLinkMask = Linkify.WEB_URLS
+                    linksClickable = true
                     text =
                         HtmlCompat.fromHtml(
                             main.getString(R.string.encrypt_option_use_aescrypt_desc),
-                            HtmlCompat.FROM_HTML_MODE_LEGACY,
+                            HtmlCompat.FROM_HTML_MODE_COMPACT,
                         )
                 }
             if (ENCRYPT_PASSWORD_FINGERPRINT != password) {

@@ -24,7 +24,7 @@ import android.Manifest
 import android.content.Context
 import android.os.Build
 import android.os.Build.VERSION_CODES
-import android.os.Build.VERSION_CODES.KITKAT
+import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import android.os.storage.StorageManager
 import androidx.annotation.NonNull
@@ -54,7 +54,7 @@ import org.robolectric.shadows.ShadowStorageManager
  */
 @RunWith(AndroidJUnit4::class)
 @Config(
-    sdk = [KITKAT, P, VERSION_CODES.R],
+    sdk = [LOLLIPOP, P, VERSION_CODES.R],
     shadows = [
         ShadowMultiDex::class,
         ShadowStorageManager::class,
@@ -73,7 +73,7 @@ abstract class AbstractMainActivityTestBase {
     @NonNull
     @JvmField
     @RequiresApi(Build.VERSION_CODES.R)
-    val allFilesPermissionRule =
+    val allFilesPermissionRule: GrantPermissionRule =
         GrantPermissionRule.grant(Manifest.permission.MANAGE_EXTERNAL_STORAGE)
 
     /**
@@ -86,6 +86,7 @@ abstract class AbstractMainActivityTestBase {
         RxJavaPlugins.setIoSchedulerHandler { Schedulers.trampoline() }
         RxAndroidPlugins.reset()
         RxAndroidPlugins.setInitMainThreadSchedulerHandler { Schedulers.trampoline() }
+        RxAndroidPlugins.setMainThreadSchedulerHandler { Schedulers.trampoline() }
         ShadowSQLiteConnection.reset()
     }
 
@@ -101,5 +102,7 @@ abstract class AbstractMainActivityTestBase {
                 ),
             ).resetStorageVolumeList()
         }
+        RxAndroidPlugins.reset()
+        RxJavaPlugins.reset()
     }
 }

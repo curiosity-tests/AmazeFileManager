@@ -23,6 +23,7 @@ package com.amaze.filemanager.ui.activities;
 import static com.amaze.filemanager.ui.fragments.preferencefragments.PreferencesConstants.PREFERENCE_TEXTEDITOR_NEWSTACK;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.slf4j.Logger;
@@ -33,6 +34,7 @@ import com.amaze.filemanager.fileoperations.exceptions.ShellNotRunningException;
 import com.amaze.filemanager.filesystem.root.CopyFilesCommand;
 import com.amaze.filemanager.ui.activities.superclasses.ThemedActivity;
 import com.amaze.filemanager.ui.fragments.DbViewerFragment;
+import com.amaze.filemanager.utils.Utils;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -73,9 +75,9 @@ public class DatabaseViewerActivity extends ThemedActivity {
     boolean useNewStack = getBoolean(PREFERENCE_TEXTEDITOR_NEWSTACK);
     getSupportActionBar().setDisplayHomeAsUpEnabled(!useNewStack);
 
-    path = getIntent().getStringExtra("path");
+    path = Utils.sanitizeInput(getIntent().getStringExtra("path"));
 
-    if (path == null) {
+    if (!isValidPath(path)) {
       Toast.makeText(this, R.string.operation_not_supported, Toast.LENGTH_SHORT).show();
       finish();
       return;
@@ -163,7 +165,7 @@ public class DatabaseViewerActivity extends ThemedActivity {
 
   @Override
   public boolean onPrepareOptionsMenu(Menu menu) {
-    toolbar.setTitle(pathFile.getName());
+    setToolbarTitle();
     return super.onPrepareOptionsMenu(menu);
   }
 
@@ -171,7 +173,7 @@ public class DatabaseViewerActivity extends ThemedActivity {
   public boolean onOptionsItemSelected(MenuItem item) {
     if (item.getItemId() == android.R.id.home) {
       onBackPressed();
-      toolbar.setTitle(pathFile.getName());
+      setToolbarTitle();
     }
     return super.onOptionsItemSelected(item);
   }
@@ -179,6 +181,35 @@ public class DatabaseViewerActivity extends ThemedActivity {
   @Override
   public void onBackPressed() {
     super.onBackPressed();
-    toolbar.setTitle(pathFile.getName());
+    setToolbarTitle();
+  }
+
+  private void setToolbarTitle() {
+    if (pathFile != null) {
+      toolbar.setTitle(pathFile.getName());
+    }
+  }
+
+  private boolean isValidPath(String path) {
+    // Check if the path is not null, not empty, and does not contain special characters
+    if (path == null || path.isEmpty()) {
+      return false;
+    }
+
+    try {
+      File file = new File(path);
+      String canonicalPath = file.getCanonicalPath();
+      // Prevent path traversal attacks
+      if (canonicalPath.contains("..")) {
+        return false;
+      }
+      // Check for valid database file extensions
+      if (!path.endsWith(".db") && !path.endsWith(".sqlite") && !path.endsWith(".sqlite3")) {
+        return false;
+      }
+      return file.exists() && file.isFile();
+    } catch (IOException e) {
+      return false;
+    }
   }
 }

@@ -302,40 +302,8 @@ inestable\'l preséu.\\n¿Siguir?</string>
     <string name="translate_summary">Torna Amaze a la to llingua</string>
     <string name="paypal_copy_message">Copióse la ID de Paypal nel cartafueyu</string>
     <string name="searching_devices">Guetando preseos</string>
-    <string name="use_custom_ip">Usar IP personalizada</string>
     <string name="bookmark_lost">Nun s\'alcontró\'l marcador, recreando&#8230;</string>
 
-    <string name="smb_instructions"><html>
-<body>
-<center>\\n
-<h1>Cómo acceder a carpetes compartíes de Windows (SMB) n\'Android</h1>\\n
-</center>\\n
-<ol>\\n
-<li>\\n
-<b>Habilitar compartición de ficheros</b>\\n
-<br/>Abri\'l panel de control, primi Escoyer grupu del hogar y compartición so Rede ya
-internet, y primi Camudar axustes avanzaos de compartición. Habilita la carauterística
-de compartición ficheros ya imprentadores.\\n
-</li><br/><li/><b>Axustes de comparticion adicionales</b><br/>Quiciabes quieras configurar equí
-los otros axustes de comparticion avanzada.\\nPor exemplu, podríes habilitar l\'accesu a
-los tos ficheros ensin una contraseña si t\'enfotes na to rede llocal. Una vegada
-s\'habilite la compartición de ficheros ya imprentadores, pues abrir l\'esplorador de
-ficheros o Windows Explorer, facer clic drechu na carpeta que quies compartir, y
-esbillar Propiedaes. \\nPrimi\'l boton Compartir y fai disponible la carpeta na rede.\\n
-<li><li/><br/><b>Asegúrate qu\'entrambos preseos tan na mesma Wi-Fi</b><br/> \\n
-Esta carauterística pon disponibles los ficheros na rede llocal, pa qu\'asina\'l to PC y
-móvil tengan de tar na mesma rede llocal. Nun pue accedese a una carpeta compartida de
-Windows per internet — tien de tar coneutáu a la Wi-Fi.</li><li>\\n
-<br/><b>Alcontrar direición IP</b>\\n
-<br/>Abri\'l Símbolu del sistema. Teclexa «ipconfig» primi Enter. Gueta la Pasera
-predeterminada sol to adautador de rede pa la direicion IP del router. Gueta
-«Direiciones IPv4» so la mesma estaya d\'adautadores p\'alcontrar la direicion IP del
-to ordenador.</li><li/><br/>\\n
-<b>Introduz los detalles na caxa de diálogu SMB</b>\\n
-<br/>\\n
-</ol>\\n
-</body>\\n
-</html></string>
     <string name="share_limit">Nun pues compartir más de 100 ficheros</string>
     <string name="information">Información</string>
     <string name="title">Títulu</string>

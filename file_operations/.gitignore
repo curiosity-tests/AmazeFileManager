@@ -1,5 +1,10 @@
-/build
+# Rust build artifacts
+target/
+**/*.rs.bk
 
-# External native build folder generated in Android Studio 2.2 and later
-.externalNativeBuild
+# Auto-generated configuration (generated from template)
+.cargo/config.toml
+
+# Android build artifacts
 .cxx/
+build/

@@ -197,9 +197,8 @@ public class BottomBar implements View.OnTouchListener {
               @Override
               public void onLongPress(MotionEvent e) {
                 final MainFragment mainFragment = mainActivity.getCurrentMainFragment();
-                Objects.requireNonNull(mainFragment);
                 if (mainActivity.getBoolean(PREFERENCE_CHANGEPATHS)
-                    && (mainFragment.getMainFragmentViewModel() != null
+                    && (mainFragment != null && mainFragment.getMainFragmentViewModel() != null
                         || buttons.getVisibility() == View.VISIBLE)) {
                   GeneralDialogCreation.showChangePathsDialog(
                       mainActivity, mainActivity.getPrefs());

@@ -1,0 +1,17 @@
+[package]
+name = "rootoperations"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "rootoperations"
+crate-type = ["cdylib"]
+path = "src/main/rust/lib.rs"
+
+[dependencies]
+jni = "0.21"
+libc = "0.2"
+
+[target.'cfg(target_os = "android")'.dependencies]
+android_logger = "0.11"
+log = "0.4" 

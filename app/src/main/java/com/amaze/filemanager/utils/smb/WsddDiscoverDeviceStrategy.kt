@@ -103,7 +103,7 @@ class WsddDiscoverDeviceStrategy : SmbDeviceScannerObservable.DiscoverDeviceStra
 
     @Suppress("LabeledExpression")
     private fun multicastForDevice(callback: (ComputerParcelable) -> Unit) {
-        NetworkUtil.getLocalInetAddress(AppConfig.getInstance())?.let { addr ->
+        NetworkUtil.getLocalInetAddress(AppConfig.getInstance(), requestMulticast = true)?.let { addr ->
             val multicastAddressV4 = InetAddress.getByName(BROADCAST_IPV4)
             val multicastAddressV6 = InetAddress.getByName(BROADCAST_IPV6_LINK_LOCAL)
 

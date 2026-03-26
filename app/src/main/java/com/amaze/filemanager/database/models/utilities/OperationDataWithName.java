@@ -37,6 +37,7 @@ import androidx.room.Entity;
  */
 public abstract class OperationDataWithName extends OperationData {
 
+  @NonNull
   @ColumnInfo(name = UtilitiesDatabase.COLUMN_NAME)
   public String name;
 

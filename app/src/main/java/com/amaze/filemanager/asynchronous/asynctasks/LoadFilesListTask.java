@@ -130,7 +130,8 @@ public class LoadFilesListTask
     if (mainFragment == null
         || context == null
         || mainFragment.getMainFragmentViewModel() == null
-        || mainFragment.getMainActivityViewModel() == null) {
+        || mainFragment.getMainActivityViewModel() == null
+        || path == null) {
       cancel(true);
       return null;
     }
@@ -201,7 +202,7 @@ public class LoadFilesListTask
     if (list != null
         && !(openmode == OpenMode.CUSTOM
             && (("5").equals(path) || ("6").equals(path) || ("7").equals(path)))) {
-      postListCustomPathProcess(list, mainFragment);
+      postListCustomPathProcess(list, mainFragmentViewModel);
     }
 
     return new Pair<>(openmode, list);
@@ -300,13 +301,12 @@ public class LoadFilesListTask
   }
 
   private void postListCustomPathProcess(
-      @NonNull List<LayoutElementParcelable> list, @NonNull MainFragment mainFragment) {
+      @NonNull List<LayoutElementParcelable> list,
+      @NonNull MainFragmentViewModel mainFragmentViewModel) {
 
     SortType sortType = SortHandler.getSortType(context.get(), path);
 
-    MainFragmentViewModel viewModel = mainFragment.getMainFragmentViewModel();
-
-    if (viewModel == null) {
+    if (mainFragmentViewModel == null) {
       LOG.error("MainFragmentViewModel is null, this is a bug");
       return;
     }
@@ -321,13 +321,13 @@ public class LoadFilesListTask
       }
 
       if (layoutElementParcelable.isDirectory) {
-        viewModel.incrementFolderCount();
+        mainFragmentViewModel.incrementFolderCount();
       } else {
-        viewModel.incrementFileCount();
+        mainFragmentViewModel.incrementFileCount();
       }
     }
 
-    Collections.sort(list, new FileListSorter(viewModel.getDsort(), sortType));
+    Collections.sort(list, new FileListSorter(mainFragmentViewModel.getDsort(), sortType));
   }
 
   private @Nullable LayoutElementParcelable createListParcelables(HybridFileParcelable baseFile) {
@@ -551,29 +551,34 @@ public class LoadFilesListTask
     c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) - 2);
     Date d = c.getTime();
     Cursor cursor;
-    if (SDK_INT >= Q) {
-      Bundle queryArgs = new Bundle();
-      queryArgs.putInt(ContentResolver.QUERY_ARG_LIMIT, 20);
-      queryArgs.putStringArray(
-          ContentResolver.QUERY_ARG_SORT_COLUMNS,
-          new String[] {MediaStore.Files.FileColumns.DATE_MODIFIED});
-      queryArgs.putInt(
-          ContentResolver.QUERY_ARG_SORT_DIRECTION,
-          ContentResolver.QUERY_SORT_DIRECTION_DESCENDING);
-      cursor =
-          context
-              .getContentResolver()
-              .query(MediaStore.Files.getContentUri("external"), projection, queryArgs, null);
-    } else {
-      cursor =
-          context
-              .getContentResolver()
-              .query(
-                  MediaStore.Files.getContentUri("external"),
-                  projection,
-                  null,
-                  null,
-                  MediaStore.Files.FileColumns.DATE_MODIFIED + " DESC LIMIT 20");
+    try {
+      if (SDK_INT >= Q) {
+        Bundle queryArgs = new Bundle();
+        queryArgs.putInt(ContentResolver.QUERY_ARG_LIMIT, 20);
+        queryArgs.putStringArray(
+            ContentResolver.QUERY_ARG_SORT_COLUMNS,
+            new String[] {MediaStore.Files.FileColumns.DATE_MODIFIED});
+        queryArgs.putInt(
+            ContentResolver.QUERY_ARG_SORT_DIRECTION,
+            ContentResolver.QUERY_SORT_DIRECTION_DESCENDING);
+        cursor =
+            context
+                .getContentResolver()
+                .query(MediaStore.Files.getContentUri("external"), projection, queryArgs, null);
+      } else {
+        cursor =
+            context
+                .getContentResolver()
+                .query(
+                    MediaStore.Files.getContentUri("external"),
+                    projection,
+                    null,
+                    null,
+                    MediaStore.Files.FileColumns.DATE_MODIFIED + " DESC LIMIT 20");
+      }
+    } catch (SecurityException e) {
+      // Storage permission denied; treat as no recent files instead of crashing.
+      return recentFiles;
     }
     if (cursor == null) return recentFiles;
     if (cursor.getCount() > 0 && cursor.moveToFirst()) {

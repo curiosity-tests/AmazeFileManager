@@ -22,6 +22,7 @@
     tools:ignore="MissingTranslation">
 
     <!-- Non-translatable strings, must not be defined in any other language -->
+    <string name="luri_bakhtiari_translation_summary" translatable="false">Hossein Abaspanah</string>
     <string name="german_translation_summary" translatable="false">Patrick Mertens, Unpublished, Dennis Rüdiger</string>
     <string name="italian_translation_summary" translatable="false">Francesco Credidio, Federico Cappelletti</string>
     <string name="french_translation_summary" translatable="false">Nicolas PIMENTEL, Primokorn, Renaud ROLLAND</string>
@@ -42,7 +43,7 @@
 	<string name="vietnamese_translation_summary" translable="false" translatable="false">ngoisaosang</string>
     <string name="japanese_translation_summary" translatable="false">Naofumi Fukue</string>
     <string name="tamil_translation_summary" translatable="false">Kuralarasi for StarsSoft</string>
-    <string name="app_version" translatable="false">v3.10</string>
+    <string name="app_version" translatable="false">v3.11.2</string>
     <string name="author_1" translatable="false">Arpit Khurana</string>
     <string name="author_2" translatable="false">Vishal Nehra</string>
     <string name="developer_1" translatable="false">Emmanuel Messulam</string>

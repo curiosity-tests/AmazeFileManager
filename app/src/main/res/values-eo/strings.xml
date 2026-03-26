@@ -309,60 +309,8 @@
     <string name="translate_summary">Traduki Amaze en via lingvo</string>
     <string name="paypal_copy_message">PayPal ID kopiita al poŝo</string>
     <string name="searching_devices">Serĉanta aparatojn</string>
-    <string name="use_custom_ip">Uzi propan IP-adreson</string>
     <string name="bookmark_lost">Legosigno ne trovita, rekreinta&#8230;</string>
 
-    <string name="smb_instructions">
-        <html>
-            <body>
-                <h1>Kiel atingi al Vindozan kunhavigitan dosierujon en Android-o (SMB)</h1>\n\n
-                <ul>
-                    <li>
-                        <b>Ebligi kunhavigon de dosiero</b>\n
-                    </li>
-                    <p style='margin-left: 40px'>
-                        Malfermi el Kontrolpanelon, klaki "Choose homegroup and sharing options under Network
-                        and Internet", kaj klaki "Change advanced sharing settings". Ebligi la funkcion de dosieran kaj
-                        prresila kunhavigon.\n\n
-                    </p>
-
-                    <li>
-                        <b>Alia agordoj de dosiera kunhavigo</b>\n
-                    </li>
-                    <p style='margin-left: 40px'>
-                        Vi eble volas agordi la alian specialajn kunhavigajn agordojn tie. \n
-                        Ekzemple, vi povus ebligi atingi al viaj dosieroj sen pasvorto se vi konfidas ĉiojn
-                        aparatojn en via loka reto. Kiam dosiera kaj presila kunhavigo estas eblita, vi povas
-                        malfermi File Explorer aŭ Windows Explorer, dekstra-klaki dosierujon kiun vin volas kunhavigin, kaj
-                        elekti Properties. \n
-                        Klaki la butonon "Share" kaj fari la dosierujon uzeblan en la reto.\n\n
-                        </p>
-
-                    <li>
-                        <b>Konfirmi aparatojn estas en sama Wifi reto</b>\n
-                    </li>
-                    <p style='margin-left: 40px'>
-                        Ĉi tio funkcio faras dosierojn eblajn en la loka reto, do via PC-oj kaj poŝaparatoj
-                        devas esti en la sama loka reto. Vi ne povas atingi Vindozan kunhavigitan dosierujon
-                        en Interreto aŭ kiam via poŝkomputilo estas konektita to ĝia sendrata reto — ĝi
-                        devas esti konektita al Wi-Fi-o.\n\n
-                    </p>
-
-                    <li>
-                        <b>Serĉi IP-adreso</b>\n
-                    </li>
-                    <p style='margin-left: 40px'>
-                        Malfermi "Command Prompt". Enigi \'ipconfig\' kaj presi Eniga klavo. serĉi "Default Gateway" opcion
-                        malsur via retalira adaptilo por via enkursigila IP-adreso. Serĉi 
-                        \\\"IPv4 Address\\\" malsur la sama adaptila sekcio por trovi vian komputilan IP 
-                        adresojn.\n\n
-                    </p>
-
-                    <b>Enigi detalojn en SMB-a dialogujo</b>\n
-                </ul>
-            </body>
-        </html>
-    </string>
     <string name="share_limit">Ne povas kunhavigin pli da 100 dosieroj</string>
     <string name="otg_access">Elekti la radikdosierujon de OTG device</string>
     <string name="information">Informo</string>

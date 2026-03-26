@@ -305,46 +305,8 @@
     <string name="translate_summary">Preložiť Amaze do vašho jazyka</string>
     <string name="paypal_copy_message">Paypal id bol skopírovaný do schránky</string>
     <string name="searching_devices">Vyhľadávajú sa zariadenia...</string>
-    <string name="use_custom_ip">Použiť inú IP</string>
     <string name="bookmark_lost">Záložka sa nenašla, obnovovanie&#8230;</string>
 
-    <string name="smb_instructions">
-<html>
-            <body>
-                <h1>Ako môžem získať prístup k zdieľanému priečinku Windows na platforme Android</h1>\n\n
-                <ul>
-                    <li>
-                        <b>Povoliť zdieľanie súborov</b>\n
-                    </li>
-                    <p style="margin-left: 40px">
-                        Otvorte Ovládací panel, kliknite na tlačidlo \"Vybrať domácu skupinu a možnosti zdieľania\", kliknite na tlačidlo \"Zmeniť rozšírené nastavenie zdieľania\" a prejdite na zdieľanie zložiek a tlačiarní.\n\n
-                    </p>
-
-                    <li>
-                        <b>Rozšírené nastavenia zdieľania</b>\n
-                    </li>
-                    <p style="margin-left: 40px">
-                        Môžete tam nastaviť aj ďalšie pokročilé možnosti zdieľania.\nNapríklad, môžete povoliť prístup k súborom bez hesla, ak dôverujete všetkým zariadeniam v sieti. Akonáhle je zdieľanie súborov a tlačiarní zapnuté, otvorte Prieskumníka Windows alebo iného správcu súborov, kliknite pravým tlačidlom myši na priečinok, ktorý chcete zdieľať  a vyberte možnosť \"Vlastnosti\".\nKliknutím na tlačidlo Zdieľať  bude priečinok dostupný na sieti.\n\n
-                        </p>
-
-                    <li>
-                        <b>Uistite sa, že zariadenia sú v rovnakej Wi-Fi sieti</b>\n
-                    </li>
-                    <p style="margin-left: 40px">
-                       Vaše zariadenie Windows a Android musia byť na rovnakej sieti. Napríklad, že nemôžete mať prístup k priečinku systému Windows na systém Android, ak je vaše zariadenie Android pripojené na mobilný internet!\n\n
-                    </p>
-
-                    <li>
-                        <b>Vyhľadanie IP adresy</b>\n
-                    </li>
-                    <p style="margin-left: 40px">
-                        Otvorte príkazový riadok. Zadajte \'ipconfig\' a stlačte Enter. Nájdite \"IPv4 adresu\" adaptéra, ktorým sú Windows a Android zariadenia pripojené k rovnakej sieti.\n\n
-                    </p>
-
-                    <b>Enter details in SMB dialog box</b>\n
-                </ul>
-            </body>
-        </html>    </string>
     <string name="share_limit">Nemôžete zdieľať viac ako 100 súborov</string>
     <string name="otg_access">Vyberte koreň OTG zariadenia</string>
     <string name="information">Informácie</string>

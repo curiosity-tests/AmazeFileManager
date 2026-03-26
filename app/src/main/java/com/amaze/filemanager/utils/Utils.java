@@ -54,11 +54,13 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.os.storage.StorageVolume;
+import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.ColorRes;
@@ -128,7 +130,8 @@ public class Utils {
     } else {
       Drawable drawable =
           DrawableCompat.wrap(
-              ContextCompat.getDrawable(box.getContext(), R.drawable.abc_btn_check_material));
+              ContextCompat.getDrawable(
+                  box.getContext(), com.google.android.material.R.drawable.abc_btn_check_material));
       DrawableCompat.setTintList(drawable, sl);
       box.setButtonDrawable(drawable);
     }
@@ -229,6 +232,10 @@ public class Utils {
 
   /** Sanitizes input from external application to avoid any attempt of command injection */
   public static String sanitizeInput(String input) {
+    if (input == null || input.isEmpty()) {
+      return input;
+    }
+
     // iterate through input and keep sanitizing until it's fully injection proof
     String sanitizedInput;
     String sanitizedInputTemp = input;
@@ -489,5 +496,18 @@ public class Utils {
     if (view != null)
       ((InputMethodManager) mainActivity.getSystemService(Context.INPUT_METHOD_SERVICE))
           .hideSoftInputFromWindow(view.getWindowToken(), 0);
+  }
+
+  public static void configureTitleMarquee(TextView textView, boolean enableMarquee) {
+    if (enableMarquee) {
+      textView.setSingleLine(true);
+      textView.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+      textView.setSelected(true);
+    } else {
+      textView.setSingleLine(false);
+      textView.setMaxLines(2);
+      textView.setEllipsize(TextUtils.TruncateAt.END);
+      textView.setSelected(false);
+    }
   }
 }

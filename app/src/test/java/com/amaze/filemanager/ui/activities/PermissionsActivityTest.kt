@@ -24,11 +24,13 @@ import android.app.AppOpsManager
 import android.content.Context
 import android.net.Uri
 import android.os.Build
-import android.os.Build.VERSION_CODES.KITKAT
+import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import android.os.Build.VERSION_CODES.R
 import android.os.storage.StorageManager
 import android.provider.Settings
+import androidx.core.text.HtmlCompat
+import androidx.core.text.HtmlCompat.FROM_HTML_MODE_COMPACT
 import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
@@ -62,7 +64,7 @@ import org.robolectric.shadows.ShadowStorageManager
  */
 @RunWith(AndroidJUnit4::class)
 @Config(
-    sdk = [KITKAT, P, Build.VERSION_CODES.R],
+    sdk = [LOLLIPOP, P, Build.VERSION_CODES.R],
     shadows = [ShadowMultiDex::class, ShadowStorageManager::class],
 )
 class PermissionsActivityTest {
@@ -128,9 +130,10 @@ class PermissionsActivityTest {
                         this.titleView.text,
                     )
                     assertEquals(
-                        activity.getString(
-                            com.amaze.filemanager.R.string.grant_all_files_permission,
-                        ),
+                        HtmlCompat.fromHtml(
+                            activity.getString(com.amaze.filemanager.R.string.grant_all_files_permission),
+                            FROM_HTML_MODE_COMPACT,
+                        ).toString(),
                         this.contentView?.text.toString(),
                     )
                     this.getActionButton(DialogAction.POSITIVE).run {

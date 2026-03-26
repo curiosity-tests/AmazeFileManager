@@ -25,6 +25,7 @@ import com.amaze.filemanager.database.UtilitiesDatabase;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 
@@ -36,16 +37,24 @@ import androidx.room.Entity;
 @Entity(tableName = UtilitiesDatabase.TABLE_SFTP)
 public class SftpEntry extends OperationDataWithName {
 
+  @Nullable
   @ColumnInfo(name = UtilitiesDatabase.COLUMN_HOST_PUBKEY)
   public String hostKey;
 
+  @Nullable
   @ColumnInfo(name = UtilitiesDatabase.COLUMN_PRIVATE_KEY_NAME)
   public String sshKeyName;
 
+  @Nullable
   @ColumnInfo(name = UtilitiesDatabase.COLUMN_PRIVATE_KEY)
   public String sshKey;
 
-  public SftpEntry(String path, String name, String hostKey, String sshKeyName, String sshKey) {
+  public SftpEntry(
+      @NonNull String path,
+      @NonNull String name,
+      @Nullable String hostKey,
+      @Nullable String sshKeyName,
+      @Nullable String sshKey) {
     super(name, path);
     this.hostKey = hostKey;
     this.sshKeyName = sshKeyName;

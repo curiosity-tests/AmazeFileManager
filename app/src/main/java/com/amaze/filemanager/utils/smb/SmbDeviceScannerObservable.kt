@@ -22,10 +22,10 @@ package com.amaze.filemanager.utils.smb
 
 import androidx.annotation.VisibleForTesting
 import com.amaze.filemanager.utils.ComputerParcelable
-import com.amaze.filemanager.utils.smb.SmbDeviceScannerObservable.DiscoverDeviceStrategy
 import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
+import io.reactivex.disposables.Disposables
 import io.reactivex.schedulers.Schedulers
 import java.net.InetAddress
 
@@ -50,10 +50,11 @@ class SmbDeviceScannerObservable : Observable<ComputerParcelable>() {
         fun onCancel()
     }
 
-    var discoverDeviceStrategies: Array<DiscoverDeviceStrategy> =
+    private var discoverDeviceStrategies: Array<DiscoverDeviceStrategy> =
         arrayOf(
             WsddDiscoverDeviceStrategy(),
             SameSubnetDiscoverDeviceStrategy(),
+            NsdManagerDiscoverDeviceStrategy(),
         )
         @VisibleForTesting set
 
@@ -61,7 +62,7 @@ class SmbDeviceScannerObservable : Observable<ComputerParcelable>() {
 
     private lateinit var observer: Observer<in ComputerParcelable>
 
-    private lateinit var disposable: Disposable
+    private var disposable: Disposable = Disposables.empty()
 
     /**
      * Stop discovering hosts. Notify containing strategies to stop, then stop the created
@@ -70,6 +71,9 @@ class SmbDeviceScannerObservable : Observable<ComputerParcelable>() {
     fun stop() {
         if (!disposable.isDisposed) {
             disposable.dispose()
+        }
+        discoverDeviceStrategies.forEach { strategy ->
+            strategy.onCancel()
         }
         observer.onComplete()
     }
@@ -82,19 +86,22 @@ class SmbDeviceScannerObservable : Observable<ComputerParcelable>() {
      */
     override fun subscribeActual(observer: Observer<in ComputerParcelable>) {
         this.observer = observer
+        observer.onSubscribe(Disposables.empty())
         this.disposable =
             merge(
                 discoverDeviceStrategies.map { strategy ->
-                    fromCallable {
+                    create<ComputerParcelable> { emitter ->
                         strategy.discoverDevices { addr ->
-                            observer.onNext(ComputerParcelable(addr.addr, addr.name))
+                            if (!emitter.isDisposed) {
+                                emitter.onNext(addr)
+                            }
                         }
+                        emitter.setCancellable { strategy.onCancel() }
                     }.subscribeOn(Schedulers.io())
                 },
-            ).observeOn(Schedulers.computation()).doOnComplete {
-                discoverDeviceStrategies.forEach { strategy ->
-                    strategy.onCancel()
-                }
-            }.subscribe()
+            ).observeOn(Schedulers.computation()).subscribe(
+                { computer -> observer.onNext(computer) },
+                { error -> observer.onError(error) },
+            )
     }
 }

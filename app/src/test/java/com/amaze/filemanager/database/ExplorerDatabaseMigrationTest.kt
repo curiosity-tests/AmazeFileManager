@@ -21,7 +21,7 @@
 package com.amaze.filemanager.database
 
 import android.os.Build
-import android.os.Build.VERSION_CODES.KITKAT
+import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import androidx.room.Room
 import androidx.sqlite.db.framework.FrameworkSQLiteOpenHelperFactory
@@ -44,7 +44,7 @@ import java.io.IOException
 @RunWith(AndroidJUnit4::class)
 @Config(
     shadows = [ShadowMultiDex::class, ShadowPasswordUtil::class],
-    sdk = [KITKAT, P, Build.VERSION_CODES.R],
+    sdk = [LOLLIPOP, P, Build.VERSION_CODES.R],
 )
 @Suppress("StringLiteralDuplication", "ComplexMethod", "LongMethod")
 class ExplorerDatabaseMigrationTest {
@@ -82,6 +82,7 @@ class ExplorerDatabaseMigrationTest {
                     ExplorerDatabase.MIGRATION_8_9,
                     ExplorerDatabase.MIGRATION_9_10,
                     ExplorerDatabase.MIGRATION_10_11,
+                    ExplorerDatabase.MIGRATION_11_12,
                 )
                 .build()
         explorerDatabase.openHelper.writableDatabase
@@ -109,6 +110,7 @@ class ExplorerDatabaseMigrationTest {
                     ExplorerDatabase.MIGRATION_8_9,
                     ExplorerDatabase.MIGRATION_9_10,
                     ExplorerDatabase.MIGRATION_10_11,
+                    ExplorerDatabase.MIGRATION_11_12,
                 )
                 .build()
         explorerDatabase.openHelper.writableDatabase
@@ -135,6 +137,7 @@ class ExplorerDatabaseMigrationTest {
                     ExplorerDatabase.MIGRATION_8_9,
                     ExplorerDatabase.MIGRATION_9_10,
                     ExplorerDatabase.MIGRATION_10_11,
+                    ExplorerDatabase.MIGRATION_11_12,
                 )
                 .build()
         explorerDatabase.openHelper.writableDatabase
@@ -212,6 +215,7 @@ class ExplorerDatabaseMigrationTest {
                     ExplorerDatabase.MIGRATION_8_9,
                     ExplorerDatabase.MIGRATION_9_10,
                     ExplorerDatabase.MIGRATION_10_11,
+                    ExplorerDatabase.MIGRATION_11_12,
                 ).allowMainThreadQueries()
                 .build()
         explorerDatabase.openHelper.writableDatabase
@@ -320,6 +324,7 @@ class ExplorerDatabaseMigrationTest {
                     ExplorerDatabase.MIGRATION_8_9,
                     ExplorerDatabase.MIGRATION_9_10,
                     ExplorerDatabase.MIGRATION_10_11,
+                    ExplorerDatabase.MIGRATION_11_12,
                 )
                 .allowMainThreadQueries()
                 .build()

@@ -1,0 +1,17 @@
+Added:
+
+* TLS option for FTPSClient
+
+Changed:
+
+* Better handle intents that start FTP service
+* Increase DEFAULT_TRANSFER_QUANTUM for file operations
+* Discard dependency info in apk and stricten cleartext traffic to local streamer only
+* Migrate fingerprint decryption dialog to use Biometrics API
+* Integrate settings for file deletion
+* 16KB page size support
+* Add checks for getting network interfaces that supports multicast
+
+Fixed:
+
+* Many fixes that don't fit in 500 characters

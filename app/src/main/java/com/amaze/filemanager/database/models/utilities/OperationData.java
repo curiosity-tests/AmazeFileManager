@@ -41,6 +41,7 @@ public abstract class OperationData {
   @ColumnInfo(name = UtilitiesDatabase.COLUMN_ID)
   public int _id;
 
+  @NonNull
   @ColumnInfo(name = UtilitiesDatabase.COLUMN_PATH)
   public String path;
 

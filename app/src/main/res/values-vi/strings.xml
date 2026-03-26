@@ -316,60 +316,8 @@
     <string name="translate_summary">Dịch Amaze sang ngôn ngữ của bạn</string>
     <string name="paypal_copy_message">Đã chép ID Paypal vào clipboard</string>
     <string name="searching_devices">Đang tìm kiếm thiết bị</string>
-    <string name="use_custom_ip">Dùng IP tuỳ chỉnh</string>
     <string name="bookmark_lost">Không phát hiện dấu trang, đang tạo lại&#8230;</string>
 
-    <string name="smb_instructions">
-        <html>
-            <body>
-                <h1>Cách truy cập thư mục Windows được chia sẻ trên Android (SMB)</h1>\n\n
-                <ul>
-                    <li>
-                        <b>Cho phép Chia sẻ Tệp trên Windows</b>\n
-                    </li>
-                    <p style='margin-left: 40px'>
-                        Mở Control Panel, nhấp vào Choose HomeGroup and Sharing options dưới Network
-                        and Internet, và click \"Change Advanced Sharing Settings,\" bật tính năng \"File and
-                        Printer Sharing\".\n\n
-                    </p>
-
-                    <li>
-                        <b>Cài đặt Chia sẻ tệp Bổ sung</b>\n
-                    </li>
-                    <p style='margin-left: 40px'>
-                       Bạn cũng có thể muốn định cấu hình các cài đặt chia sẻ nâng cao khác tại đây. \n
-                       Ví dụ, bạn có thể cho phép truy cập vào các tệp của mình mà không cần mật khẩu nếu bạn tin tưởng tất cả
-                        các thiết bị trên mạng cục bộ của bạn. Sau khi bật tính năng File and Print Sharing, bạn có thể
-                        mở File Explorer hoặc Windows Explorer, nhấp chuột phải vào thư mục bạn muốn chia sẻ và
-                        chọn Properties. \n
-                        Nhấp vào nút Share và làm cho thư mục có sẵn trên mạng.\n\n
-                        </p>
-
-                    <li>
-                        <b>Đảm bảo cả hai thiết bị đều sử dụng cùng một Wifi</b>\n
-                    </li>
-                    <p style='margin-left: 40px'>
-                        Tính năng này làm cho các tệp có sẵn trên mạng cục bộ, vì vậy PC và thiết bị di động của bạn
-                        phải trên cùng một mạng cục bộ. Bạn không thể truy cập vào một thư mục Windows được chia sẻ
-                        qua Internet hoặc khi điện thoại thông minh của bạn được kết nối với dữ liệu di động - nó
-                        phải được kết nối với Wi-Fi.\n\n
-                    </p>
-
-                    <li>
-                        <b>Tìm địa chỉ IP</b>\n
-                    </li>
-                    <p style='margin-left: 40px'>
-                        Mở Command Prompt. Nhập \'ipconfig\' và nhấn Enter. Tìm kiếm Cổng mặc định
-                        dưới bộ điều hợp mạng của bạn cho địa chỉ IP của bộ định tuyến của bạn. Tìm
-                        \\\"Địa chỉ IPv4\\\" trong cùng một phần bộ điều hợp để tìm địa chỉ IP máy tính
-                        của bạn.\n\n
-                    </p>
-
-                    <b>Nhập chi tiết vào hộp thoại SMB</b>\n
-                </ul>
-            </body>
-        </html>
-    </string>
     <string name="share_limit">Không thể chia sẻ hơn 100 tập tin</string>
     <string name="otg_access">Chọn thư mục gốc của thiết bị OTG</string>
     <string name="information">Thông tin</string>

@@ -312,60 +312,8 @@
   <string name="easter_egg_title">Studio modua</string>
     <string name="paypal_copy_message">Paypal id-a arbelera kopiatu da</string>
     <string name="searching_devices">Gailuak bilatzen</string>
-    <string name="use_custom_ip">Erabili IP pertsonalizatua</string>
     <string name="bookmark_lost">Ez da laster-marka aurkitu, birsortzen&#8230;</string>
 
-    <string name="smb_instructions">
-        <html>
-            <body>
-                <h1>Partekatutako Windows karpeta android-en atzitzeko (smb)</h1>\n\n
-                <ul>
-                    <li>
-                        <b>Gaitu fitxategiak partekatzea</b>\n
-                    </li>
-                    <p style='margin-left: 40px'>
-                        Ireki Kontrol-panela, klikatu Sarea eta Internet ataleko Aukeratu etxeko taldea eta partekatzeko aukerak
-                        eta klikatu Aldatu partekatzeko aukera aurreratuak. Gaitu fitxategiak eta
-                        inprimagailua partekatzeko ezaugarria.\n\n
-                    </p>
-
-                    <li>
-                        <b>Fitxategiak partekatzeko aukera gehigarriak</b>\n
-                    </li>
-                    <p style='margin-left: 40px'>
-                        Partekatzeko ezarpen aurreratu gehiago konfigura ditzakezu. \n
-                        Adibidez, zure sare lokaleko gailu guztietaz fidatzen bazara fitxategiak pasahitzik gabe atzitzea gaitu dezakezu.
-                        Fitxategiak eta inprimagailuak partekatzea gaituta badaude,
-                        fitxategi-arakatzailea edo Windows arakatzailea ireki dezakezu, eskuin klik egin partekatu nahi duzun karpetan eta
-                        hautatu Propietateak. \n
-                        Klikatu Partekatu botoia eta karpetan sarean eskuragarri jarri.\n\n
-                        </p>
-
-                    <li>
-                        <b>Ziurtatu bi gailuak Wifi berean daudela</b>\n
-                    </li>
-                    <p style='margin-left: 40px'>
-                        Ezaugarri honek fitxategiak sare lokalean eskuragarri jartzen ditu, horretarako zure PCak eta gailu mugikorrek
-                        sare lokal berean egon behar dute. Ezin duzu partekatutako Windows karpeta bat
-                        Internet-en zehar atzitu edo zure mugikorra datu mugikorretara konektatuta dagoenean — Wi-Fira
-                        konektatuta egon behar du.\n\n
-                    </p>
-
-                    <li>
-                        <b>Bilatu IP helbidea</b>\n
-                    </li>
-                    <p style='margin-left: 40px'>
-                        Ireki komando-gonbita. Idatzi \'ipconfig\' eta sakatu Enter. Ikusi zein den Default Gateway
-                        zure sare-moldagailuaren azpian zure bideratzailearen IP helbidea jakiteko. Begiratu
-                        \\\"IPv4 Address\\\" moldagailu beraren azpian zure ordenagailuaren IP helbidea
-                        jakiteko.\n\n
-                    </p>
-
-                    <b>Sartu datuak smb elkarrizketa-koadroan</b>\n
-                </ul>
-            </body>
-        </html>
-    </string>
     <string name="share_limit">Ezin dira 100 fitxategi baino gehiago partekatu</string>
     <string name="otg_access">Hautatu OTG gailuaren erroa</string>
     <string name="opening">Irekitzen...</string>

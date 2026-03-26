@@ -24,6 +24,7 @@ import com.amaze.filemanager.database.ExplorerDatabase;
 import com.amaze.filemanager.database.models.StringWrapper;
 import com.amaze.filemanager.database.typeconverters.EncryptedStringTypeConverter;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -37,9 +38,11 @@ public class EncryptedEntry {
   @ColumnInfo(name = ExplorerDatabase.COLUMN_ENCRYPTED_ID)
   private int _id;
 
+  @NonNull
   @ColumnInfo(name = ExplorerDatabase.COLUMN_ENCRYPTED_PATH)
   private String path;
 
+  @NonNull
   @ColumnInfo(name = ExplorerDatabase.COLUMN_ENCRYPTED_PASSWORD)
   @TypeConverters(EncryptedStringTypeConverter.class)
   private StringWrapper password;

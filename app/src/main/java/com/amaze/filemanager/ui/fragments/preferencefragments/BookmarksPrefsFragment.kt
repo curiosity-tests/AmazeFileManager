@@ -140,7 +140,7 @@ class BookmarksPrefsFragment : BasePrefsFragment() {
                             txtShortcutName.text.toString(),
                             txtShortcutPath.text.toString(),
                         ),
-                    )
+                    ).subscribe()
                     dialog.dismiss()
                 }
             }

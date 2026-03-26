@@ -80,6 +80,7 @@ class MoveFilesTask(
             // mainFrag.updateList();
             val intent = Intent(MainActivity.KEY_INTENT_LOAD_LIST)
             intent.putExtra(MainActivity.KEY_INTENT_LOAD_LIST_FILE, paths[0])
+            intent.setPackage(applicationContext.packageName)
             applicationContext.sendBroadcast(intent)
         }
 

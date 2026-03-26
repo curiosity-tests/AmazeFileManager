@@ -313,60 +313,8 @@
     <string name="translate_summary">Þýða Amaze á tungumálið þitt</string>
     <string name="paypal_copy_message">Paypal auðkenni afritað á klippispjald</string>
     <string name="searching_devices">Leita að tækjum...</string>
-    <string name="use_custom_ip">Nota sérsniðið IP-vistfang</string>
     <string name="bookmark_lost">Bókamerki fannst ekki, útbý aftur&#8230;</string>
 
-    <string name="smb_instructions">
-        <html>
-            <body>
-                <h1>Hvernig hægt er að tengjast sameiginlegri Windows-möppu á  Android (SMB)</h1>\n\n
-                <ul>
-                    <li>
-                        <b>Virkjaðu skráadeilingu á Windows</b>\n
-                    </li>
-                    <p style='margin-left: 40px'>
-                        Opnaðu stjórnskjáinn (Control Panel), smelltu á \'Choose homegroup and sharing
-                        options\' undir \'Network and Internet\' og smelltu síðan á \'Change advanced
-                        sharing settings\'. Virkjaðu deilimöguleikana fyrir skrár og prentun.\n\n
-                    </p>
-
-                    <li>
-                        <b>Viðbótarstillingar fyrir skráadeilingu</b>\n
-                    </li>
-                    <p style='margin-left: 40px'>
-                        Þú gætir einnig viljað stilla hérna aðra ítarlegri valkosti deilingar. \n
-                        Til dæmis getur þú virkjað aðgang að skránum þínum án lykilorðs EF þú treystir öllum
-                        tækjum á staðarnetinu þínu. Eftir að deiling skráa og prentunar hefur verið virkjuð, geturðu
-                        opnað File Explorer eða Windows Explorer skráastjóra, hægri-smellt á möppu sem þú vilt deila,
-                        og valið eiginleika hennar (Properties). \n
-                        Smelltu á Deila/Share hnappinn og gerðu möppuna tiltæka á netkerfinu.\n\n
-                        </p>
-
-                    <li>
-                        <b>Gakktu úr skugga um að bæði tækin séu á sama Wi-Fi-netinu</b>\n
-                    </li>
-                    <p style='margin-left: 40px'>
-                        Þessi eiginleiki gerir skrár tiltækar á staðarnetinu, þannig að tölvan þín og snjalltæki
-                        verða að vera á sama staðarneti. Þú getur ekki fengið aðgang að sameiginlegri Windows-möppu
-                        í gegnum Internetið eða þegar farsíminn er tengdur í gegnum símkerfið — hann verður að
-                        vera tendur í gegnum þráðlausa Wi-Fi-netið.\n\n
-                    </p>
-
-                    <li>
-                        <b>Finndu IP-vistfangið</b>\n
-                    </li>
-                    <p style='margin-left: 40px'>
-                        Opnaðu Command Prompt skipanalínuforritið. Skrifaðu \'ipconfig\' og ýttu á Enter. Leitaðu
-                        að \'Default Gateway\' netkortsins fyrir IP-vistfang beinisins (router). Leitaðu að 
-                        \\\"IPv4 Address\\\" undir hlutanum sem tilheyrir netkortinu til að sjá IP-vistfang 
-                        tölvunnar.\n\n
-                    </p>
-
-                    <b>Settu inn nauðsynlegar upplýsingar í SMB-glugganum</b>\n
-                </ul>
-            </body>
-        </html>
-    </string>
     <string name="share_limit">Get ekki deilt fleiri en 100 skrám</string>
     <string name="otg_access">Veldu rót OTG tækis</string>
     <string name="information">Upplýsingar</string>

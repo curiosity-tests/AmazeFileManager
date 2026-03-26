@@ -239,6 +239,7 @@ class MainActivityViewModel(val applicationContext: Application) :
                         val intent = Intent(MainActivity.KEY_INTENT_LOAD_LIST)
                         hybridFile.getParent(applicationContext)?.let {
                             intent.putExtra(MainActivity.KEY_INTENT_LOAD_LIST_FILE, it)
+                            intent.setPackage(applicationContext.packageName)
                             applicationContext.sendBroadcast(intent)
                         }
                         return true
@@ -295,6 +296,7 @@ class MainActivityViewModel(val applicationContext: Application) :
                         val intent = Intent(MainActivity.KEY_INTENT_LOAD_LIST)
                         hybridFile.getParent(applicationContext)?.let {
                             intent.putExtra(MainActivity.KEY_INTENT_LOAD_LIST_FILE, it)
+                            intent.setPackage(applicationContext.packageName)
                             applicationContext.sendBroadcast(intent)
                         }
                         return true

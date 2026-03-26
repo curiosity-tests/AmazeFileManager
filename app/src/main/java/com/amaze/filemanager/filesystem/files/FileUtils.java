@@ -968,8 +968,20 @@ public class FileUtils {
 
   /** Convenience method to return if a path points to a compressed file. */
   public static boolean isCompressedFile(String path) {
-    @Nullable String extension = MimeTypes.getExtension(path);
-    return ArraysKt.indexOf(COMPRESSED_FILE_EXTENSIONS, extension) > -1;
+    if (path == null) return false;
+
+    // Normalize input: trim leading/trailing whitespace first
+    String normalizedPath = path.trim();
+    if (normalizedPath.isEmpty()) return false;
+
+    // Extract extension using MimeTypes helper, then normalize it
+    String extension = MimeTypes.getExtension(normalizedPath);
+    if (!extension.isEmpty()) {
+      extension = extension.trim().toLowerCase(Locale.getDefault());
+      return ArraysKt.indexOf(COMPRESSED_FILE_EXTENSIONS, extension) > -1;
+    }
+
+    return false;
   }
 
   /** Converts ArrayList of HybridFileParcelable to ArrayList of File */

@@ -240,6 +240,7 @@
     <string name="needs_access_summary">ルートディレクトリーを選択してください \\t</string>
     <string name="needs_access_summary1">\\t操作するために書き込みアクセスを付与します </string>
     <string name="smb_connection">SMB 接続</string>
+    <string name="smb_server">SMB サーバーホスト名</string>
     <string name="server_address">サーバー IP アドレス</string>
     <string name="username">ユーザー名</string>
     <string name="password">パスワード</string>
@@ -316,57 +317,9 @@
     <string name="translate_summary">Amaze をお使いの言語に翻訳します</string>
     <string name="paypal_copy_message">PayPal ID をクリップボードにコピーしました</string>
     <string name="searching_devices">デバイスの検索中</string>
-    <string name="use_custom_ip">カスタム IP を使用する</string>
+    <string name="smb_manual_enter_host">ホスト名を手動で入力</string>
     <string name="bookmark_lost">ブックマークが見つかりません。再作成中&#8230;</string>
 
-    <string name="smb_instructions">
-<html>
-<body>
-<h1>Android で共有の Windows フォルダーにアクセスする方法 (SMB)</h1>\n\n
-<ul>
-<li>
-<b>Windows でファイル共有を有効にします</b>\n
-</li>
-<p style='margin-left: 40px'>コントロールパネルを開き、ネットワークとインターネットの下のホームグループと共有オプションを選択をクリックし、
-共有の詳細設定の変更をクリックします。
-ファイルとプリンターの共有機能を有効にします。\n\n
-</p>
-
-<li>
-<b>追加のファイル共有設定</b>\n
-</li>
-<p style='margin-left: 40px'>
-また、その他の詳細な共有設定はここにあります。 \n
-たとえば、ローカルネットワーク上のデバイスをすべての信頼する場合は、
-パスワードなしでファイルへのアクセスを有効にすることができます。
-ファイルとプリンタの共有が有効になっているときは、
-ファイルエクスプローラーまたは Windows エクスプローラーを開き、共有するフォルダを右クリックし、
-プロパティを選択します。\n
-共有ボタンをクリックして、ネットワーク上でフォルダーを利用可能にします。\n\n
-</p>
-<li>
-<b>両方のデバイスが同じ Wifi に接続されていることを確認します。</b> \n
-</li>
-<p style='margin-left: 40px'>
-この機能により、ローカルネットワーク上でファイルを利用できるようになります。そのため、PC とモバイルデバイスは、
-同じローカルネットワーク上にいる必要があります。インターネットを介して、またはスマートフォンがモバイルデータに接続されているときは
-共有 Windows フォルダーにアクセスできません — 
-Wi-Fiに接続する必要があります。\n\n
-</p>
-<li>
-
-<b>IP アドレスの検索</b>\n
-</li>
-<p style='margin-left: 40px'>
-コマンドプロンプトを開きます。 \'ipconfig\' と入力し、Enter キーを押します。
-お使いのルーターの IP アドレス用のネットワークアダプターの下にあるデフォルトゲートウェイを探します。
-同じアダプタセクションの下の \"IPv4 アドレス\" を探して、コンピュータの IP アドレスを確認します。\n\n
-</p>
-
-<b>詳細を SMB ダイアログボックスに入力します</b>\n
-</ul>
-</body>
-</html></string>
     <string name="share_limit">100 ファイル以上を共有することはできません</string>
     <string name="otg_access">OTG デバイスのルートを選択</string>
     <string name="information">情報</string>

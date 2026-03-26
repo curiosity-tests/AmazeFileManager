@@ -84,11 +84,12 @@ class SelectionPopupMenu(
         when (item?.itemId) {
             R.id.select_all -> {
                 // select_all
-                recyclerAdapter.toggleChecked(
-                    !recyclerAdapter
-                        .areAllChecked(currentPath),
-                    currentPath,
-                )
+                if (!recyclerAdapter.areAllChecked(currentPath)) {
+                    recyclerAdapter.toggleChecked(
+                        true,
+                        currentPath,
+                    )
+                }
             }
             R.id.select_inverse -> {
                 recyclerAdapter.toggleInverse(currentPath)

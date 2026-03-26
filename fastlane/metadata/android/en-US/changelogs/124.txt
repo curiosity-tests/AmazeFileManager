@@ -1,0 +1,4 @@
+* Fix Auto Reloading Bug
+* Fix Translations
+* Fix Media Scanner Auto Update Bug
+* Migrate File Operations to use Rust

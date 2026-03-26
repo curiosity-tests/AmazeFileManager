@@ -21,7 +21,7 @@
 package com.amaze.filemanager.database
 
 import android.os.Build
-import android.os.Build.VERSION_CODES.KITKAT
+import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Build.VERSION_CODES.P
 import android.os.Environment
 import android.os.Environment.DIRECTORY_DCIM
@@ -53,7 +53,7 @@ import java.io.File
 @RunWith(AndroidJUnit4::class)
 @Config(
     shadows = [ShadowMultiDex::class, ShadowPasswordUtil::class],
-    sdk = [KITKAT, P, Build.VERSION_CODES.R],
+    sdk = [LOLLIPOP, P, Build.VERSION_CODES.R],
 )
 class UtilsHandlerTest {
     companion object {
@@ -101,7 +101,7 @@ class UtilsHandlerTest {
             )
         AppConfig.getInstance().run {
             utilsHandler.run {
-                saveToDatabase(o)
+                saveToDatabase(o).blockingAwait()
                 val verify = smbList
                 assertEquals(1, verify.size)
                 assertEquals(
@@ -137,8 +137,8 @@ class UtilsHandlerTest {
             )
         AppConfig.getInstance().run {
             utilsHandler.run {
-                saveToDatabase(o)
-                saveToDatabase(o)
+                saveToDatabase(o).blockingAwait()
+                saveToDatabase(o).blockingAwait()
                 val verify1 = smbList
                 assertEquals(1, verify1.size)
                 val verify2 = smbList
@@ -164,10 +164,10 @@ class UtilsHandlerTest {
         val o = OperationData(UtilsHandler.Operation.HISTORY, "/storage/1234-5678/Documents")
         AppConfig.getInstance().run {
             utilsHandler.run {
-                saveToDatabase(o)
-                saveToDatabase(o)
-                saveToDatabase(o)
-                saveToDatabase(o)
+                saveToDatabase(o).blockingAwait()
+                saveToDatabase(o).blockingAwait()
+                saveToDatabase(o).blockingAwait()
+                saveToDatabase(o).blockingAwait()
                 val verify = historyLinkedList
                 assertEquals(1, verify.size)
                 assertEquals(verify[0], o.path)
@@ -223,9 +223,9 @@ class UtilsHandlerTest {
             )
         AppConfig.getInstance().run {
             utilsHandler.run {
-                saveToDatabase(o)
-                saveToDatabase(o)
-                saveToDatabase(o)
+                saveToDatabase(o).blockingAwait()
+                saveToDatabase(o).blockingAwait()
+                saveToDatabase(o).blockingAwait()
                 val verify = sftpList
                 assertEquals(1, verify.size)
                 assertEquals(o.name, verify[0][0])
@@ -261,9 +261,9 @@ class UtilsHandlerTest {
             )
         AppConfig.getInstance().run {
             utilsHandler.run {
-                saveToDatabase(o)
-                saveToDatabase(o)
-                saveToDatabase(o)
+                saveToDatabase(o).blockingAwait()
+                saveToDatabase(o).blockingAwait()
+                saveToDatabase(o).blockingAwait()
                 val verify = sftpList
                 assertEquals(1, verify.size)
                 assertEquals(o.name, verify[0][0])

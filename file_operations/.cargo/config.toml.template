@@ -1,0 +1,24 @@
+# Cargo configuration for Android cross-compilation
+# This file configures the linkers for different Android architectures
+# Generated from config.toml.template by setup_rust_android.sh
+
+[target.aarch64-linux-android]
+linker = "{{NDK_PATH}}/aarch64-linux-android{{API_LEVEL}}-clang{{EXE_SUFFIX}}"
+
+[target.armv7-linux-androideabi]
+linker = "{{NDK_PATH}}/armv7a-linux-androideabi{{API_LEVEL}}-clang{{EXE_SUFFIX}}"
+
+[target.i686-linux-android]
+linker = "{{NDK_PATH}}/i686-linux-android{{API_LEVEL}}-clang{{EXE_SUFFIX}}"
+
+[target.x86_64-linux-android]
+linker = "{{NDK_PATH}}/x86_64-linux-android{{API_LEVEL}}-clang{{EXE_SUFFIX}}"
+
+# Note: This file is auto-generated. Do not edit manually.
+# To regenerate, run: ./setup_rust_android.sh
+#
+# Configuration details:
+# - API level: {{API_LEVEL}} (matching minSdkVersion from build.gradle)
+# - Platform: {{PLATFORM}}
+# - NDK version: {{NDK_VERSION}}
+# - Android SDK: {{ANDROID_SDK_PATH}} 

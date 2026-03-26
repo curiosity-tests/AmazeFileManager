@@ -95,7 +95,7 @@ class SameSubnetDiscoverDeviceStrategy : SmbDeviceScannerObservable.DiscoverDevi
     }
 
     private fun getNeighbourhoodHosts(): List<InetAddress> {
-        val deviceAddress = NetworkUtil.getLocalInetAddress(AppConfig.getInstance())
+        val deviceAddress = NetworkUtil.getLocalInetAddress(AppConfig.getInstance(), requestMulticast = true)
         return deviceAddress?.let { addr ->
             if (addr is Inet6Address) {
                 // IPv6 neigbourhood hosts can be very big - that should use wsdd instead; hence

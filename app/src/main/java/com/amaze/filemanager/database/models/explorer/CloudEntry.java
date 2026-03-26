@@ -26,6 +26,7 @@ import com.amaze.filemanager.database.typeconverters.EncryptedStringTypeConverte
 import com.amaze.filemanager.database.typeconverters.OpenModeTypeConverter;
 import com.amaze.filemanager.fileoperations.filesystem.OpenMode;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -43,6 +44,7 @@ public class CloudEntry {
   @TypeConverters(OpenModeTypeConverter.class)
   private OpenMode serviceType;
 
+  @NonNull
   @ColumnInfo(name = ExplorerDatabase.COLUMN_CLOUD_PERSIST)
   @TypeConverters(EncryptedStringTypeConverter.class)
   private StringWrapper persistData;

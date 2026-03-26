@@ -103,7 +103,7 @@ public class FtpNotification {
     boolean secureConnection =
         sharedPreferences.getBoolean(FtpService.KEY_PREFERENCE_SECURE, FtpService.DEFAULT_SECURE);
 
-    InetAddress address = NetworkUtil.getLocalInetAddress(context);
+    InetAddress address = NetworkUtil.getLocalInetAddress(context, false);
 
     String address_text = "Address not found";
 

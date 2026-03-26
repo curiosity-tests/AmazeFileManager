@@ -100,7 +100,10 @@ object NetworkUtil {
      * Caveat: doesn't handle IPv6 addresses well. Forcing return IPv4 if possible.
      */
     @JvmStatic
-    fun getLocalInetAddress(context: Context): InetAddress? {
+    fun getLocalInetAddress(
+        context: Context,
+        requestMulticast: Boolean = false,
+    ): InetAddress? {
         if (!isConnectedToLocalNetwork(context)) {
             return null
         }
@@ -112,14 +115,25 @@ object NetworkUtil {
             return if (ipAddress == 0) null else intToInet(ipAddress)
         }
         runCatching {
-            NetworkInterface.getNetworkInterfaces().iterator().forEach { netinterface ->
-                netinterface.inetAddresses.iterator().forEach { address ->
+            NetworkInterface.getNetworkInterfaces().iterator().forEach { networkInterface ->
+                networkInterface.inetAddresses.iterator().forEach { address ->
                     // this is the condition that sometimes gives problems
                     if (!address.isLoopbackAddress &&
                         !address.isLinkLocalAddress &&
                         address is Inet4Address
                     ) {
-                        return address
+                        if (requestMulticast) {
+                            if (networkInterface.supportsMulticast()) {
+                                return address
+                            } else {
+                                log.warn(
+                                    "network interface {} does not support multicast",
+                                    networkInterface.displayName,
+                                )
+                            }
+                        } else {
+                            return address
+                        }
                     }
                 }
             }

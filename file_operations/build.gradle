@@ -1,28 +1,26 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.google.devtools.ksp'
+apply plugin: 'org.mozilla.rust-android-gradle.rust-android'
 
 android {
+    namespace "com.amaze.filemanager.fileoperations"
     compileSdk libs.versions.compileSdk.get().toInteger()
+    ndkVersion libs.versions.ndk.get()
 
     defaultConfig {
         minSdkVersion libs.versions.minSdk.get().toInteger()
+        ndkVersion libs.versions.ndk.get()
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
 
 		multiDexEnabled true
-
-        externalNativeBuild {
-            cmake {
-                cFlags '-std=c11'
-            }
-        }
     }
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             ndk.debugSymbolLevel = 'FULL'
         }
@@ -33,8 +31,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     testOptions {
@@ -44,20 +42,38 @@ android {
         }
     }
 
-    externalNativeBuild {
-        cmake {
-            path file('src/main/c/CMakeLists.txt')
-            version '3.18.1'
-        }
-    }
-
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = '17'
     }
 }
 
+// Rust configuration
+cargo {
+    module = "./"
+    libname = "rootoperations"
+    targets = ["arm", "arm64", "x86", "x86_64"]
+    profile = "release"
+    
+    // Optional: Use cargo and rustc from the path
+    rustcCommand = "rustc"
+    cargoCommand = "cargo"
+    pythonCommand = "python3"
+}
+
 kotlin {
-    jvmToolchain(11)
+    jvmToolchain(17)
+}
+
+// Ensure Rust libraries are built before Android tasks
+afterEvaluate {
+    android.libraryVariants.all { variant ->
+        variant.outputs.all { output ->
+            def buildTask = tasks.findByName("cargoBuild")
+            if (buildTask) {
+                tasks.getByName("merge${variant.name.capitalize()}JniLibFolders").dependsOn buildTask
+            }
+        }
+    }
 }
 
 dependencies {

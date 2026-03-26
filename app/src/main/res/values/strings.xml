@@ -250,7 +250,7 @@
     <string name="needs_access_summary">Please choose the root directory of \t</string>
     <string name="needs_access_summary1">\tto grant write access to operate </string>
     <string name="smb_connection">SMB Connection</string>
-    <string name="smb_server">Server IP Address</string>
+    <string name="smb_server">SMB Server Hostname</string>
     <string name="server_address">Server IP Address</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -327,60 +327,77 @@
     <string name="translate_summary">Translate Amaze in your language</string>
     <string name="paypal_copy_message">PayPal ID copied to clipboard</string>
     <string name="searching_devices">Searching for devices</string>
-    <string name="use_custom_ip">Use custom IP</string>
+    <string name="smb_manual_enter_host">Enter Hostname Manually</string>
     <string name="bookmark_lost">Bookmark not found, recreating&#8230;</string>
 
-    <string name="smb_instructions">
+    <string name="smb_instructions"><![CDATA[
         <html>
             <body>
-                <h1>How to access shared Windows folder on Android (SMB)</h1>\n\n
+                <h1>How to access shared Windows folder on Android (SMB)</h1>
+                <br/>
+                <br/>
                 <ul>
                     <li>
-                        <b>Enable File Sharing on Windows</b>\n
+                        <b>Enable File Sharing on Windows</b>
+                        <br/>
                     </li>
-                    <p style='margin-left: 40px'>
+                    <p style=&quot;margin-left: 40px&quot;>
                         Open the Control Panel, click Choose HomeGroup and Sharing options under Network
-                        and Internet, and click "Change Advanced Sharing Settings," enable the "File and
-                        Printer Sharing" feature.\n\n
+                        and Internet, and click &quot;Change Advanced Sharing Settings&quot;, enable the &quot;File and
+                        Printer Sharing&quot; feature.
+                        <br/>
+                        <br/>
                     </p>
 
                     <li>
-                        <b>Additional File Sharing settings</b>\n
+                        <b>Additional File Sharing settings</b>
+                        <br/>
                     </li>
-                    <p style='margin-left: 40px'>
-                        You may also want to configure the other advanced sharing settings here. \n
+                    <p style=&quot;margin-left: 40px&quot;>
+                        You may also want to configure the other advanced sharing settings here.
+                        <br/>
                         For example, you could enable access to your files without a password if you trust all
                         the devices on your local network. Once file and printer sharing is enabled, you can
                         open File Explorer or Windows Explorer, right-click a folder you want to share, and
-                        select Properties. \n
-                        Click the Share button and make the folder available on the network.\n\n
+                        select Properties.
+                        <br/>
+                        Click the Share button and make the folder available on the network.
+                        <br/>
+                        <br/>
                         </p>
 
                     <li>
-                        <b>Make sure both devices are on same Wifi</b>\n
+                        <b>Make sure both devices are on same Wifi</b>
+                        <br/>
                     </li>
-                    <p style='margin-left: 40px'>
+                    <p style=&quot;margin-left: 40px&quot;>
                         This feature makes files available on the local network, so your PC and mobile devices
-                        have to be on the same local network. You can\’t access a shared Windows folder
-                        over the Internet or when your smartphone is connected to its mobile data — it
-                        has to be connected to Wi-Fi.\n\n
+                        have to be on the same local network. You can&apos;t access a shared Windows folder
+                        over the Internet or when your smartphone is connected to its mobile data - it
+                        has to be connected to Wi-Fi.
+                        <br/>
+                        <br/>
                     </p>
 
                     <li>
-                        <b>Find IP Address</b>\n
+                        <b>Find IP Address</b>
+                        <br/>
                     </li>
-                    <p style='margin-left: 40px'>
-                        Open Command Prompt. Type \'ipconfig\' and press Enter. Look for Default Gateway
-                        under your network adapter for your router\'s IP address. Look for
-                        \\\"IPv4 Address\\\" under the same adapter section to find your computer\'s IP
-                        address.\n\n
+                    <p style=&quot;margin-left: 40px&quot;>
+                        Open Command Prompt. Type &quot;ipconfig&quot; and press Enter. Look for Default Gateway
+                        under your network adapter for your router&apos;s IP address. Look for
+                        &quot;IPv4 Address&quot; under the same adapter section to find your computer&apos;s IP
+                        address.
+                        <br/>
+                        <br/>
                     </p>
 
-                    <b>Enter details in SMB dialog box</b>\n
+                    <b>Enter details in SMB dialog box</b>
+                    <br/>
                 </ul>
             </body>
         </html>
-    </string>
+    ]]></string>
     <string name="share_limit">Can\'t share more than 100 files</string>
     <string name="otg_access">Select the root of OTG device</string>
     <string name="information">Information</string>
@@ -642,14 +659,14 @@
     <string name="encrypt_option_use_aze">Use Amaze Encryption Format</string>
     <string name="encrypt_option_use_aescrypt_desc"><![CDATA[
         <p>AESCrypt is an open source file encryption format based on AES encryption. It is also portable, can be decrypted with AESCrypt programs on other platforms.</p>
-        <p><a href="https://www.aescrypt.com" target="_blank>AESCrypt website</a></p>]]>
-    </string>
+        <p>AESCrypt website: https://www.aescrypt.com</p>
+    ]]></string>
     <string name="encrypt_option_use_azecrypt_desc"><![CDATA[
-        <p>Amaze\'s Encryption Format is also based on AES encryption; but different from AESCrypt format, it can only be decrypted by this device; also you must not uninstall Amaze File Manager from this device nor change the way you lock screen, otherwise you will have no way to recover the encrypted file.</p>
+        <p>Amaze&apos;s Encryption Format is also based on AES encryption; but different from AESCrypt format, it can only be decrypted by this device; also you must not uninstall Amaze File Manager from this device nor change the way you lock screen, otherwise you will have no way to recover the encrypted file.</p>
     ]]></string>
     <string name="encrypt_file_must_end_with_aze">Encrypted files must use \".aze\" as the file extension.</string>
     <string name="encrypt_file_must_end_with_aes">Encrypted files must use \".aes\" as the file extension.</string>
-    <string name="error_aescrypt_decrypt_failed">Cannot decrypt \'%s\': \'%s\'</string>
+    <string name="error_aescrypt_decrypt_failed">Cannot decrypt \'%1$s\': \'%2$s\'</string>
     <string name="cannot_overwrite">Cannot overwrite file.</string>
     <string name="saved_single_file">File saved as \'%s\'.</string>
     <string name="saved_multi_files">%d files saved.</string>
@@ -759,9 +776,15 @@ You only need to do this once, until the next time you select a new location for
     <string name="select_similar">Select similar</string>
     <string name="select_fill">Select fill</string>
     <string name="error_fetching_google_play_product_list">Error fetching product list from Google Play.</string>
-    <string name="grant_all_files_permission"><html><body>Since Android 11, Google requests File Managers to request user permission for managing all files on the device. Details <a href="https://developer.android.com/training/data-storage/manage-all-files" target="_blank">here</a>.
-        \n\nAmaze File Manager needs this permission too. After pressing &quot;Grant&quot;here, please select <b>Allow access to manage all files</b> option on the next screen.
-        \n\n<font color='#ff6347'><i>Canceling this dialog will exit the app.</i></font></body></html></string>
+    <string name="grant_all_files_permission"><![CDATA[
+        <html>
+            <body>
+                Since Android 11, Google requests File Managers to request user permission for managing all files on the device. Details available at https://developer.android.com/training/data-storage/manage-all-files.<br/><br/>
+                Amaze File Manager needs this permission too. After pressing &apos;Grant&apos;, please select <b>Allow access to manage all files</b> option on the next screen.<br/><br/>
+                <font color=&apos;#ff6347&apos;><i>Canceling this dialog will exit the app.</i></font>
+            </body>
+        </html>
+    ]]></string>
     <string name="user_apps">User apps</string>
     <string name="appearance">Appearance</string>
     <string name="behavior">Behavior</string>
@@ -770,6 +793,7 @@ You only need to do this once, until the next time you select a new location for
     <string name="behavior_summary">Modify behaviors such as advanced search and whether to open files as a new task</string>
     <string name="security_summary">Set up password and encryption</string>
     <string name="backup_summary">Export/Import Amaze settings</string>
+
 
     <string name="pref_export">Export</string>
     <string name="pref_export_summary">Export settings</string>
@@ -800,6 +824,8 @@ You only need to do this once, until the next time you select a new location for
     <string name="error_cannot_get_package_info">Unable to get package info from file \"%s\". Either the specified file is not an APK, or the package file is corrupt.</string>
     <string name="preference_delete_confirmation">Delete confirmation</string>
     <string name="preference_delete_confirmation_summary">Ask for confirmation before deleting files. Disabling this is highly discouraged!</string>
+    <string name="preference_delete_permanently_without_confirmation">Delete permanently (Disable Trashbin)</string>
+    <string name="preference_delete_permanently_without_confirmation_summary">Delete files permanently without moving to trashbin. Enabling this is highly discouraged!</string>
     <string name="protocol_ssh" translatable="false">SSH/SFTP</string>
     <string name="protocol_ftp" translatable="false">FTP</string>
     <string name="protocol_ftps">Secure FTP</string>
@@ -810,7 +836,7 @@ You only need to do this once, until the next time you select a new location for
     <string name="importing_completed">Importing completed</string>
     <string name="invalid_backup_file">Invalid backup file</string>
     <string name="import_failed_for">Import failed for:</string>
-    <string name="free_of">"%s\n%s free of %s</string>
+    <string name="free_of">%s\n%s free of %s</string>
     <string name="cloud_error_fdroid">Amaze Cloud Plugin not supported with F-Droid version. Please use Play Store version of Amaze.</string>
     <string name="disable_player_intent_filters">Disable player intent filters</string>
     <string name="disable_player_intent_filters_summary">Disables Amaze inbuilt media players from file chooser</string>
@@ -848,5 +874,6 @@ You only need to do this once, until the next time you select a new location for
     <string name="trash_bin_retention_bytes_summary">Maximum data (in MBs) trash bin can store</string>
     <string name="trash_bin_cleanup_interval_title">Cleanup interval</string>
     <string name="trash_bin_cleanup_interval_summary">Trigger auto-cleanup interval (hours)</string>
+    <string name="file_deletion">File Deletion</string>
 </resources>
 

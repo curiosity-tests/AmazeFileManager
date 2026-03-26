@@ -25,6 +25,7 @@ import com.amaze.filemanager.filesystem.files.FileUtils;
 
 import android.content.SharedPreferences;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -37,9 +38,11 @@ public class Tab {
   @ColumnInfo(name = ExplorerDatabase.COLUMN_TAB_NO)
   public final int tabNumber;
 
+  @NonNull
   @ColumnInfo(name = ExplorerDatabase.COLUMN_PATH)
   public final String path;
 
+  @NonNull
   @ColumnInfo(name = ExplorerDatabase.COLUMN_HOME)
   public final String home;
 

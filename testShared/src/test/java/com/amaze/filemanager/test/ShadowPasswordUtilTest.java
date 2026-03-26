@@ -20,7 +20,7 @@
 
 package com.amaze.filemanager.test;
 
-import static android.os.Build.VERSION_CODES.KITKAT;
+import static android.os.Build.VERSION_CODES.LOLLIPOP;
 import static android.os.Build.VERSION_CODES.P;
 import static org.awaitility.Awaitility.await;
 import static org.junit.Assert.assertEquals;
@@ -56,7 +56,7 @@ import io.reactivex.schedulers.Schedulers;
 @RunWith(AndroidJUnit4.class)
 @Config(
     shadows = {ShadowMultiDex.class, ShadowPasswordUtil.class},
-    sdk = {KITKAT, P, Build.VERSION_CODES.R})
+    sdk = {LOLLIPOP, P, Build.VERSION_CODES.R})
 public class ShadowPasswordUtilTest {
 
   @Before
@@ -95,14 +95,16 @@ public class ShadowPasswordUtilTest {
     String fingerprint = "00:11:22:33:44:55:66:77:88:99:aa:bb:cc:dd:ee:ff";
     String url = "ssh://test:test@127.0.0.1:22";
 
-    utilsHandler.saveToDatabase(
-        new OperationData(
-            UtilsHandler.Operation.SFTP,
-            NetCopyClientUtils.INSTANCE.encryptFtpPathAsNecessary(url),
-            "Test",
-            fingerprint,
-            null,
-            null));
+    utilsHandler
+        .saveToDatabase(
+            new OperationData(
+                UtilsHandler.Operation.SFTP,
+                NetCopyClientUtils.INSTANCE.encryptFtpPathAsNecessary(url),
+                "Test",
+                fingerprint,
+                null,
+                null))
+        .blockingAwait();
 
     await()
         .atMost(10, TimeUnit.SECONDS)

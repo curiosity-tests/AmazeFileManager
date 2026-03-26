@@ -27,6 +27,7 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.ServiceInfo
 import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.KITKAT
 import android.os.Build.VERSION_CODES.LOLLIPOP
@@ -38,6 +39,8 @@ import android.os.IBinder
 import android.os.PowerManager
 import android.os.SystemClock
 import android.provider.DocumentsContract
+import androidx.core.app.ServiceCompat
+import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 import com.amaze.filemanager.BuildConfig
 import com.amaze.filemanager.R
@@ -50,6 +53,10 @@ import com.amaze.filemanager.ui.notifications.FtpNotification
 import com.amaze.filemanager.ui.notifications.NotificationConstants
 import com.amaze.filemanager.utils.ObtainableServiceBinder
 import com.amaze.filemanager.utils.PasswordUtil
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import org.apache.ftpserver.ConnectionConfigFactory
 import org.apache.ftpserver.FtpServer
 import org.apache.ftpserver.FtpServerFactory
@@ -59,13 +66,13 @@ import org.apache.ftpserver.ssl.ClientAuth
 import org.apache.ftpserver.ssl.impl.DefaultSslConfiguration
 import org.apache.ftpserver.usermanager.impl.BaseUser
 import org.apache.ftpserver.usermanager.impl.WritePermission
-import org.greenrobot.eventbus.EventBus
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.io.IOException
 import java.security.GeneralSecurityException
 import java.security.KeyStore
 import java.util.LinkedList
+import java.util.concurrent.TimeUnit
 import javax.net.ssl.KeyManagerFactory
 import javax.net.ssl.TrustManagerFactory
 import kotlin.concurrent.thread
@@ -77,6 +84,7 @@ import kotlin.concurrent.thread
  * Edited by zent-co on 30-07-2019 Edited by bowiechen on 2019-10-19.
  */
 class FtpService : Service(), Runnable {
+    private val serviceScope = CoroutineScope(Dispatchers.Default + SupervisorJob())
     private val binder: IBinder = ObtainableServiceBinder(this)
 
     // Service will broadcast via event bus when server start/stop
@@ -92,6 +100,12 @@ class FtpService : Service(), Runnable {
     private var isPasswordProtected = false
     private var isStartedByTile = false
     private lateinit var wakeLock: PowerManager.WakeLock
+
+    private fun publishEvent(event: FtpReceiverActions) {
+        serviceScope.launch {
+            FtpEventBus.emit(event)
+        }
+    }
 
     override fun onStartCommand(
         intent: Intent?,
@@ -114,8 +128,17 @@ class FtpService : Service(), Runnable {
 
         serverThread = thread(block = this::run)
         val notification = FtpNotification.startNotification(applicationContext, isStartedByTile)
-        startForeground(NotificationConstants.FTP_ID, notification)
-        return START_NOT_STICKY
+        if (SDK_INT >= Q) {
+            ServiceCompat.startForeground(
+                this,
+                NotificationConstants.FTP_ID,
+                notification,
+                ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC,
+            )
+        } else {
+            startForeground(NotificationConstants.FTP_ID, notification)
+        }
+        return START_STICKY
     }
 
     override fun onCreate() {
@@ -132,6 +155,8 @@ class FtpService : Service(), Runnable {
 
     @Suppress("LongMethod")
     override fun run() {
+        // Acquire the WakeLock for 1 hour, per recommended.
+        wakeLock.acquire(TimeUnit.HOURS.toMillis(1L))
         val preferences = PreferenceManager.getDefaultSharedPreferences(this)
         FtpServerFactory().run {
             val connectionConfigFactory = ConnectionConfigFactory()
@@ -164,7 +189,7 @@ class FtpService : Service(), Runnable {
                 }.onFailure {
                     log.warn("failed to decrypt password in ftp service", it)
                     AppConfig.toast(applicationContext, R.string.error)
-                    preferences.edit().putString(KEY_PREFERENCE_PASSWORD, "").apply()
+                    preferences.edit { putString(KEY_PREFERENCE_PASSWORD, "") }
                     isPasswordProtected = false
                 }
             }
@@ -213,9 +238,9 @@ class FtpService : Service(), Runnable {
                         )
                     fac.isImplicitSsl = true
                 } catch (e: GeneralSecurityException) {
-                    preferences.edit().putBoolean(KEY_PREFERENCE_SECURE, false).apply()
+                    preferences.edit { putBoolean(KEY_PREFERENCE_SECURE, false) }
                 } catch (e: IOException) {
-                    preferences.edit().putBoolean(KEY_PREFERENCE_SECURE, false).apply()
+                    preferences.edit { putBoolean(KEY_PREFERENCE_SECURE, false) }
                 }
             }
             fac.port = getPort(preferences)
@@ -226,23 +251,22 @@ class FtpService : Service(), Runnable {
                 server =
                     createServer().apply {
                         start()
-                        EventBus.getDefault()
-                            .post(
-                                if (isStartedByTile) {
-                                    FtpReceiverActions.STARTED_FROM_TILE
-                                } else {
-                                    FtpReceiverActions.STARTED
-                                },
-                            )
+                        publishEvent(
+                            if (isStartedByTile) {
+                                FtpReceiverActions.STARTED_FROM_TILE
+                            } else {
+                                FtpReceiverActions.STARTED
+                            },
+                        )
                     }
             }.onFailure {
-                EventBus.getDefault().post(FtpReceiverActions.FAILED_TO_START)
+                wakeLock.release()
+                publishEvent(FtpReceiverActions.FAILED_TO_START)
             }
         }
     }
 
     override fun onDestroy() {
-        wakeLock.release()
         serverThread?.let { serverThread ->
             serverThread.interrupt()
             // wait 10 sec for server thread to finish
@@ -252,8 +276,12 @@ class FtpService : Service(), Runnable {
                 Companion.serverThread = null
             }
             server?.stop().also {
-                EventBus.getDefault().post(FtpReceiverActions.STOPPED)
+                publishEvent(FtpReceiverActions.STOPPED)
             }
+        }
+
+        if (wakeLock.isHeld) {
+            wakeLock.release()
         }
     }
 
@@ -301,39 +329,6 @@ class FtpService : Service(), Runnable {
         const val TAG_STARTED_BY_TILE = "started_by_tile"
         // attribute of action_started, used by notification
 
-        private lateinit var _enabledCipherSuites: Array<String>
-
-        init {
-            _enabledCipherSuites =
-                LinkedList<String>().apply {
-                    if (SDK_INT >= Q) {
-                        add("TLS_AES_128_GCM_SHA256")
-                        add("TLS_AES_256_GCM_SHA384")
-                        add("TLS_CHACHA20_POLY1305_SHA256")
-                    }
-                    if (SDK_INT >= N) {
-                        add("TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256")
-                        add("TLS_ECDHE_PSK_WITH_CHACHA20_POLY1305_SHA256")
-                    }
-                    if (SDK_INT >= LOLLIPOP) {
-                        add("TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA")
-                        add("TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256")
-                        add("TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA")
-                        add("TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384")
-                        add("TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA")
-                        add("TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256")
-                        add("TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA")
-                        add("TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384")
-                        add("TLS_RSA_WITH_AES_128_GCM_SHA256")
-                        add("TLS_RSA_WITH_AES_256_GCM_SHA384")
-                    }
-                    if (SDK_INT < LOLLIPOP) {
-                        add("TLS_RSA_WITH_AES_128_CBC_SHA")
-                        add("TLS_RSA_WITH_AES_256_CBC_SHA")
-                    }
-                }.toTypedArray()
-        }
-
         /**
          * Return a list of available ciphers for ftpserver.
          *
@@ -344,7 +339,34 @@ class FtpService : Service(), Runnable {
          * @see [javax.net.ssl.SSLEngine]
          */
         @JvmStatic
-        val enabledCipherSuites = _enabledCipherSuites
+        val enabledCipherSuites: Array<String> =
+            LinkedList<String>().apply {
+                if (SDK_INT >= Q) {
+                    add("TLS_AES_128_GCM_SHA256")
+                    add("TLS_AES_256_GCM_SHA384")
+                    add("TLS_CHACHA20_POLY1305_SHA256")
+                }
+                if (SDK_INT >= N) {
+                    add("TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256")
+                    add("TLS_ECDHE_PSK_WITH_CHACHA20_POLY1305_SHA256")
+                }
+                if (SDK_INT >= LOLLIPOP) {
+                    add("TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA")
+                    add("TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256")
+                    add("TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA")
+                    add("TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384")
+                    add("TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA")
+                    add("TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256")
+                    add("TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA")
+                    add("TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384")
+                    add("TLS_RSA_WITH_AES_128_GCM_SHA256")
+                    add("TLS_RSA_WITH_AES_256_GCM_SHA384")
+                }
+                if (SDK_INT < LOLLIPOP) {
+                    add("TLS_RSA_WITH_AES_128_CBC_SHA")
+                    add("TLS_RSA_WITH_AES_256_CBC_SHA")
+                }
+            }.toTypedArray()
 
         private var serverThread: Thread? = null
         private var server: FtpServer? = null

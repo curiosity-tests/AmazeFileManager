@@ -21,6 +21,7 @@
 package com.amaze.filemanager.ui.dialogs;
 
 import static android.os.Build.VERSION.SDK_INT;
+import static androidx.core.text.HtmlCompat.FROM_HTML_MODE_COMPACT;
 import static com.amaze.filemanager.ui.fragments.preferencefragments.PreferencesConstants.PREFERENCE_SORTBY_ONLY_THIS;
 
 import java.io.File;
@@ -92,8 +93,11 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.text.InputType;
 import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.format.Formatter;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -107,6 +111,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatCheckBox;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.text.HtmlCompat;
 import androidx.core.text.TextUtilsCompat;
 import androidx.core.view.ViewCompat;
 import androidx.preference.PreferenceManager;
@@ -121,15 +126,25 @@ public class GeneralDialogCreation {
   private static final Logger LOG = LoggerFactory.getLogger(GeneralDialogCreation.class);
 
   public static MaterialDialog showBasicDialog(
-      ThemedActivity themedActivity,
+      @NonNull ThemedActivity themedActivity,
       @StringRes int content,
       @StringRes int title,
       @StringRes int postiveText,
       @StringRes int negativeText) {
+    return showBasicDialog(themedActivity, content, title, postiveText, negativeText, false);
+  }
+
+  public static MaterialDialog showBasicDialog(
+      @NonNull ThemedActivity themedActivity,
+      @StringRes int content,
+      @StringRes int title,
+      @StringRes int postiveText,
+      @StringRes int negativeText,
+      boolean hasHtml) {
     int accentColor = themedActivity.getAccent();
-    MaterialDialog.Builder a =
+    MaterialDialog.Builder dialogBuilder =
         new MaterialDialog.Builder(themedActivity)
-            .content(content)
+            .content("") // HACK make it empty and then fill it manually for links to work
             .widgetColor(accentColor)
             .theme(themedActivity.getAppTheme().getMaterialDialogTheme())
             .title(title)
@@ -137,7 +152,17 @@ public class GeneralDialogCreation {
             .positiveColor(accentColor)
             .negativeText(negativeText)
             .negativeColor(accentColor);
-    return a.build();
+    MaterialDialog dialog = dialogBuilder.build();
+
+    if (hasHtml) {
+      dialog.getContentView().setMovementMethod(LinkMovementMethod.getInstance());
+      dialog.getContentView().setAutoLinkMask(Linkify.WEB_URLS);
+      dialog.getContentView().setLinksClickable(true);
+      dialog
+          .getContentView()
+          .setText(HtmlCompat.fromHtml(themedActivity.getString(content), FROM_HTML_MODE_COMPACT));
+    }
+    return dialog;
   }
 
   public static MaterialDialog showNameDialog(
@@ -209,6 +234,10 @@ public class GeneralDialogCreation {
         sharedPreferences.getBoolean(
             PreferencesConstants.PREFERENCE_DELETE_CONFIRMATION,
             PreferencesConstants.DEFAULT_PREFERENCE_DELETE_CONFIRMATION);
+    boolean deletePermanently =
+        sharedPreferences.getBoolean(
+            PreferencesConstants.PREFERENCE_DELETE_PERMANENTLY_WITHOUT_CONFIRMATION,
+            PreferencesConstants.DEFAULT_PREFERENCE_DELETE_PERMANENTLY_WITHOUT_CONFIRMATION);
     View dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_delete, null);
     TextView deleteDisclaimerTextView = dialogView.findViewById(R.id.dialog_delete_disclaimer);
     final AppCompatCheckBox deletePermanentlyCheckbox =
@@ -216,7 +245,11 @@ public class GeneralDialogCreation {
     if (positions.get(0).generateBaseFile().isLocal()) {
       // FIXME: make sure dialog is not shown for zero items
       // allow trash bin delete only for local files for now
-      deletePermanentlyCheckbox.setVisibility(View.VISIBLE);
+      if (deletePermanently) {
+        deletePermanentlyCheckbox.setVisibility(View.GONE);
+      } else {
+        deletePermanentlyCheckbox.setVisibility(View.VISIBLE);
+      }
     } else {
       deleteDisclaimerTextView.setText(context.getString(R.string.dialog_delete_disclaimer));
     }
@@ -1022,8 +1055,11 @@ public class GeneralDialogCreation {
   }
 
   public static void showSMBHelpDialog(Context m, int accentColor) {
+    final @NonNull Spanned text =
+        HtmlCompat.fromHtml(m.getString(R.string.smb_instructions), FROM_HTML_MODE_COMPACT);
+
     MaterialDialog.Builder b = new MaterialDialog.Builder(m);
-    b.content(m.getText(R.string.smb_instructions));
+    b.content(text);
     b.positiveText(R.string.doit);
     b.positiveColor(accentColor);
     b.build().show();
