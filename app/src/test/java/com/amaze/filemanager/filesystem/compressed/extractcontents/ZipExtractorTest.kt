@@ -78,9 +78,14 @@ class ZipExtractorTest : AbstractArchiveExtractorTest() {
             extractor.invalidArchiveEntries.any { "POC_ZIP_PROOF" in it },
         )
         // … and must NOT have been written outside the output directory
+        val escapedFile = File(outputDir, "foo/../../POC_ZIP_PROOF.txt").canonicalFile
         assertFalse(
             "Malicious file must not escape the output directory",
-            File(outputDir.parentFile, "POC_ZIP_PROOF.txt").exists(),
+            escapedFile.exists(),
+        )
+        assertFalse(
+            "Escaped file canonical path must not reside under output directory",
+            escapedFile.canonicalPath.startsWith(outputDir.canonicalPath),
         )
     }
 }

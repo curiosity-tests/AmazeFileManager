@@ -96,13 +96,15 @@ abstract class AbstractCommonsArchiveExtractor(
         entry: ArchiveEntry,
         outputDir: String,
     ) {
+        val outputFile = File(outputDir, entry.name)
+        if (!outputFile.canonicalPath.startsWith(File(outputDir).canonicalPath + File.separator) &&
+            outputFile.canonicalPath != File(outputDir).canonicalPath
+        ) {
+            throw IOException("Incorrect archive entry path: ${entry.name}")
+        }
         if (entry.isDirectory) {
             MakeDirectoryOperation.mkdir(File(outputDir, entry.name), context)
             return
-        }
-        val outputFile = File(outputDir, entry.name)
-        if (!outputFile.canonicalPath.startsWith(File(outputDir).canonicalPath + File.separator)) {
-            throw IOException("Incorrect archive entry path: ${entry.name}")
         }
         if (false == outputFile.parentFile?.exists()) {
             MakeDirectoryOperation.mkdir(outputFile.parentFile, context)

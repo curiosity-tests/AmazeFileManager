@@ -229,10 +229,19 @@ public abstract class CompressedHelper {
   }
 
   public static boolean isEntryPathValid(String entryPath) {
-    return !entryPath.startsWith("..\\")
-        && !entryPath.startsWith("../")
-        && !entryPath.equals("..")
-        && !entryPath.contains("/../");
+    if (entryPath == null || entryPath.isEmpty()) {
+      return false;
+    }
+    // Normalize path separators to handle both Unix and Windows-style paths.
+    String normalized = entryPath.replace('\\', '/');
+    // Reject any path that attempts to traverse up the directory tree.
+    String[] segments = normalized.split("/");
+    for (String segment : segments) {
+      if ("..".equals(segment)) {
+        return false;
+      }
+    }
+    return true;
   }
 
   private static boolean isZip(String type) {
