@@ -146,11 +146,7 @@ class RarExtractor(
                 CompressedHelper.SEPARATOR,
             )
         val outputFile = File(outputDir, name)
-        val canonicalOutput = outputFile.canonicalPath
-        val canonicalDir = File(outputDir).canonicalPath + File.separator
-        if (!canonicalOutput.startsWith(canonicalDir)) {
-            throw IOException("Incorrect RAR FileHeader path!")
-        }
+        checkEntryPath(outputFile, outputDir)
         if (entry.isDirectory) {
             MakeDirectoryOperation.mkdir(outputFile, context)
             outputFile.setLastModified(entry.mTime.time)

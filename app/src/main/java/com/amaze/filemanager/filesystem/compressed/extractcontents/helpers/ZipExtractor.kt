@@ -107,14 +107,7 @@ class ZipExtractor(
         outputDir: String,
     ) {
         val outputFile = File(outputDir, fixEntryName(entry.fileName))
-        val canonicalOutput = outputFile.canonicalPath
-        val canonicalDir = File(outputDir).canonicalPath + File.separator
-        if (!canonicalOutput.startsWith(canonicalDir)) {
-            throw IOException(
-                "Refusing to extract Zip entry '${entry.fileName}' to '$canonicalOutput' " +
-                    "outside target directory '$canonicalDir'",
-            )
-        }
+        checkEntryPath(outputFile, outputDir)
         if (entry.isDirectory) {
             // zip entry is a directory, return after creating new directory
             MakeDirectoryOperation.mkdir(outputFile, context)

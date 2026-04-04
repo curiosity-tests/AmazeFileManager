@@ -106,11 +106,7 @@ class SevenZipExtractor(
         outputDir: String,
     ) {
         val outputFile = File(outputDir, entry.name)
-        if (!outputFile.canonicalPath.startsWith(File(outputDir).canonicalPath + File.separator) &&
-            outputFile.canonicalPath != File(outputDir).canonicalPath
-        ) {
-            throw IOException("Incorrect archive entry path: ${entry.name}")
-        }
+        checkEntryPath(outputFile, outputDir)
         if (entry.isDirectory) {
             MakeDirectoryOperation.mkdir(File(outputDir, entry.name), context)
             return

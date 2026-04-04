@@ -234,11 +234,18 @@ public abstract class CompressedHelper {
     }
     // Normalize path separators to handle both Unix and Windows-style paths.
     String normalized = entryPath.replace('\\', '/');
-    // Reject any path that attempts to traverse up the directory tree.
-    String[] segments = normalized.split("/");
-    for (String segment : segments) {
+    // Walk the path segments, tracking depth to detect escaping the archive root.
+    // A path like "dir/sub/.." is valid (it resolves to "dir"), but "../../evil" is not.
+    int depth = 0;
+    for (String segment : normalized.split("/")) {
       if ("..".equals(segment)) {
-        return false;
+        depth--;
+        if (depth < 0) {
+          // Path would escape the archive root.
+          return false;
+        }
+      } else if (!segment.isEmpty() && !".".equals(segment)) {
+        depth++;
       }
     }
     return true;
