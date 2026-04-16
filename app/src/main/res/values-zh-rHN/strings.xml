@@ -573,6 +573,7 @@
     <string name="encrypt_option_use_aze">使用Amaze加密格式</string>
     <string name="encrypt_file_must_end_with_aze">加密文件必须以“.aze”作为文件后缀名</string>
     <string name="encrypt_file_must_end_with_aes">加密文件必须以 aes 作为文件后缀名</string>
+    <string name="error_aescrypt_decrypt_failed">無法解密 \'%1$s\': \'%2$s\'</string>
     <string name="cannot_overwrite">覆寫唔到個檔案。</string>
     <string name="saved_single_file">檔案儲存為 \'%s\'.</string>
     <string name="saved_multi_files">儲存咗%d 個檔案。</string>
