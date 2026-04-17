@@ -183,6 +183,7 @@
     <string name="archive_text">זהו ארכיון. איזו פעולה לבצע\?</string>
     <string name="package_installer_text">זהו קובץ חבילה. איזו פעולה לבצע\?</string>
     <string name="xda_title">שרשור בפורום XDA</string>
+    <string name="xda_summary">שו״ת, עזרה ופתרון בעיות</string>
     <string name="circular_images">להשתמש בסמלים עגולים עבור תמונות וסרטונים</string>
     <string name="circular_icons">להשתמש בסמלים עגולים</string>
     <string name="follow_battery_saver_title">לאפשר חיסכון בסוללה</string>
@@ -212,6 +213,7 @@
     <string name="tamil_translation_title">טמילית</string>
 
     <string name="zip_viewer">מציג Zip</string>
+    <string name="unin_system_apk">זה הוא יישומון מערכת, מחיקתו עלולה לערער את היציבות.\nלהמשיך\?</string>
     <string name="warning">אזהרה</string>
     <string name="donate">תרומה</string>
     <string name="archive_extract_folder">תיקייה לחילוץ מארכיון</string>
@@ -244,7 +246,10 @@
     <string name="databasereader">קורא מסד נתונים</string>
     <string name="show_dividers">הצגת מפרידים</string>
     <string name="needs_access">נדרשת גישה לכתיבה</string>
+    <string name="needs_access_summary">נא לבחור את תיקיית העל של \t</string>
+    <string name="needs_access_summary1">\tכדי להעניק גישת קריאה לתפעול</string>
     <string name="smb_connection">חיבור SMB</string>
+    <string name="smb_server">שם מארח שרת SMB</string>
     <string name="server_address">כתובת IP של השרת</string>
     <string name="username">שם משתמש</string>
     <string name="password">סיסמה</string>
@@ -320,6 +325,7 @@
     <string name="translate_summary">תרגום Amaze לשפה שלך</string>
     <string name="paypal_copy_message">מזהה ה־PayPal הועתק ללוח הגזירים</string>
     <string name="searching_devices">חיפוש התקנים</string>
+    <string name="smb_manual_enter_host">נא למלא שם מארח ידנית</string>
     <string name="bookmark_lost">הסימניה לא נמצאה, נוצרת מחדש&amp;#8230;</string>
 
     <string name="share_limit">לא ניתן לשתף יותר מ־100 קבצים</string>
@@ -529,7 +535,9 @@
 	<string name="scp_connection">חיבור SCP/SFTP</string>
     <string name="ftp_connection">חיבור FTP</string>
     <string name="ftps_connection">FTP על גבי חיבור SSL</string>
+    <string name="ftps_enable_explicit_tls">TLS מפורש</string>
     <string name="scp_port">פתחה</string>
+    <string name="ssh_host_key_verification_prompt">לא ניתן לאמת את אמינות המארח ‚%1$s’.\n\nטביעת האצבע של המפתח ה־%2$s היא %3$s.\n\nנא לגעת בכפתור „כן” כדי לאמת זהות, אחרת יש ללחוץ על „לא”.</string>
     <string name="ssh_host_key_verification_prompt_title">אימות מארח</string>
     <string name="ssh_select_pem_button">מפתח SSH פרטי</string>
     <string name="ssh_pem_key_parse_error">לא ניתן לקרוא את ה־PEM הנבחר: %s</string>
@@ -538,6 +546,7 @@
     <string name="ssh_authentication_failure_key">הכניסה נכשלה: לא ניתן לבצע אימות עם שם המשתמש והמפתח הפרטי שסופקו.</string>
     <string name="ssh_connect_failed">לא ניתן להתחבר אל %1$s:%2$d: %3$s</string>
     <string name="ssh_connect_failed_host_key_changed_title">אזהרה: מזהה המארח המרוחק השתנה!</string>
+    <string name="ssh_connect_failed_host_key_changed_message">יכול להיות שמשהו פסול מתנהל מאחורי הקלעים!\n\nיכול להיות שמדובר בהאזנה שמתרחשת כרגע (סוכן אמצע)! יכול גם להיות שמפתח המארח השתנה ממש כרגע. טביעת האצבע של המפתח הציבורי שנשלח מצד המארח המרוחק אינו תואם לזו שמאוחסנת ב־Amaze.\n\nנא ליצור קשר עם הנהלת המערכת או להקים חיבור חדש כדי להמשיך ולהתחבר לשרת.</string>
     <string name="ssh_key_prompt_passphrase">נא להקליד את מילת הצופן של המפתח.</string>
     <string name="add_shortcut_not_supported_by_launcher">למסך ההפעלה שלך אין תמיכה ביצירת קיצורי דרך.</string>
     
@@ -575,7 +584,7 @@
     <string name="encrypt_option_use_aze">להשתמש בתצורת הדחיסה של Amaze</string>
     <string name="encrypt_file_must_end_with_aze">מומלץ להשתמש ב־„‎.ace” כסיומת לקובץ.</string>
     <string name="encrypt_file_must_end_with_aes">הקבצים המוצפנים חייבים להשתמש בסיומת „‎.aes”.</string>
-    <string name="error_aescrypt_decrypt_failed">לא ניתן לפענח את ‚%s’: ‚%s’</string>
+    <string name="error_aescrypt_decrypt_failed">לא ניתן לפענח את ‚%1$s’: ‚%2$s’</string>
     <string name="cannot_overwrite">לא ניתן לשכתב על קובץ.</string>
     <string name="saved_single_file">קובץ נשמר בשם ‚%s’.</string>
     <string name="saved_multi_files">%d קבצים נשמרו.</string>
@@ -594,6 +603,7 @@
     <string name="close">סגירה</string>
     <string name="bookmark_exists">הסימנייה קיימת</string>
     <string name="hide_media">הסתרה מסיירי מדיה</string>
+    <string name="ssh_connect_failed_host_key_changed_prompt">יכול להיות שמשהו פסול מתנהל מאחורי הקלעים!\n\nיכול להיות שמדובר בהאזנה שמתרחשת כרגע (סוכן אמצע)! יכול גם להיות שמפתח המארח השתנה ממש כרגע. טביעת האצבע של המפתח הציבורי שנשלח מצד המארח המרוחק אינו תואם לזו שמאוחסנת ב־Amaze.\n\nניתן להמשיך ולעדכן את טביעת האצבע של השרת או לבטל את עדכון הגדרות חיבור ה־SSH.</string>
     <string name="update_host_key">עדכון מפתח מארח</string>
     <string name="cancel_recommended">ביטול (עדיף)</string>
     <string name="failed_install_apk">ההתקנה נכשלה</string>
@@ -622,6 +632,7 @@
     <string name="error_snackbar_action">דיווח</string>
     <string name="what_device_headline">מידע:</string>
     <string name="what_happened_headline">מה קרה:</string>
+    <string name="info_labels">מה:\\nבקשה:\\nזמן בגריניץ׳:\\nחבילה:\\nגרסה:\\nגרסת מערכת הפעלה:\\nמכשיר:\\nדגם:\\nמוצר:</string>
     <string name="your_comment">ההערה שלך (באנגלית):</string>
     <string name="error_details_headline">פרטים:</string>
     <string name="app_ui_crash">היישומון/מנשק המשתמש קרס</string>
@@ -652,15 +663,19 @@
     <string name="choose_operation">נא לבחור פעולה לביצוע</string>
     <string name="remember">לזכור לפעם הבאה</string>
     <string name="ftp_prompt_accept_first_start_saf_access_title">הענקת גישת SAF לשרת FTP</string>
+    <string name="ftp_prompt_accept_first_start_saf_access">מאחר שזו הפעלת שרת ה־FTP הראשונה שלך והאחסון הפנימי של המכשיר שלך משמש כתיקייה משותפת, נא לאפשר ל־Amaze לגשת לאחסון דרך SAF.\n\n\n\nעליך לבצע זאת פעם אחת בלבד, עד הפעם הבא בה ייבחר מקום חדש לשיתוף.</string>
+    <string name="android_data_prompt_saf_access">מאז Android 10, מערכת Android כופה הגבלות על תיקיות מסוימות ויש לגשת אליהן עם תשתית הגישה לאחסון.\n\nנא לאפשר ל־Amaze גישה לתיקייה ממנהל הקבצים של המערכת על ידי לחיצה על „לאפשר גישה”.</string>
     <string name="android_data_prompt_saf_access_title">הענקת גישת לתשתית גישה לאחסון</string>
     <string name="ftp_preference_saf_filesystem_title">להשתמש במערכת קבצים מיושנת</string>
     <string name="ftp_preference_saf_filesystem">יש להפעיל את זה לקבלת תמיכה בשימוש באחסון החיצוני של המכשיר בגרסאות חדשות של Android</string>
     <string name="ftp_server_fallback_path_reset_prompt">הנתיב המשותף לשרת ה־FTP אופס לאחסון הפנימי עקב בקשתך לחזור להטמעת מערכת קבצים מיושנת. נא לבחור נתיב חדש באמצעות התפריט משמאל למעלה במקרה הצורך.</string>
     <string name="ftp_server_reset_notify">נתיב השיתוף ב־FTP התאפס לאחסון הפנימי</string>
     <string name="ftp_server_root_unavailable">הנתיב הנבחר דורש גישת משתמש על (root). נא להפעיל את סייר משתמש העל בהגדרות אם המכשיר שלך פרוץ (rooted).</string>
+    <string name="ftp_server_root_filesystem_warning">הנתיב הנבחר דורש גישת משתמש על (root), שמאפשרת פעולות קריאה/כתיבה בכל מערכת הקבצים של המכשיר שלך ונחשבת מסוכנת - טעויות תמימות עשויות לפגום בפעולת המכשיר שלך!\n\nלהמשיך\?</string>
     <string name="compressed_explorer_fragment_error_open_uri">שגיאה בפתיחת הכתובת „%s” לקריאה.</string>
     <string name="error_empty_archive">„%s” הוא ארכיון ריק.</string>
     <string name="error_bad_archive_without_info">הארכיון „%s” פגום</string>
+    <string name="error_bad_archive_with_info">„%s” הוא ארכיון פגום.\nההודעה מהמחלץ היא: „%s”</string>
     <string name="security_error">אי אפשר לפתוח את הקובץ באמצעות היישום הזה</string>
     <string name="cloud_drive_tooltip">יצירת חיבור ל־Google Drive™‎ לטובת ניהול קבצים מתוך מנהל הקבצים Amaze.</string>
     <string name="signin_with_google_title">יש לעבור אימות כדי להשתמש ב־Google Drive™‎</string>
@@ -692,6 +707,7 @@
     <string name="error_cannot_find_way_open">לא נמצאה דרך לפתוח את הקובץ</string>
     <string name="error_cant_decompress_that_file">לא ניתן לעבד את הארכיון המבוקש</string>
     <string name="analyse_storage">ניתוח האחסון</string>
+    <string name="download_amaze_utils_text">כעת תתבצע הפניה לכלי עזר לקבצים של Amaze. זה יישומון שלנו בקוד פתוח עם אפשרות לפתוח שמע/וידאו/תמונות/מסמכים, מאפשר לך לנתח קובצי פסולת לפינוי אחסון, העברה מהירה עם Wi-Fi נק׳ לנק׳ ועוד.\nאפשר לתמוך בנו על ידי התנסות בהם.</string>
     <string name="download">הורדה</string>
     <string name="wifip2p">נקודה לנקודה אלחוטית</string>
     <string name="amaze_utils_installed_alias">תודה שהתקנת את כלי הקבצים של Amaze. מיד תתבצע העברה ליישומון.</string>
@@ -704,10 +720,12 @@
     <string name="share_logs_summary">שיתוף היומנים שנאספו דרך דוא״ל / טלגרם</string>
     <string name="open_with_amaze">פתיחה עם Amaze</string>
     <string name="confirmation">אישור</string>
+    <string name="open_file_confirmation">לפתוח את הקובץ הבא\?\n\nשם:\n%s\n\nמקום:\n%s\n\nגודל:\n%s\n\nMD5:\n%s\n\nSHA256:\n%s\n\n</string>
     <string name="error_google_play_cannot_update_myself">עקב אילוץ של מדיניות מצד Google Play, ליישומונים אסור לעדכן את עצמם. נא לעדכן את היישומון דרך Google Play.</string>
     <string name="error_cannot_get_package_info">לא ניתן למשוך את פרטי החבילה מהקובץ „%s”.\nאו שזה לא קובץ APK או שקובץ החבילה פגום.</string>
     <string name="preference_delete_confirmation">אישור מחיקה</string>
     <string name="preference_delete_confirmation_summary">לבקש אישור בטרם מחיקת קבצים. השבתת האפשרות לא מומלצת כלל!</string>
+    <string name="preference_delete_permanently_without_confirmation">מחיקה לצמיתות (השבתת סל האשפה)</string>
     <string name="protocol_ftps">FTP מאובטח</string>
     <string name="unavailable">לא זמין</string>
 
@@ -753,5 +771,6 @@
     <string name="trash_bin_retention_bytes_summary">גודל הנתונים המרבי (במגה בתים) שסל האשפה יכול לאחסן</string>
     <string name="trash_bin_cleanup_interval_title">הפרש בין פינויים</string>
     <string name="trash_bin_cleanup_interval_summary">הפרשים בין ניקוי אוטומטי למשנהו (בשעות)</string>
-    </resources>
+    <string name="file_deletion">מחיקת קבצים</string>
+</resources>
 

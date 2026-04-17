@@ -573,7 +573,6 @@
     <string name="encrypt_option_use_aze">Amaze Şifreleme Biçimini Kullan</string>
     <string name="encrypt_file_must_end_with_aze">Şİfrelenmiş dosyalar \'\'.aze\'\' uzantısını kullanmak zorundadır.</string>
     <string name="encrypt_file_must_end_with_aes">Şifrelenmiş dosyalar, dosya uzantısı olarak \".aes\" kullanmalıdır.</string>
-    <string name="error_aescrypt_decrypt_failed">Şifresi çözülemiyor \'%1$s\': \'%2$s\'</string>
     <string name="cannot_overwrite">Dosya üzerine yazılamıyor.</string>
     <string name="saved_single_file">Dosya %s olarak kaydedildi.</string>
     <string name="saved_multi_files">%d dosya kaydedildi.</string>
@@ -668,6 +667,7 @@
     <string name="select_by_type">Türe göre seç</string>
     <string name="select_by_date">Tarihe göre seç</string>
     <string name="select_similar">Benzerini seç</string>
+    <string name="select_fill">Dolguyu seç</string>
     <string name="error_fetching_google_play_product_list">Google Play\'den ürün listesi getirilirken hata oluştu.</string>
     <string name="user_apps">Kullanıcı uygulamaları</string>
     <string name="appearance">Görünüm</string>
@@ -692,6 +692,8 @@
     <string name="image_viewer">Amaze Resim Görüntüleyici</string>
     <string name="video_player">Amaze Video Oynatıcı</string>
     <string name="amaze_audio_player">Amaze Müzik Çalar</string>
+    <string name="pdf_viewer">Amaze Belge Görüntüleyici</string>
+    <string name="docx_viewer">Amaze Belge Görüntüleyici</string>
     <string name="share_logs">Sistem günlüklerini paylaş</string>
     <string name="share_logs_summary">Elde edilen sistem günlüklerini e-posta/Telegram yoluyla paylaşın</string>
     <string name="open_with_amaze">Amaze ile aç</string>
@@ -703,8 +705,18 @@
     <string name="protocol_ftps">Güvenli FTP</string>
     <string name="unavailable">Kullanılamıyor</string>
 
+    <string name="importing_completed">İçe aktarım tamamlandı</string>
     <string name="cloud_error_fdroid">Amaze Cloud Eklentisi, F-Droid sürümüyle desteklenmez. Lütfen Amaze\'in Play Store sürümünü kullanın.</string>
     <string name="disable_player_intent_filters_summary">Amaze dahili medya oynatıcılarını dosya seçiciden devre dışı bırakır</string>
     <string name="no_app_found_intent">Bu eylemi işleyecek uygulama bulunamadı. DocumentsUI yüklü mü\?</string>
+    <string name="try_deep_search">Derin Aramayı Dene!</string>
+    <string name="results">Sonuçlar</string>
+    <string name="preference_language_title">Uygulama Dili</string>
+    <string name="preference_language_dialog_title">Dili Seçin</string>
+    <string name="preference_language_system_default">Sistem Varsayılanı</string>
+    <string name="delete_permanently_checkbox">Kalıcı Silme</string>
+    <string name="restore">Eskiye döndür</string>
+    <string name="restore_files">Dosyaları Eskiye Döndür</string>
+    <string name="restoring">Eskiye döndürülüyor...</string>
     </resources>
 

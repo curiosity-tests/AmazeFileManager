@@ -242,9 +242,8 @@
     <string name="databasereader">数据库读取器</string>
     <string name="show_dividers">显示分割线</string>
     <string name="needs_access">需要写入权限</string>
-    <string name="needs_access_summary">请选择根目录下的 \t</string>
-    <string name="needs_access_summary1">授予当前操作写入权限</string>
-    <string name="smb_server">SMB服务器地址</string>
+    <string name="smb_connection">SMB 连接</string>
+    <string name="server_address">服务器 IP 地址</string>
     <string name="username">用户名</string>
     <string name="password">密码</string>
     <string name="anonymous">匿名用户</string>
@@ -574,7 +573,7 @@
     <string name="encrypt_option_use_aze">使用 Amaze 加密格式</string>
     <string name="encrypt_file_must_end_with_aze">加密文件必须以“.aze”作为文件后缀名</string>
     <string name="encrypt_file_must_end_with_aes">加密文件必须以“.aze”作为文件后缀名</string>
-    <string name="error_aescrypt_decrypt_failed">无法解密 \'%1$s\': \'%2$s\'</string>
+    <string name="error_aescrypt_decrypt_failed">無法解密 \'%1$s\': \'%2$s\'</string>
     <string name="cannot_overwrite">不能覆盖已存在文件</string>
     <string name="saved_single_file">保存文件为 %s</string>
     <string name="saved_multi_files">保存了 %d 个文件</string>

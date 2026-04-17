@@ -183,6 +183,7 @@
     <string name="archive_text">Hau artxibo bat da. Zer egin nahi duzu\?</string>
     <string name="package_installer_text">Hau pakete instalatzaile bat da. Zer egin nahi duzu\?</string>
     <string name="xda_title">XDA haria</string>
+    <string name="xda_summary">Galderak, laguntza eta arazoak</string>
     <string name="circular_images">Erabili ikono zirkularrak irudi eta bideoetan</string>
     <string name="circular_icons">Erabili ikono zirkularrak</string>
     <string name="follow_battery_saver_title">Jarraitu bateria aurreztailea</string>
@@ -212,6 +213,7 @@
     <string name="tamil_translation_title">Tamilera</string>
 
     <string name="zip_viewer">Zip ikustailea</string>
+    <string name="unin_system_apk">Sistemaren aplikazio bat da hau, ezabatzeak sistema desegonkortu dezake\nJarraitu\?</string>
     <string name="warning">Abisua</string>
     <string name="donate">Egin dohaintza</string>
     <string name="archive_extract_folder">Erauzitako artxiboen karpeta</string>
@@ -244,7 +246,10 @@
     <string name="databasereader">Datu-base irakurlea</string>
     <string name="show_dividers">Erakutsi banatzaileak</string>
     <string name="needs_access">Idazteko baimena behar da</string>
+    <string name="needs_access_summary">Mesedez aukera ezazu honen root direktorioa: \t</string>
+    <string name="needs_access_summary1">\tto eman idazteko baimena honekin jarduteko</string>
     <string name="smb_connection">SMB konexioa</string>
+    <string name="smb_server">SMB zerbitzariaren ostalari-izena</string>
     <string name="server_address">Zerbitzariaren IP helbidea</string>
     <string name="username">Erabiltzaile-izena</string>
     <string name="password">Pasahitza</string>
@@ -320,6 +325,7 @@
     <string name="translate_summary">Itzuli Amaze zure hizkuntzara</string>
     <string name="paypal_copy_message">Paypal id-a arbelera kopiatu da</string>
     <string name="searching_devices">Gailuak bilatzen</string>
+    <string name="smb_manual_enter_host">Sartu ostalari-izena eskuz</string>
     <string name="bookmark_lost">Ez da laster-marka aurkitu, birsortzen&amp;#8230;</string>
 
     <string name="share_limit">Ezin dira 100 fitxategi baino gehiago partekatu</string>
@@ -529,7 +535,9 @@
 	<string name="scp_connection">SCP/SFTP konexioa</string>
     <string name="ftp_connection">FTP konexioa</string>
     <string name="ftps_connection">SSL gaineko FTP konexioa</string>
+    <string name="ftps_enable_explicit_tls">TLS esplizitua</string>
     <string name="scp_port">Ataka</string>
+    <string name="ssh_host_key_verification_prompt">Ezin da ostalariaren egiazkotasuna ziurtatu %1$s.n\n%2$s gakoaren hatz-marka %3$s da.\n\nSakatu \"Bai\" identitatea berresteko; bestela, sakatu \"Ez\".</string>
     <string name="ssh_host_key_verification_prompt_title">Egiaztatu ostalaria</string>
     <string name="ssh_select_pem_button">SSH gako pribatua</string>
     <string name="ssh_pem_key_parse_error">Ezin da hautatutako PEM irakurri: %s</string>
@@ -538,6 +546,7 @@
     <string name="ssh_authentication_failure_key">Saioa hastean arazoa: Ezin da emandako erabiltzaile-izen eta gako pribatuarekin autentifikatu.</string>
     <string name="ssh_connect_failed">Ezin da konektatu %1$s(e)ra:%2$d: %3$s</string>
     <string name="ssh_connect_failed_host_key_changed_title">ABISUA: URRUNEKO OSTALARIAREN IDENTIFIKAZIOA ALDATU DA!</string>
+    <string name="ssh_connect_failed_host_key_changed_message">POSIBLE DA NORBAIT MALTZURKERIA BAT EGITEN ARITZEA!\n\nBaliteke norbait ezkutuan entzuten egotea une honetan (man-in-the-middle erasoa)! Baliteke ostalariaren gakoa aldatu izana ere. Urruneko ostalariak bidalitako gako publikoaren hatz-marka ez dator bat Amazen gordetakoarekin.\n\n        Jakinarazi zure sistemaren administratzaileari edo konfiguratu konexio berri bat zerbitzarira konektatzeko.\n    </string>
     <string name="ssh_key_prompt_passphrase">Sartu gakoaren pasaesaldia.</string>
     <string name="add_shortcut_not_supported_by_launcher">Zure abiarazleak ez du onartzen lasterbideak sortzea.</string>
     
@@ -573,6 +582,12 @@
     <string name="encrypt_file_save_as">Gorde enkriptatutako fitxategia honela&amp;#8230;</string>
     <string name="encrypt_folder_save_as">Gorde enkriptatutako karpeta honela&amp;#8230;</string>
     <string name="encrypt_option_use_aze">Erabili Amaze zifratze-formatua</string>
+    <string name="encrypt_option_use_aescrypt_desc"><![CDATA[
+        <p>Aescrypt-ek iturburu irekiko fitxategien zifratze formatua da AES zifratzean oinarrituta. Gainera, eramangarria da, beste plataformetan AESCRIPT programekin deszifratu daiteke.</p>
+        <p><a href=\"https://www.aescrypt.com\" target=\"_blank>AESCrypt webgunea</a></p>]]>\n    </string>
+    <string name="encrypt_option_use_azecrypt_desc"><![CDATA[
+        <p>Amazen zifratze formatua AES zifratzean oinarrituta dago; baina AESCrypt formatuaren aldean, bakarrik deszifratu daiteke gailu honekin; gainera, ez duzu Amaze fitxategi kudeatzailea desinstalatu behar gailu honetatik, ezta aldatu pantaila blokeatzeko modua, bestela ez duzu izango zifratutako fitxategia berreskuratzeko modurik.</p>.
+]]></string>
     <string name="encrypt_file_must_end_with_aze">Enkriptatutako fitxategiek \".aze\" luzapena eduki behar dute.</string>
     <string name="encrypt_file_must_end_with_aes">Zifratutako fitxategiek \".aes\" luzapena erabili behar dute.</string>
     <string name="error_aescrypt_decrypt_failed">Ezin izan da \'%1$s\': \'%2$s\' deszifratu</string>
@@ -594,6 +609,7 @@
     <string name="close">Itxi</string>
     <string name="bookmark_exists">Laster-marka badago</string>
     <string name="hide_media">Ezkutatu multimedien arakatzaileetatik</string>
+    <string name="ssh_connect_failed_host_key_changed_prompt">BALITEKE NORBAIT ZERBAIT NAZKAGARRIA EGITEN ARI IZATEA!\n\nBaliteke bitartekari baten erasoa pairatzea (man-in-the-middle attack)! Litekeena da, halaber, ostalariaren gakoa aldatu berri izana. Urruneko ostalariak bidalitako gako publikoaren hatz-marka ez dator bat Amaze-n gordetakoarekin.\n\nOstalariaren hatz-marka eguneratu dezakezu edo SSH konexioaren konfigurazioa eguneratzeari utzi.</string>
     <string name="update_host_key">Eguneratu ostalariaren gakoa</string>
     <string name="cancel_recommended">Utzi (gomendatuta)</string>
     <string name="failed_install_apk">Instalazioak huts egin du</string>
@@ -622,6 +638,7 @@
     <string name="error_snackbar_action">Eman arazo baten berri</string>
     <string name="what_device_headline">Informazioa:</string>
     <string name="what_happened_headline">Zer gertatu da:</string>
+    <string name="info_labels">Zer:\\nEskaera:\\nGMT denbora:\\nPaketea:\\nBertsioa:\\nOS bertsioa:\\nGailua:\\nModeloa:\\nProduktua:</string>
     <string name="your_comment">Zure iruzkina (ingelesez)</string>
     <string name="error_details_headline">Xehetasunak:</string>
     <string name="app_ui_crash">Aplikazioak/Interfazeak huts egin du</string>
@@ -652,15 +669,19 @@
     <string name="choose_operation">Aukeratu eragiketa</string>
     <string name="remember">Gogoratu hurrengorako</string>
     <string name="ftp_prompt_accept_first_start_saf_access_title">Baimendu SAF sarbidea FTP zerbitzarirako</string>
+    <string name="ftp_prompt_accept_first_start_saf_access">Hau zure FTP zerbitzariaren lehen exekuzioa denez, eta gailuaren barneko biltegia karpeta partekatu gisa erabiltzen ari zarenez, mesedez eman baimena Amaze-ri biltegira SAF erabiliz sartzeko.\n\n\n\nBehin bakarrik egin behar da hori, hurrengoan partekatzeko kokaleku berri bat hautatu arte.</string>
+    <string name="android_data_prompt_saf_access">Android 10etik aurrera, Android-ek direktorio jakin batzuetan murrizketak ezarri ditu, eta Storage Access Frameworken bidez sartu behar da.\n\nBaimendu Amaze direktoriora sistemako fitxategi arakatzailetik sartzea \"Baimendu Sarbidea\" sakatuz.</string>
     <string name="android_data_prompt_saf_access_title">Baimendu SAF sarbidea</string>
     <string name="ftp_preference_saf_filesystem_title">Erabili fitxategi-sistema zaharra</string>
     <string name="ftp_preference_saf_filesystem">Gaitu hau gailuaren kanpoko biltegiratzea Android bertsio berriagoetan erabiltzeko</string>
     <string name="ftp_server_fallback_path_reset_prompt">FTP zerbitzariak partekatutako bide-izena barne-biltegiratzean berrezarri da, fitxategi-sistema zaharrera itzultzen ari zarelako. Mesedez, hautatu bide-izen berri bat goiko eskuineko menua erabiliz.</string>
     <string name="ftp_server_reset_notify">FTP zerbitzariak partekatutako bide-izena barne-biltegiratzean berrezarri da</string>
     <string name="ftp_server_root_unavailable">Root sarbidea behar duen bide-izena aukeratu duzu. Mesedez gaitu root arakatzea ezarpenetan zure gailua rooteatuta badago.</string>
+    <string name="ftp_server_root_filesystem_warning">Root sarbidea behar duen bide-izena aukeratu duzu. Honek zure gailuan fitxategi sistema osoa irakurri/idazteko aukera ematen du eta arriskutsua da - akats axolagabeek zure gailua bistara dezakete!\n\nZiur zaude\?</string>
     <string name="compressed_explorer_fragment_error_open_uri">Errorea \"%s\" URLa irakurtzeko irekitzean.</string>
     <string name="error_empty_archive">\"%s\" hutsa dagoen artxiboa da.</string>
     <string name="error_bad_archive_without_info">\"%s\" hondatutako artxiboa da.</string>
+    <string name="error_bad_archive_with_info">%s\" hondatutako artxiboa da.\nErauzlearen mezua: \"%s</string>
     <string name="security_error">Ezin izan da fitxategia ireki aplikazio hau erabiliz</string>
     <string name="cloud_drive_tooltip">Sortu Google Drive™ konexioa AMAZE fitxategi arakatzailearen bidez fitxategiak kudeatzeko.</string>
     <string name="signin_with_google_title">Autentifikatu Google Drive™ erabiltzeko</string>
@@ -672,6 +693,15 @@
     <string name="select_similar">Hautatu antzekoak</string>
     <string name="select_fill">Hautatu betegarria</string>
     <string name="error_fetching_google_play_product_list">Errorea Google Play-ren produktuaren zerrenda eskuratzean.</string>
+    <string name="grant_all_files_permission"><![CDATA[
+<html>
+<body>
+Android 11 geroztik, Google-k Fitxategi kudeatzaileari gailuaren fitxategi guztiak kudeatzeko erabiltzaile-baimena  eskatzen dio. Xehetasunak https://developer.android.com/training/data-storage/manage-all-files orrian. <br/><br/>
+        \n\nAmaze fitxategi-kudeatzaileak ere baimen hori behar du. &quot;Baimena&quot; sakatu ondoren hautatu <b>Baimendu fitxategi guztien kudeaketaren sarbidea</b> aukera hurrengo pantailan.<br/><br/>
+        <font color=&apos;#ff6347&apos;><i>Elkarrizketa-koadro hau bertan behera uzten bada, aplikaziotik irtengo da.</i></font>
+</body>
+</html>
+]]></string>
     <string name="user_apps">Erabiltzailearen aplikazioak</string>
     <string name="appearance">Itxura</string>
     <string name="behavior">Portaera</string>
@@ -692,6 +722,7 @@
     <string name="error_cannot_find_way_open">Ezin izan da fitxategia irekitzeko modua aurkitu</string>
     <string name="error_cant_decompress_that_file">Ezin da eskatutako artxiboa prozesatu</string>
     <string name="analyse_storage">Aztertu biltegiratzea</string>
+    <string name="download_amaze_utils_text">Amaze File Utilities-etara bideratua izan zara. Kode irekiko gure aplikazioa da, audio/bideo/irudi/dokumentu bisoreak dituena, zabor-fitxategiak analizatzeko aukera ematen dizu biltegiratzea askatzeko,  Wifi P2P bidezko transferentzia azkarra eskaintzen du eta askoz gehiago.\nMesedez, lagundu gaitzazu probatuz.</string>
     <string name="download">Deskargatu</string>
     <string name="wifip2p">P2P Wi-Fia</string>
     <string name="amaze_utils_installed_alias">Eskerrik asko Amaze File Utilities instalatzeagatik. Aplikaziora bideratzua ari zara.</string>
@@ -704,10 +735,13 @@
     <string name="share_logs_summary">Partekatu erregistroak postaz / Telegramez</string>
     <string name="open_with_amaze">Ireki Amazerekin</string>
     <string name="confirmation">Berrespena</string>
+    <string name="open_file_confirmation">Ziur zaude fitxategi hau ireki nahi duzula\?\n\nName:\n%s\n\nLocation:\n%s\n\nSize:\n%s\n\nMD5:\n%s\n\nSHA256:\n%s\n\n</string>
     <string name="error_google_play_cannot_update_myself">Google Play-ren politiken aginduei jarraikiz, aplikazioek ezin dute beren kasa eguneratu. Mesedez, eguneratu aplikazioa Google Play-tik.</string>
     <string name="error_cannot_get_package_info">Ezin da paketearen informazioa eskuratu \"%s\" fitxategitik. Zehaztutako fitxategia ez da APK, edo pakete-fitxategia hondatuta dago.</string>
     <string name="preference_delete_confirmation">Ezabaketaren berrespena</string>
     <string name="preference_delete_confirmation_summary">Eskatu berrespena fitxategiak ezabatu aurretik. Hau desgaitzea ez da komeni!</string>
+    <string name="preference_delete_permanently_without_confirmation">Ezabatu betiko (Desgaitu Zaborrontzia)</string>
+    <string name="preference_delete_permanently_without_confirmation_summary">Ezabatu fitxategiak betiko zaborrontzira eraman gabe. Hau gaitzea oso gomendagarria da!</string>
     <string name="protocol_ftps">FTP segurua</string>
     <string name="unavailable">Ez dago erabilgarri</string>
 
@@ -716,6 +750,7 @@
     <string name="importing_completed">Inportazioa burutu da</string>
     <string name="invalid_backup_file">Babeskopia fitxategi baliogabea</string>
     <string name="import_failed_for">Inportazioak huts egin du:</string>
+    <string name="free_of">\"%s\n%s / %s libre</string>
     <string name="cloud_error_fdroid">Amaze Cloud Plugin ez dago onartuta F-Droid bertsioarekin. Mesedez, erabili Play Store Amaze-ren bertsioa.</string>
     <string name="disable_player_intent_filters">Desgaitu erreproduzigailuaren iragazkiak</string>
     <string name="disable_player_intent_filters_summary">Fitxategi aukeretan Amaze multimedia erreproduzigailuak desgaitzen ditu</string>
@@ -753,5 +788,6 @@
     <string name="trash_bin_retention_bytes_summary">Zakarrontziak bildu dezakeen gehienezko datu kopura (MBetan)</string>
     <string name="trash_bin_cleanup_interval_title">Garbiketa maiztasuna</string>
     <string name="trash_bin_cleanup_interval_summary">Automatikoki garbitzeko maiztasuna (orduak)</string>
-    </resources>
+    <string name="file_deletion">Fitxategia ezabatzea</string>
+</resources>
 
