@@ -339,6 +339,7 @@
                         <b>Ativar o compartilhamento de arquivos no Windows</b>
                         <br/>
                     </li>
+                    <p style=&quot;margin-left: 40px&quot;>
                     Abra o Painel de Controle, clique em \"Escolher opções de Grupo Doméstico e Compartilhamento \" 
                         em \"Rede 
                         e Internet\" e clique em \"Alterar configurações avançadas de compartilhamento\". Ative o 
