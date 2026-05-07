@@ -183,6 +183,7 @@
     <string name="archive_text">Este pacote é um arquivo. O que pretende fazer\?</string>
     <string name="package_installer_text">Este pacote é um instalador. O que pretende fazer\?</string>
     <string name="xda_title">Tópico XDA</string>
+    <string name="xda_summary">Ajuda e Solução de Problemas </string>
     <string name="circular_images">Utilizar ícones circulares para imagens e vídeos</string>
     <string name="circular_icons">Utilizar ícone circular</string>
     <string name="follow_battery_saver_title">Seguir a economia de bateria</string>
@@ -212,6 +213,7 @@
     <string name="tamil_translation_title">Tamil</string>
 
     <string name="zip_viewer">Visualizador zip</string>
+    <string name="unin_system_apk">Esse é um aplicativo do sistema, excluí-lo pode causar falhas.\nContinuar\?</string>
     <string name="warning">Aviso</string>
     <string name="donate">Donativos</string>
     <string name="archive_extract_folder">Pasta de extração dos arquivos</string>
@@ -244,7 +246,10 @@
     <string name="databasereader">Leitor de bases de dados</string>
     <string name="show_dividers">Mostrar linhas divisórias</string>
     <string name="needs_access">Requer acesso de escrita</string>
+    <string name="needs_access_summary">Por favor, escolha o diretório raiz de\t</string>
+    <string name="needs_access_summary1">\tconceder acesso de gravação</string>
     <string name="smb_connection">Ligação SMB</string>
+    <string name="smb_server">Nome do host do servidor SMB</string>
     <string name="server_address">Endereço IP do servidor</string>
     <string name="username">Utilizador</string>
     <string name="password">Palavra-passe</string>
@@ -320,6 +325,7 @@
     <string name="translate_summary">Traduza o Amaze para o seu idioma</string>
     <string name="paypal_copy_message">ID Paypal copiada para a área de transferência</string>
     <string name="searching_devices">A pesquisar por dispositivos</string>
+    <string name="smb_manual_enter_host">Insira o nome do host manualmente</string>
     <string name="bookmark_lost">Marcador não encontrado, a recriar&amp;#8230;</string>
 
     <string name="share_limit">Não é possível partilhar mais de 100 ficheiros.</string>
