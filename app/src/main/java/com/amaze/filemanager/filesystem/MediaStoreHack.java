@@ -196,7 +196,7 @@ public class MediaStoreHack {
       } else {
         return null;
       }
-    } catch (Exception e) {
+    } catch (UnsupportedOperationException e) {
       Log.e(TAG, "Error querying MediaStore", e);
       return null;
     }
