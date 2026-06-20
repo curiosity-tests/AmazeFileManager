@@ -164,10 +164,6 @@ public abstract class CompressedHelper {
       // without the compression extension
       decompressor = new UnknownCompressedFileDecompressor(context);
     } else {
-      if (BuildConfig.DEBUG) {
-        throw new IllegalArgumentException("The compressed file has no way of opening it: " + file);
-      }
-
       LOG.error("The compressed file has no way of opening it: " + file);
       decompressor = null;
     }
