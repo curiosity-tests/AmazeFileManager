@@ -772,5 +772,5 @@
     <string name="trash_bin_cleanup_interval_title">הפרש בין פינויים</string>
     <string name="trash_bin_cleanup_interval_summary">הפרשים בין ניקוי אוטומטי למשנהו (בשעות)</string>
     <string name="file_deletion">מחיקת קבצים</string>
-</resources>
+    </resources>
 

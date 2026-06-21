@@ -648,8 +648,12 @@
     <string name="encrypt_file_save_as">Salvar arquivo criptografado como&amp;#8230;</string>
     <string name="encrypt_folder_save_as">Salvar pasta criptografada como&amp;#8230;</string>
     <string name="encrypt_option_use_aze">Usar formato de criptografia Amaze</string>
+    <string name="encrypt_option_use_azecrypt_desc"><![CDATA[
+        <p>O formato de criptografia do Amaze também é baseado na criptografia AES; porém, diferentemente do formato AESCrypt, ele só pode ser descriptografado por este dispositivo; além disso, você não deve desinstalar o Amaze File Manager deste dispositivo nem alterar a forma como bloqueia a tela, caso contrário, não haverá como recuperar o arquivo criptografado.</p>
+    ]]></string>
     <string name="encrypt_file_must_end_with_aze">Os arquivos criptografados devem usar \".aze\" como extensão.</string>
     <string name="encrypt_file_must_end_with_aes">Arquivos criptografados devem usar \".aes\" como extensão de arquivo.</string>
+    <string name="error_aescrypt_decrypt_failed">Não é possível descriptografar \'\': \'%1$s%2$s\'</string>
     <string name="cannot_overwrite">Não foi possível sobrescrever o arquivo.</string>
     <string name="saved_single_file">Arquivo salvo como \'%s\'.</string>
     <string name="saved_multi_files">%d arquivos salvos.</string>

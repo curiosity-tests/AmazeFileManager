@@ -845,5 +845,5 @@
     <string name="trash_bin_cleanup_interval_title">Intervallo di pulizia</string>
     <string name="trash_bin_cleanup_interval_summary">Esegui l\'intervallo di auto-pulizia (ore)</string>
     <string name="file_deletion">Eliminazione file</string>
-</resources>
+    </resources>
 

@@ -328,6 +328,78 @@
     <string name="smb_manual_enter_host">Insira o nome do host manualmente</string>
     <string name="bookmark_lost">Marcador não encontrado, a recriar&amp;#8230;</string>
 
+    <string name="smb_instructions"><![CDATA[
+        <html>
+            <body>
+                <h1>Como acessar a pasta compartilhada do Windows no Android (SMB)</h1>
+                <br/>
+                <br/>
+                <ul>
+                    <li>
+                        <b>Ativar Compartilhamento de Arquivos no Windows</b>
+                        <br/>
+                    </li>
+                    <p style=&quot;margin-left: 40px&quot;>
+                        Abra o Painel de Controle, clique em Escolher o grupo doméstico e as opções
+                        de compartilhamento em Rede e Internet e clique em Alterar configurações de
+                        compartilhamento avançadas. Ative o recurso de compartilhamento de arquivos
+                        e impressoras.
+                        <br/>
+                        <br/>
+                    </p>
+
+                    <li>
+                        <b>Configurações adicionais de compartilhamento de arquivos</b>
+                        <br/>
+                    </li>
+                    <p style=&quot;margin-left: 40px&quot;>
+                        Você também pode querer configurar as outras configurações de
+                        compartilhamento avançadas aqui.
+                        <br/>
+                        Por exemplo, você pode habilitar o acesso aos seus arquivos sem uma senha
+                        se confiar em todos os dispositivos da sua rede local. Uma vez que o
+                        compartilhamento de arquivos e impressoras estiver ativado, abra o
+                        Explorador de Arquivos ou Windows Explorer, clique com o botão direito do
+                        mouse na pasta que deseja compartilhar e selecione Propriedades.
+                        <br/>
+                        Clique no botão Compartilhar e disponibilize a pasta na rede.
+                        <br/>
+                        <br/>
+                        </p>
+
+                    <li>
+                        <b>Certifique-se de que ambos os dispositivos estejam na mesma rede Wi-Fi</b>
+                        <br/>
+                    </li>
+                    <p style=&quot;margin-left: 40px&quot;>
+                        Esta funcionalidade torna os arquivos disponíveis na rede local, por isso o
+                        seu PC e os dispositivos móveis têm de estar na mesma rede local. Você não
+                        pode acessar uma pasta compartilhada do Windows pela Internet ou quando o
+                        smartphone estiver utilizando dados móveis - ele precisa estar conectado ao
+                        Wi-Fi.
+                        <br/>
+                        <br/>
+                    </p>
+
+                    <li>
+                        <b>Localizar endereço IP</b>
+                        <br/>
+                    </li>
+                    <p style=&quot;margin-left: 40px&quot;>
+                        Abra o Prompt de Comando. Digite &quot;ipconfig&quot; e pressione Enter.
+                        Procure por Gateway Padrão em seu adaptador de rede para o endereço IP do
+                        seu roteador. Procure por &quot;Endereço IPv4&quot; na mesma seção do
+                        adaptador para encontrar o endereço IP do seu computador.
+                        <br/>
+                        <br/>
+                    </p>
+
+                    <b>Insira os detalhes na caixa de diálogo SMB</b>
+                    <br/>
+                </ul>
+            </body>
+        </html>
+    ]]></string>
     <string name="share_limit">Não é possível partilhar mais de 100 ficheiros.</string>
     <string name="otg_access">Selecione a raiz do dispositivo OTG</string>
     <string name="information">Informações</string>
@@ -579,8 +651,12 @@
     <string name="encrypt_file_save_as">Salvar arquivo criptografado como&amp;#8230;</string>
     <string name="encrypt_folder_save_as">Salvar pasta criptografada como&amp;#8230;</string>
     <string name="encrypt_option_use_aze">Usar formato de criptografia Amaze</string>
+    <string name="encrypt_option_use_azecrypt_desc"><![CDATA[
+        <p>O formato de criptografia do Amaze também é baseado na criptografia AES; porém, diferentemente do formato AESCrypt, ele só pode ser descriptografado por este dispositivo; além disso, você não deve desinstalar o Amaze File Manager deste dispositivo nem alterar a forma como bloqueia a tela, caso contrário, não haverá como recuperar o arquivo criptografado.</p>
+    ]]></string>
     <string name="encrypt_file_must_end_with_aze">Os arquivos criptografados devem usar \".aze\" como extensão.</string>
     <string name="encrypt_file_must_end_with_aes">Arquivos criptografados devem usar \".aes\" como extensão de arquivo.</string>
+    <string name="error_aescrypt_decrypt_failed">Não é possível descriptografar \'\': \'%1$s%2$s\'</string>
     <string name="cannot_overwrite">Não foi possível sobrescrever o arquivo.</string>
     <string name="saved_single_file">Arquivo salvo como \'%s\'.</string>
     <string name="saved_multi_files">%d arquivos salvos.</string>
