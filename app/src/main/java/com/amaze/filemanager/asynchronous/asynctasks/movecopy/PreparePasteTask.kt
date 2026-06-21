@@ -30,7 +30,6 @@ import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
 import com.amaze.filemanager.R
 import com.amaze.filemanager.asynchronous.asynctasks.fromTask
-import com.amaze.filemanager.asynchronous.asynctasks.movecopy.PreparePasteTask.CopyNode
 import com.amaze.filemanager.asynchronous.management.ServiceWatcherUtil
 import com.amaze.filemanager.asynchronous.services.CopyService
 import com.amaze.filemanager.databinding.CopyDialogBinding
@@ -142,7 +141,7 @@ class PreparePasteTask(strongRefMain: MainActivity) {
             filesToCopy[0].getParent(context.get()) == targetPath
         ) {
             Toast.makeText(context.get(), R.string.same_dir_move_error, Toast.LENGTH_SHORT).show()
-            MediaConnectionUtils.scanFile(context.get() as Context, filesToCopy.toTypedArray())
+            MediaConnectionUtils.scanFiles(context.get() as Context, filesToCopy.toTypedArray())
             return
         }
 

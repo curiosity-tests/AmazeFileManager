@@ -115,7 +115,7 @@ public class DeleteTask
 
       // delete file from media database
       if (!file.isSmb() && !file.isSftp()) {
-        MediaConnectionUtils.scanFile(
+        MediaConnectionUtils.scanFiles(
             applicationContext, files.toArray(new HybridFile[files.size()]));
 
         if (FileUtils.NOMEDIA_FILE.equals(file.getName()))

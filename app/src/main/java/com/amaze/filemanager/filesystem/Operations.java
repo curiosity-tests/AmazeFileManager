@@ -728,7 +728,7 @@ public class Operations {
         super.onPostExecute(aVoid);
         if (newFile != null && oldFile != null) {
           HybridFile[] hybridFiles = {newFile, oldFile};
-          MediaConnectionUtils.scanFile(context, hybridFiles);
+          MediaConnectionUtils.scanFiles(context, hybridFiles);
         }
       }
     }.executeOnExecutor(executor);

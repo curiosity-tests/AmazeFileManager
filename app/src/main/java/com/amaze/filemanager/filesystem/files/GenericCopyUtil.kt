@@ -286,7 +286,7 @@ class GenericCopyUtil(
             // If target file is copied onto the device and copy was successful, trigger media store
             // rescan
             targetFile?.let {
-                MediaConnectionUtils.scanFile(context, arrayOf(it))
+                MediaConnectionUtils.scanFiles(context, arrayOf(it))
             }
         }
     }

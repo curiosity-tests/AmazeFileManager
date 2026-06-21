@@ -58,6 +58,7 @@ import com.amaze.filemanager.filesystem.CustomFileObserver;
 import com.amaze.filemanager.filesystem.FileProperties;
 import com.amaze.filemanager.filesystem.HybridFile;
 import com.amaze.filemanager.filesystem.HybridFileParcelable;
+import com.amaze.filemanager.filesystem.MediaStoreHack;
 import com.amaze.filemanager.filesystem.SafRootHolder;
 import com.amaze.filemanager.filesystem.files.CryptUtil;
 import com.amaze.filemanager.filesystem.files.EncryptDecryptUtils;
@@ -136,6 +137,7 @@ import jcifs.smb.SmbException;
 import jcifs.smb.SmbFile;
 import kotlin.collections.ArraysKt;
 import kotlin.collections.CollectionsKt;
+import kotlin.text.StringsKt;
 
 public class MainFragment extends Fragment
     implements BottomBarButtonPath,
@@ -576,10 +578,29 @@ public class MainFragment extends Fragment
         HybridFileParcelable resultBaseFile = result.getKey();
 
         if (requireMainActivity().mRingtonePickerIntent) {
-          intent.setDataAndType(
-              resultUri,
-              MimeTypes.getMimeType(resultBaseFile.getPath(), resultBaseFile.isDirectory()));
-          intent.putExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI, resultUri);
+          // Query MediaStore to get the proper content URI for the selected audio file
+          Uri mediaFileUri =
+              MediaStoreHack.getUriForMusicMediaFrom(resultBaseFile.getPath(), requireContext());
+          if (mediaFileUri != null) {
+            String filename = resultBaseFile.getName();
+            Uri properUri =
+                mediaFileUri
+                    .buildUpon()
+                    .appendQueryParameter("canonical", "1")
+                    .appendQueryParameter(
+                        "title", StringsKt.substringBeforeLast(filename, ".", filename))
+                    .build();
+            // Set the proper content URI as result
+            String mimeType = MimeTypes.getMimeType(resultBaseFile.getPath(), false);
+            intent.setDataAndType(properUri, mimeType);
+            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI, properUri);
+          } else {
+            Toast.makeText(requireContext(), R.string.error_mediastore_query_uri, Toast.LENGTH_LONG)
+                .show();
+            requireActivity().setResult(FragmentActivity.RESULT_CANCELED);
+            requireActivity().finish();
+            return;
+          }
         } else {
           LOG.debug("pickup file");
           intent.setDataAndType(resultUri, MimeTypes.getExtension(resultBaseFile.getPath()));
@@ -1374,7 +1395,7 @@ public class MainFragment extends Fragment
           LOG.warn("failure when hiding file", e);
         }
       }
-      MediaConnectionUtils.scanFile(
+      MediaConnectionUtils.scanFiles(
           requireMainActivity(), new HybridFile[] {new HybridFile(OpenMode.FILE, path)});
     }
   }
