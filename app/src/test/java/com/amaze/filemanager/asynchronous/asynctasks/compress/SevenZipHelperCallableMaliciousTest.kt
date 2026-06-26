@@ -25,7 +25,14 @@ import org.junit.Assert.assertFalse
 import org.junit.Test
 import java.io.File
 
+/**
+ * Tests for [SevenZipHelperCallable].
+ */
 class SevenZipHelperCallableMaliciousTest : AbstractCompressedHelperCallableTest() {
+    /**
+     * Test to ensure that the root of the archive does not expose parent folder entries
+     * (e.g., ".." or "../").
+     */
     @Test
     fun testRootDoesNotExposeParentFolderEntries() {
         val archive = File(Environment.getExternalStorageDirectory(), "malicious.7z")
