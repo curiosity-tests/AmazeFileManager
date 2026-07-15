@@ -18,11 +18,26 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.amaze.filemanager.filesystem.compressed.extractcontents
+package com.amaze.filemanager.asynchronous.asynctasks.compress
+
+import android.os.Environment
+import org.junit.Assert.assertFalse
+import org.junit.Test
+import java.io.File
 
 /**
- * Tests for [TarBzip2Extractor], but with .tbz extension instead of .tar.bz2.
+ * Tests for [SevenZipHelperCallable].
  */
-class TarBzip2ExtractorTest2 : TarBzip2ExtractorTest() {
-    override val archiveType: String = "tbz"
+class SevenZipHelperCallableMaliciousTest : AbstractCompressedHelperCallableTest() {
+    /**
+     * Test to ensure that the root of the archive does not expose parent folder entries
+     * (e.g., ".." or "../").
+     */
+    @Test
+    fun testRootDoesNotExposeParentFolderEntries() {
+        val archive = File(Environment.getExternalStorageDirectory(), "malicious.7z")
+        val result = SevenZipHelperCallable(archive.absolutePath, "", false).call()
+
+        assertFalse(result.any { it.name == ".." || it.name.startsWith("../") })
+    }
 }
