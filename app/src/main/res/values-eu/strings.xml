@@ -283,6 +283,7 @@
     <string name="creatingfile">Fitxategia sortzen</string>
     <string name="creatingfolder">Karpeta sortzen</string>
     <string name="renaming">Berrizendatzen</string>
+    <string name="no_changes_while_rename">Ez da aldaketarik egin izen berria izen zaharrarekin bat datorrelako.</string>
     <string name="cant_be_empty">%s(e)k ezin du hutsik egon</string>
     <string name="ip">Helbidea</string>
     <string name="connection_name">Konexioaren izena</string>
@@ -329,75 +330,75 @@
     <string name="bookmark_lost">Ez da laster-marka aurkitu, birsortzen&amp;#8230;</string>
 
     <string name="smb_instructions"><![CDATA[
-        <html>
-            <body>
-                <h1>Partekatutako Windows karpeta android-en atzitzeko (SMB)</h1>
-                <br/>
-                <br/>
-                <ul>
-                    <li>
-                        <b>Gaitu fitxategiak partekatzea</b>
-                        <br/>
-                    </li>
-                    <p style=&quot;margin-left: 40px&quot;>
-                        Ireki Kontrol-panela, klikatu Sarea eta Internet ataleko Aukeratu etxeko
-                        taldea eta partekatzeko aukerak eta klikatu Aldatu partekatzeko aukera
-                        aurreratuak. Gaitu fitxategiak eta inprimagailua partekatzeko ezaugarria.
-                        <br/>
-                        <br/>
-                    </p>
+<html>
+<body>
+<h1>Partekatutako Windows karpeta android-en atzitzeko (SMB)</h1>
+<br/>
+<br/>
+<ul>
+<li>
+<b>Gaitu fitxategiak partekatzea</b>
+<br/>
+</li>
+<p style=&quot;margin-left: 40px&quot;>
+Ireki Kontrol-panela, klikatu Sarea eta Internet ataleko Aukeratu etxeko
+taldea eta partekatzeko aukerak eta klikatu Aldatu partekatzeko aukera
+aurreratuak. Gaitu fitxategiak eta inprimagailua partekatzeko ezaugarria.
+<br/>
+<br/>
+</p>
 
-                    <li>
-                        <b>Fitxategiak partekatzeko aukera gehigarriak</b>
-                        <br/>
-                    </li>
-                    <p style=&quot;margin-left: 40px&quot;>
-                        Partekatzeko ezarpen aurreratu gehiago konfigura ditzakezu.
-                        <br/>
-                        Adibidez, zure sare lokaleko gailu guztietaz fidatzen bazara fitxategiak
-                        pasahitzik gabe atzitzea gaitu dezakezu. Fitxategiak eta inprimagailuak
-                        partekatzea gaituta badaude, fitxategi-arakatzailea edo Windows
-                        arakatzailea ireki dezakezu, eskuin klik egin partekatu nahi duzun
-                        karpetan eta hautatu Propietateak.
-                        <br/>
-                        Klikatu Partekatu botoia eta karpetan sarean eskuragarri jarri.
-                        <br/>
-                        <br/>
-                        </p>
+<li>
+<b>Fitxategiak partekatzeko aukera gehigarriak</b>
+<br/>
+</li>
+<p style=&quot;margin-left: 40px&quot;>
+Partekatzeko ezarpen aurreratu gehiago konfigura ditzakezu.
+<br/>
+Adibidez, zure sare lokaleko gailu guztietaz fidatzen bazara fitxategiak
+pasahitzik gabe atzitzea gaitu dezakezu. Fitxategiak eta inprimagailuak
+partekatzea gaituta badaude, fitxategi-arakatzailea edo Windows
+arakatzailea ireki dezakezu, eskuin klik egin partekatu nahi duzun
+karpetan eta hautatu Propietateak.
+<br/>
+Klikatu Partekatu botoia eta karpetan sarean eskuragarri jarri.
+<br/>
+<br/>
+</p>
 
-                    <li>
-                        <b>Ziurtatu bi gailuak Wifi berean daudela</b>
-                        <br/>
-                    </li>
-                    <p style=&quot;margin-left: 40px&quot;>
-                        Ezaugarri honek fitxategiak sare lokalean eskuragarri jartzen ditu,
-                        horretarako zure PCak eta gailu mugikorrek sare lokal berean egon behar
-                        dute. Ezin duzu partekatutako Windows karpeta bat Internet-en zehar atzitu
-                        edo zure mugikorra datu mugikorretara konektatuta dagoenean — Wi-Fira
-                        konektatuta egon behar du.
-                        <br/>
-                        <br/>
-                    </p>
+<li>
+<b>Ziurtatu bi gailuak Wifi berean daudela</b>
+<br/>
+</li>
+<p style=&quot;margin-left: 40px&quot;>
+Ezaugarri honek fitxategiak sare lokalean eskuragarri jartzen ditu,
+horretarako zure PCak eta gailu mugikorrek sare lokal berean egon behar
+dute. Ezin duzu partekatutako Windows karpeta bat Internet-en zehar atzitu
+edo zure mugikorra datu mugikorretara konektatuta dagoenean — Wi-Fira
+konektatuta egon behar du.
+<br/>
+<br/>
+</p>
 
-                    <li>
-                        <b>Bilatu IP helbidea</b>
-                        <br/>
-                    </li>
-                    <p style=&quot;margin-left: 40px&quot;>
-                        Ireki komando-gonbita. Idatzi &quot;ipconfig&quot; eta sakatu Enter. Ikusi
-                        zein den Default Gateway zure sare-moldagailuaren azpian zure
-                        bideratzailearen IP helbidea jakiteko. Begiratu &quot;IPv4 Address&quot;
-                        moldagailu beraren azpian zure ordenagailuaren IP helbidea jakiteko.
-                        <br/>
-                        <br/>
-                    </p>
+<li>
+<b>Bilatu IP helbidea</b>
+<br/>
+</li>
+<p style=&quot;margin-left: 40px&quot;>
+Ireki komando-gonbita. Idatzi &quot;ipconfig&quot; eta sakatu Enter. Ikusi
+zein den Default Gateway zure sare-moldagailuaren azpian zure
+bideratzailearen IP helbidea jakiteko. Begiratu &quot;IPv4 Address&quot;
+moldagailu beraren azpian zure ordenagailuaren IP helbidea jakiteko.
+<br/>
+<br/>
+</p>
 
-                    <b>Sartu datuak smb elkarrizketa-koadroan</b>
-                    <br/>
-                </ul>
-            </body>
-        </html>
-    ]]></string>
+<b>Sartu datuak smb elkarrizketa-koadroan</b>
+<br/>
+</ul>
+</body>
+</html>
+]]></string>
     <string name="share_limit">Ezin dira 100 fitxategi baino gehiago partekatu</string>
     <string name="otg_access">Hautatu OTG gailuaren erroa</string>
     <string name="information">Informazioa</string>
@@ -859,5 +860,6 @@ Android 11 geroztik, Google-k Fitxategi kudeatzaileari gailuaren fitxategi guzti
     <string name="trash_bin_cleanup_interval_title">Garbiketa maiztasuna</string>
     <string name="trash_bin_cleanup_interval_summary">Automatikoki garbitzeko maiztasuna (orduak)</string>
     <string name="file_deletion">Fitxategia ezabatzea</string>
-    </resources>
+    <string name="error_mediastore_query_uri">Errore bat gertatu da hautatutako multimedia-fitxategiaren edukiaren URIa kontsultatzean. Freskatu MediaStore eta saiatu berriro.</string>
+</resources>
 
