@@ -16,9 +16,9 @@ jobs:
     name: Check spotless
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: "temurin"
           java-version: 17
@@ -28,20 +28,20 @@ jobs:
           ndk-version: r28c
           link-to-sdk: true
           local-cache: true
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v6
       - name: Check formatting using spotless
-        uses: gradle/actions/setup-gradle@v3
-        with:
-          arguments: spotlessCheck
+        run: ./gradlew spotlessCheck
 
   build:
     name: Build debug, Jacoco test and publish to codacy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: "temurin"
           java-version: 17
@@ -50,7 +50,7 @@ jobs:
         with:
           toolchain: stable
       - name: Cache Rust dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             ~/.cargo/bin/
@@ -78,14 +78,12 @@ jobs:
             echo "❌ .cargo/config.toml missing"
             exit 1
           fi
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v6
       - name: Build with Gradle
-        uses: gradle/actions/setup-gradle@v3
-        with:
-          arguments: assembledebug
+        run: ./gradlew assembledebug
       - name: Run test cases
-        uses: gradle/actions/setup-gradle@v3
-        with:
-          arguments: jacocoTestPlayDebugUnitTestReport
+        run: ./gradlew jacocoTestPlayDebugUnitTestReport
       - name: Publish test cases
         run: |
           export CODACY_PROJECT_TOKEN=${{ secrets.CODACY_TOKEN }}
@@ -109,21 +107,52 @@ jobs:
         api-level: [ 21, 28 ]
     steps:
       - name: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Java 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: "temurin"
           java-version: 17
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+      - name: Cache Rust dependencies
+        uses: actions/cache@v5
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            file_operations/target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+      - name: Setup Rust for Android
+        run: |
+          cd file_operations
+          chmod +x setup_rust_android.sh
+          ./setup_rust_android.sh
+      - name: Verify Rust setup
+        run: |
+          cd file_operations
+          echo "🔍 Verifying Rust Android targets..."
+          rustup target list --installed | grep android || echo "No Android targets found"
+          echo "🔍 Verifying cargo configuration..."
+          if [ -f .cargo/config.toml ]; then
+            echo "✅ .cargo/config.toml exists"
+          else
+            echo "❌ .cargo/config.toml missing"
+            exit 1
+          fi
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
-      - name: Gradle cache
-        uses: gradle/actions/setup-gradle@v3
       - name: AVD cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         id: avd-cache
         with:
           path: |
