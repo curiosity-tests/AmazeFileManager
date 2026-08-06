@@ -1,8 +1,34 @@
+/*
+ * Copyright (C) 2014-2025 Arpit Khurana <arpitkh96@gmail.com>, Vishal Nehra <vishalmeham2@gmail.com>,
+ * Emmanuel Messulam<emmanuelbendavid@gmail.com>, Raymond Lai <airwave209gt at gmail.com> and Contributors.
+ *
+ * This file is part of Amaze File Manager.
+ *
+ * Amaze File Manager is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.amaze.filemanager.ui.fragments
 
+import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.TIRAMISU
 import androidx.test.core.app.ActivityScenario
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.swipeLeft
+import androidx.test.espresso.action.ViewActions.swipeRight
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.GrantPermissionRule
 import androidx.viewpager2.widget.ViewPager2
@@ -51,6 +77,7 @@ class TabFragmentTest {
     @Test
     fun testFragmentStateSavingDuringDetachment() {
         withScenario { scenario ->
+            swipeToItem(scenario, 1)
             awaitTabFragment(scenario)
 
             scenario.onActivity { activity ->
@@ -64,7 +91,7 @@ class TabFragmentTest {
                 }
             }
 
-            recreateActivity(scenario)
+            rotateScreen(scenario)
         }
     }
 
@@ -75,8 +102,8 @@ class TabFragmentTest {
     @Test
     fun testFragmentStateSavingDuringConfigChange() {
         withScenario { scenario ->
-            setCurrentItem(scenario, 1)
-            recreateActivity(scenario)
+            swipeToItem(scenario, 1)
+            rotateScreen(scenario)
             awaitCurrentItem(scenario, 1)
         }
     }
@@ -88,11 +115,11 @@ class TabFragmentTest {
     fun testRapidTabSwitchingAndStateSaving() {
         withScenario { scenario ->
             repeat(10) {
-                setCurrentItem(scenario, 1)
-                setCurrentItem(scenario, 0)
+                swipeToItem(scenario, 1)
+                swipeToItem(scenario, 0)
             }
 
-            recreateActivity(scenario)
+            rotateScreen(scenario)
             awaitCurrentItem(scenario, 0)
         }
     }
@@ -103,7 +130,7 @@ class TabFragmentTest {
     @Test
     fun testFragmentDetachmentAndStateSaving() {
         withScenario { scenario ->
-            setCurrentItem(scenario, 1)
+            swipeToItem(scenario, 1)
             awaitTabFragment(scenario)
 
             scenario.onActivity { activity ->
@@ -117,7 +144,7 @@ class TabFragmentTest {
                 }
             }
 
-            recreateActivity(scenario)
+            rotateScreen(scenario)
         }
     }
 
@@ -160,17 +187,85 @@ class TabFragmentTest {
         return requireNotNull(tabFragment)
     }
 
-    private fun setCurrentItem(
+    // Swipe to the other tab in the ViewPager2.
+    // Index 0 is the first tab, index 1 is the second tab.
+    private fun swipeToItem(
         scenario: ActivityScenario<MainActivity>,
         index: Int,
     ) {
         awaitPager(scenario)
 
-        scenario.onActivity { activity ->
-            activity.findViewById<ViewPager2>(R.id.pager).setCurrentItem(index, false)
+        when (index) {
+            0 -> onView(withId(R.id.pager)).perform(swipeRight())
+            1 -> onView(withId(R.id.pager)).perform(swipeLeft())
+            else -> error("Unsupported pager index: $index")
         }
 
         awaitCurrentItem(scenario, index)
+    }
+
+    private fun rotateScreen(scenario: ActivityScenario<MainActivity>) {
+        val initialOrientation =
+            currentOrientation(scenario).takeIf {
+                it == Configuration.ORIENTATION_LANDSCAPE || it == Configuration.ORIENTATION_PORTRAIT
+            } ?: Configuration.ORIENTATION_PORTRAIT
+        val rotatedRequestedOrientation =
+            if (initialOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            } else {
+                ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+            }
+
+        setRequestedOrientation(scenario, rotatedRequestedOrientation)
+        awaitOrientation(scenario, orientationForRequest(rotatedRequestedOrientation))
+
+        setRequestedOrientation(scenario, orientationRequestFor(initialOrientation))
+        awaitOrientation(scenario, initialOrientation)
+
+        awaitPager(scenario)
+        awaitTabFragment(scenario)
+    }
+
+    private fun setRequestedOrientation(
+        scenario: ActivityScenario<MainActivity>,
+        requestedOrientation: Int,
+    ) {
+        scenario.onActivity { activity ->
+            activity.requestedOrientation = requestedOrientation
+        }
+    }
+
+    private fun currentOrientation(scenario: ActivityScenario<MainActivity>): Int {
+        var orientation = Configuration.ORIENTATION_UNDEFINED
+
+        scenario.onActivity { activity ->
+            orientation = activity.resources.configuration.orientation
+        }
+
+        return orientation
+    }
+
+    private fun orientationForRequest(requestedOrientation: Int): Int =
+        when (requestedOrientation) {
+            ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE -> Configuration.ORIENTATION_LANDSCAPE
+            ActivityInfo.SCREEN_ORIENTATION_PORTRAIT -> Configuration.ORIENTATION_PORTRAIT
+            else -> Configuration.ORIENTATION_UNDEFINED
+        }
+
+    private fun orientationRequestFor(orientation: Int): Int =
+        when (orientation) {
+            Configuration.ORIENTATION_LANDSCAPE -> ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+            Configuration.ORIENTATION_PORTRAIT -> ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            else -> ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        }
+
+    private fun awaitOrientation(
+        scenario: ActivityScenario<MainActivity>,
+        expectedOrientation: Int,
+    ) {
+        await().atMost(10, TimeUnit.SECONDS).until {
+            currentOrientation(scenario) == expectedOrientation
+        }
     }
 
     private fun awaitCurrentItem(
@@ -188,11 +283,5 @@ class TabFragmentTest {
 
             currentItem == index
         }
-    }
-
-    private fun recreateActivity(scenario: ActivityScenario<MainActivity>) {
-        scenario.recreate()
-        awaitPager(scenario)
-        awaitTabFragment(scenario)
     }
 }

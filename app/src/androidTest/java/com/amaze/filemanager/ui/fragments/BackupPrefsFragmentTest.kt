@@ -57,7 +57,7 @@ import java.util.concurrent.TimeUnit
 
 @RunWith(AndroidJUnit4::class)
 class BackupPrefsFragmentTest {
-    var storagePath = Environment.getExternalStorageDirectory().absolutePath
+    var storagePath: String = Environment.getExternalStorageDirectory().absolutePath
     var fileName = "amaze_backup.json"
 
     @Rule
