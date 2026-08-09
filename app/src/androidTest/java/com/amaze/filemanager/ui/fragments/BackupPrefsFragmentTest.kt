@@ -159,6 +159,7 @@ class BackupPrefsFragmentTest {
 
         val type = object : TypeToken<Map<String?, *>>() {}.type
 
+        // TODO This breaks the exported file's types, all Numbers get converted to Double
         val importMap: Map<String?, *> =
             GsonBuilder()
                 .create()
@@ -169,9 +170,15 @@ class BackupPrefsFragmentTest {
 
         for ((key, value) in preferenceSnapshot) {
             val importedValue = importMap[key]
-            val mapValue = normalizeImportedValue(importedValue, value)
 
-            assertEquals("Difference found at key $key", value, mapValue)
+            if (value is Number) {
+                // HACK GsonBuilder().create().fromJson() breaks Number types
+                assertEquals("Difference found at key $key", value.toDouble(), importedValue as Double, 0.1)
+            } else {
+                assertEquals("Different type at key $key", value?.javaClass, importedValue?.javaClass)
+
+                assertEquals("Difference found at key $key", value, importedValue)
+            }
         }
 
         activityScenario.close()
@@ -266,21 +273,5 @@ class BackupPrefsFragmentTest {
                 preferences.getStringSet(key, null)
         }
         return false
-    }
-
-    private fun normalizeImportedValue(
-        importedValue: Any?,
-        expectedValue: Any?,
-    ): Any? {
-        if (importedValue !is Number || expectedValue !is Number) {
-            return importedValue
-        }
-        return when (expectedValue) {
-            is Int -> importedValue.toInt()
-            is Long -> importedValue.toLong()
-            is Float -> importedValue.toFloat()
-            is Double -> importedValue.toDouble()
-            else -> importedValue
-        }
     }
 }

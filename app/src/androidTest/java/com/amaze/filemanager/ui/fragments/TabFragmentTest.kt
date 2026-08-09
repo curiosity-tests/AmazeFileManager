@@ -77,6 +77,8 @@ class TabFragmentTest {
     @Test
     fun testFragmentStateSavingDuringDetachment() {
         withScenario { scenario ->
+            rotateScreen(scenario)
+
             swipeToItem(scenario, 1)
             awaitTabFragment(scenario)
 
@@ -90,8 +92,6 @@ class TabFragmentTest {
                     commitNow()
                 }
             }
-
-            rotateScreen(scenario)
         }
     }
 
@@ -102,7 +102,10 @@ class TabFragmentTest {
     @Test
     fun testFragmentStateSavingDuringConfigChange() {
         withScenario { scenario ->
+            // First perform the swipe action
             swipeToItem(scenario, 1)
+            // Then force a configuration change by rotating the screen
+            rotateScreen(scenario)
             rotateScreen(scenario)
             awaitCurrentItem(scenario, 1)
         }
@@ -114,11 +117,13 @@ class TabFragmentTest {
     @Test
     fun testRapidTabSwitchingAndStateSaving() {
         withScenario { scenario ->
+            // Perform rapid tab switches
             repeat(10) {
                 swipeToItem(scenario, 1)
                 swipeToItem(scenario, 0)
             }
 
+            // Then force a save state by rotating
             rotateScreen(scenario)
             awaitCurrentItem(scenario, 0)
         }
@@ -138,12 +143,14 @@ class TabFragmentTest {
                     activity.supportFragmentManager
                         .findFragmentById(R.id.content_frame) as TabFragment
 
+                // Detach TabFragment through FragmentManager
                 activity.supportFragmentManager.beginTransaction().apply {
                     tabFragment.fragments.firstOrNull { it.isAdded }?.let { detach(it) }
                     commitNow()
                 }
             }
 
+            // Force state save through configuration change
             rotateScreen(scenario)
         }
     }
@@ -272,7 +279,7 @@ class TabFragmentTest {
         scenario: ActivityScenario<MainActivity>,
         index: Int,
     ) {
-        await().atMost(5, TimeUnit.SECONDS).until {
+        await().pollDelay(50, TimeUnit.MILLISECONDS).atMost(100, TimeUnit.MILLISECONDS).until {
             var currentItem = -1
 
             runCatching {

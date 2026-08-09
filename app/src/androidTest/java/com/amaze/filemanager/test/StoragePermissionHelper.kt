@@ -43,36 +43,38 @@ object StoragePermissionHelper {
     @JvmStatic
     fun grantManageStoragePermission() {
         // Only need to run on Androids >= R
-        if (Build.VERSION.SDK_INT >= VERSION_CODES.R) {
-            // Ensure that an activity that has the dialog is launched
-            ActivityScenario.launch(MainActivity::class.java)
+        if (Build.VERSION.SDK_INT < VERSION_CODES.R) {
+            return
+        }
 
-            val context: Context = InstrumentationRegistry.getInstrumentation().targetContext
-            val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+        // Ensure that an activity that has the dialog is launched
+        ActivityScenario.launch(MainActivity::class.java)
 
-            val amazeResources = context.packageManager.getResourcesForApplication(context.packageName)
-            val grantPermissionExplanation = amazeResources.getString(R.string.grant_all_files_permission)
+        val context: Context = InstrumentationRegistry.getInstrumentation().targetContext
+        val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
-            if (device.hasObject(By.text(grantPermissionExplanation))) {
-                // First press Amaze's grant button
-                onView(withText(R.string.grant)).perform(click())
+        val amazeResources = context.packageManager.getResourcesForApplication(context.packageName)
+        val grantPermissionHeader = amazeResources.getString(R.string.grantper)
 
-                // Identifier names are taken here:
-                // https://cs.android.com/android/platform/superproject/+/master:packages/apps/Settings/res/values/strings.xml
-                val resources = context.packageManager.getResourcesForApplication("com.android.settings")
-                val resId =
-                    resources.getIdentifier(
-                        "permit_manage_external_storage",
-                        "string",
-                        "com.android.settings",
-                    )
-                val permitManageExternalStorage = resources.getString(resId)
+        if (device.hasObject(By.text(grantPermissionHeader))) {
+            // First press Amaze's grant button
+            onView(withText(R.string.grant)).perform(click())
 
-                val grantToggle =
-                    device.findObject(UiSelector().textMatches("(?i)$permitManageExternalStorage"))
-                grantToggle.click()
-                device.pressBack()
-            }
+            // Identifier names are taken here:
+            // https://cs.android.com/android/platform/superproject/+/master:packages/apps/Settings/res/values/strings.xml
+            val resources = context.packageManager.getResourcesForApplication("com.android.settings")
+            val resId =
+                resources.getIdentifier(
+                    "permit_manage_external_storage",
+                    "string",
+                    "com.android.settings",
+                )
+            val permitManageExternalStorage = resources.getString(resId)
+
+            val grantToggle =
+                device.findObject(UiSelector().textMatches("(?i)$permitManageExternalStorage"))
+            grantToggle.click()
+            device.pressBack()
         }
     }
 }
